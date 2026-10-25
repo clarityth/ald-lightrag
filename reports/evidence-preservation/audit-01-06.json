@@ -1,0 +1,666 @@
+[
+  {
+    "question_id": "H01",
+    "mode": "naive",
+    "answered_required_measurements": [
+      "PMC10005305:M9",
+      "PMC10005305:M10",
+      "PMC10005305:M11",
+      "PMC10005305:M12"
+    ],
+    "claims": [
+      {
+        "text": "RPALD는 20~60 °C 측정 범위에서 피로 수명을 유지했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RPALD 피로 수명은 10⁷회 이상입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "원문은 more than 10⁷ cycles로 보고합니다."
+      },
+      {
+        "text": "RPALD는 80~100 °C에서 피로 수명이 감소했지만 DPALD보다 길었습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "평가는 20 °C 간격으로 수행했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "P–E 곡선은 10⁵회 구동 후 측정했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "P–E 측정 주파수는 1 kHz입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "P–E 측정에는 ±3 V 삼각 펄스를 사용했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "피로 시험 주파수는 10 kHz입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "피로 시험에는 ±3 V 사각 펄스를 사용했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "별도 PEALD 연구의 증착 온도 범위는 100~180 °C입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "별도 PEALD 연구의 낮은 온도 2Pr은 12 μC/cm²입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "별도 PEALD 연구의 높은 온도 2Pr은 38.2 μC/cm²입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M9–M12를 모두 답했습니다. 마지막 문단은 다른 HZO 연구의 증착 온도 결과이므로 질문의 직접 답변과 분리해야 합니다.",
+      "질문에 이미 나온 20~100 °C 측정 범위의 재진술은 수치 주장 집계에서 제외했습니다."
+    ]
+  },
+  {
+    "question_id": "H01",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC10005305:M9",
+      "PMC10005305:M10",
+      "PMC10005305:M11",
+      "PMC10005305:M12"
+    ],
+    "claims": [
+      {
+        "text": "평가는 20 °C 간격으로 수행했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "P–E 측정에는 ±3 V 삼각파를 사용했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "P–E 측정 주파수는 1 kHz입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "P–E 곡선은 10⁵회 구동 후 측정했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "피로 시험에는 ±3 V 사각파를 사용했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "피로 시험 주파수는 10 kHz입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RPALD는 20~60 °C 측정 범위에서 높은 피로 수명을 유지했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RPALD 피로 수명은 10⁷회 초과입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "80~100 °C에서는 RPALD 피로 수명이 줄었지만 DPALD보다 길었습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M9–M12를 모두 답했습니다.",
+      "질문의 20~100 °C 측정 범위 재진술은 수치 주장 집계에서 제외했습니다."
+    ]
+  },
+  {
+    "question_id": "H02",
+    "mode": "naive",
+    "answered_required_measurements": [
+      "PMC10254822:M14",
+      "PMC10254822:M15",
+      "PMC10254822:M16",
+      "PMC10254822:M17"
+    ],
+    "claims": [
+      {
+        "text": "DP 소자의 ΔVFB는 ±6 V 스윕에서 0.49 V입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "DP 소자의 ΔVFB는 ±12 V 스윕에서 7.48 V입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RP 소자의 ΔVFB는 ±6 V 스윕에서 3.25 V입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RP 소자의 ΔVFB는 ±12 V 스윕에서 12.66 V입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M14–M17을 모두 답했습니다. 스윕 전압 ±6·±12 V는 질문의 조건이지만 각 측정값과의 대응을 확인했습니다.",
+      "플라즈마 방식이 HfO₂ 포획층에 적용된다는 설명은 원문 PMC10254822:p0012와 일치합니다.",
+      "HfO₂ 전하 포획층 설명의 인용 [1]은 층 구조를 직접 뒷받침하지 않습니다."
+    ]
+  },
+  {
+    "question_id": "H02",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC10254822:M14",
+      "PMC10254822:M15",
+      "PMC10254822:M16",
+      "PMC10254822:M17"
+    ],
+    "claims": [
+      {
+        "text": "DP 소자의 ΔVFB는 ±6 V 스윕에서 0.49 V입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "DP 소자의 ΔVFB는 ±12 V 스윕에서 7.48 V입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RP 소자의 ΔVFB는 ±6 V 스윕에서 3.25 V입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RP 소자의 ΔVFB는 ±12 V 스윕에서 12.66 V입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M14–M17을 모두 답했습니다. 스윕 전압 ±6·±12 V는 질문의 조건이지만 각 측정값과의 대응을 확인했습니다.",
+      "플라즈마 방식이 HfO₂ 포획층에 적용된다는 설명은 원문 PMC10254822:p0012와 일치합니다.",
+      "HfO₂ 전하 포획층 설명은 답변의 [12]와 원문 PMC10254822:p0012에서 확인되지만, 수치 주장 집계에서는 제외했습니다."
+    ]
+  },
+  {
+    "question_id": "H03",
+    "mode": "naive",
+    "answered_required_measurements": [
+      "PMC13303718:M47",
+      "PMC13303718:M48",
+      "PMC13303718:M51",
+      "PMC13303718:M52"
+    ],
+    "claims": [
+      {
+        "text": "DP Hf 4f XPS의 Hf⁴⁺ 비율은 73.1%입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0018"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RP Hf 4f XPS의 Hf⁴⁺ 비율은 80.37%입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0018"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "DP O 1s XPS의 산소 공공 비율은 29.3%입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0019"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RP O 1s XPS의 산소 공공 비율은 25.33%입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0019"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M47·M48·M51·M52를 모두 답했고 Hf 4f와 O 1s 지표를 구분했습니다.",
+      "500 °C 후열처리는 질문에서 주어진 조건이므로 별도 수치 주장으로 세지 않았습니다."
+    ]
+  },
+  {
+    "question_id": "H03",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC13303718:M47",
+      "PMC13303718:M48",
+      "PMC13303718:M51",
+      "PMC13303718:M52"
+    ],
+    "claims": [
+      {
+        "text": "DP Hf 4f XPS의 Hf⁴⁺ 비율은 73.1%입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0018"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RP Hf 4f XPS의 Hf⁴⁺ 비율은 80.37%입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0018"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "DP O 1s XPS의 산소 공공 비율은 29.3%입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0019"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "RP O 1s XPS의 산소 공공 비율은 25.33%입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0019"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M47·M48·M51·M52를 모두 답했고 Hf 4f와 O 1s 지표를 구분했습니다.",
+      "500 °C 후열처리는 질문에서 주어진 조건이므로 별도 수치 주장으로 세지 않았습니다."
+    ]
+  },
+  {
+    "question_id": "H04",
+    "mode": "naive",
+    "answered_required_measurements": [
+      "PMC11901223:M1",
+      "PMC11901223:M2",
+      "PMC11901223:M4"
+    ],
+    "claims": [
+      {
+        "text": "300 °C TiO₂ 시료의 XRD 피크는 2θ=25.2°이며 아나타제 (101)면에 대응합니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0010"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "I–V 비교에 사용한 TiO₂ 막의 두께는 30 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0011"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M1·M2·M4를 모두 답했고 XRD 상 분석과 I–V 비교를 구분했습니다.",
+      "질문에 제시된 240·300 °C 증착 온도의 재진술은 수치 주장 집계에서 제외했습니다."
+    ]
+  },
+  {
+    "question_id": "H04",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC11901223:M1",
+      "PMC11901223:M2",
+      "PMC11901223:M4"
+    ],
+    "claims": [
+      {
+        "text": "300 °C TiO₂ 시료의 XRD 피크는 2θ=25.2°이며 아나타제 (101)면에 대응합니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0010"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "I–V 비교에 사용한 TiO₂ 막의 두께는 30 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0011"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M1·M2·M4를 모두 답했고 XRD 상 분석과 I–V 비교를 구분했습니다.",
+      "질문에 제시된 240·300 °C 증착 온도의 재진술은 수치 주장 집계에서 제외했습니다."
+    ]
+  },
+  {
+    "question_id": "H05",
+    "mode": "naive",
+    "answered_required_measurements": [],
+    "claims": [
+      {
+        "text": "이 연구의 전기적 특성 비교표에는 막 두께 30 nm가 기재되어 있습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0017"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 XRR 두께 M11·M13·M15를 하나도 답하지 않았습니다. 원문 PMC9656191:p0010에는 500사이클 막의 두께 다섯 값이 실제로 있습니다.",
+      "답변이 인용한 방법 문단 p0005는 일반적인 SE 두께 측정을 설명하지만, 결과 문단 p0010은 해당 500사이클 두께를 XRR에서 추출했다고 명시합니다. 답변은 이 차이를 확인하지 못했습니다.",
+      "질문에 제시된 500사이클·100/300/450 °C의 재진술은 수치 주장 집계에서 제외했습니다."
+    ]
+  },
+  {
+    "question_id": "H05",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC9656191:M11",
+      "PMC9656191:M13",
+      "PMC9656191:M15"
+    ],
+    "claims": [
+      {
+        "text": "500사이클 막의 100 °C 증착 두께는 64.7 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0003",
+          "PMC9656191:p0010"
+        ],
+        "reason": "p0003의 온도 나열 순서와 p0010의 XRR 두께 나열 순서가 대응합니다."
+      },
+      {
+        "text": "500사이클 막의 300 °C 증착 두께는 42.2 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0003",
+          "PMC9656191:p0010"
+        ],
+        "reason": "p0003의 온도 나열 순서와 p0010의 XRR 두께 나열 순서가 대응합니다."
+      },
+      {
+        "text": "500사이클 막의 450 °C 증착 두께는 87.5 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0003",
+          "PMC9656191:p0010"
+        ],
+        "reason": "p0003의 온도 나열 순서와 p0010의 XRR 두께 나열 순서가 대응합니다."
+      },
+      {
+        "text": "전기적 특성 비교표에는 이 연구의 막 두께 30 nm가 별도 기재되어 있습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0017"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M11·M13·M15를 모두 답했습니다. 두께와 증착 온도는 두 인용 문단의 순서로 대응시켰습니다.",
+      "질문에 나온 500사이클·온도 조건의 단순 재진술은 수치 주장 집계에서 제외했습니다."
+    ]
+  },
+  {
+    "question_id": "H06",
+    "mode": "graph",
+    "answered_required_measurements": [],
+    "claims": [
+      {
+        "text": "오프셋 추정용 참조 LaₓAlᵧO 막은 약 10 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0004"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "오프셋 추정용 LaₓAlᵧO/Ge 계면 막은 약 5 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0004"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "두 산화제 시료는 300 °C에서 증착했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0003"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "La/Al 펄스 비율은 1:1입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0003"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "증착 후 열처리 온도는 600 °C입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0004"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "증착 후 열처리 시간은 90초입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0004"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "누설 측정용 MIS 절연막은 약 5 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0004"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "Al 게이트 지름은 300 μm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0004"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "성형가스 후열처리 온도는 400 °C입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0004"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "성형가스 후열처리 시간은 20분입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0004"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M3·M4·M14·M15의 수치를 하나도 답하지 않았습니다. 원문 PMC5578222:p0007에는 VBO 두 값, p0014에는 3 MV/cm 누설전류 밀도 두 값이 있습니다.",
+      "인용된 p0005·p0012에 수치가 없다는 제한된 진술은 가능하지만, 문헌 전체에 없다고 추론한 답변은 질문을 완결하지 못합니다.",
+      "질문의 3 MV/cm 조건 재진술은 수치 주장 집계에서 제외했습니다.",
+      "원문 PMC5578222:p0014는 산화제별 누설전류의 수치 매핑과 바로 뒤의 높고 낮음 서술이 상충합니다. 정답 매핑은 원문의 수치 문장과 측정 기록을 기준으로 판단했습니다."
+    ]
+  },
+  {
+    "question_id": "H06",
+    "mode": "naive",
+    "answered_required_measurements": [],
+    "claims": [
+      {
+        "text": "LaₓAlᵧO는 300 °C에서 증착했습니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0003"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "La/Al 펄스 비율은 1:1입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0003"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "실험에서 조절한 막 두께 중 하나는 약 5 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0003"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      },
+      {
+        "text": "실험에서 조절한 다른 막 두께는 약 10 nm입니다.",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0003"
+        ],
+        "reason": "인용 문단에 해당 시료와 측정값이 명시되어 있습니다."
+      }
+    ],
+    "notes": [
+      "필수 측정 M3·M4·M14·M15의 수치를 하나도 답하지 않았습니다. 원문 PMC5578222:p0007과 p0014에 각각 정답값이 있습니다.",
+      "인용한 p0003은 두 막의 용도와 누설 결과를 밝히지 않지만, 원문 p0004는 시료 용도를 명시합니다. 답변은 인용 범위를 넘어 필요한 문단을 회수하지 못했습니다.",
+      "질문의 3 MV/cm 조건 재진술은 수치 주장 집계에서 제외했습니다.",
+      "원문 PMC5578222:p0014는 산화제별 누설전류의 수치 매핑과 바로 뒤의 높고 낮음 서술이 상충합니다. 정답 매핑은 원문의 수치 문장과 측정 기록을 기준으로 판단했습니다."
+    ]
+  }
+]

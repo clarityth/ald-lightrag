@@ -163,7 +163,7 @@
       const supportedBy = row => Array.isArray(row.source_ids) && row.source_ids.includes(chunk.id);
       const matchedMeasurements = measurements.filter(row => measurementIds ? measurementIds.includes(row.id) : supportedBy(row));
       const matchedExperiments = experiments.filter(row =>
-        (!measurementIds && supportedBy(row)) || matchedMeasurements.some(measurement => measurement.experiment_id === row.id)
+        supportedBy(row) || matchedMeasurements.some(measurement => measurement.experiment_id === row.id)
       );
       function fact(card, label, value) {
         const line = element('p', 'experiment-field');
@@ -176,7 +176,16 @@
       }
       for (const experiment of matchedExperiments) {
         const card = element('section', 'experiment-card');
-        card.append(element('h3', '', '실험군 조건'));
+        card.append(element('h3', '', '연결된 실험 기록'));
+        card.append(element('p', 'source-meta', '아래 조건의 근거는 각 원문 링크에서 확인할 수 있습니다.'));
+        for (const id of new Set([...(experiment.source_ids || []), ...(experiment.purpose_evidence || []).map(row => row.paragraph_id)])) {
+          const index = result.chunks.findIndex(row => row.id === id);
+          if (index < 0) continue;
+          const link = element('button', '', `실험 조건 원문: ${result.chunks[index].section}`);
+          link.type = 'button';
+          link.addEventListener('click', () => showSource(result.chunks[index], null, result));
+          card.append(link);
+        }
         if (experiment.purpose && experiment.purpose !== 'unknown') {
           fact(card, '시험 목적', experiment.purpose);
           evidence(card, experiment.purpose_evidence);
@@ -287,7 +296,7 @@
       }
       if (pathGroups.size) {
         const graph = element('section', 'evidence-paths');
-        graph.append(element('h4', '', '답변에 사용된 근거 경로'));
+        graph.append(element('h4', '', '인용 문단에 연결된 근거 경로'));
         for (const group of pathGroups.values()) {
           const details = element('details', 'path-group');
           details.open = graph.querySelectorAll('.path-group').length === 0;
@@ -308,7 +317,7 @@
             const value = used.measurement.value;
             if (value && value !== 'unknown') measurementButton.append(element('span', '', `${value}${used.measurement.unit && used.measurement.unit !== 'unknown' ? ` ${used.measurement.unit}` : ''}`));
             measurementButton.setAttribute('aria-label', `${used.measurement.metric || '측정 결과'} 원문 보기`);
-            measurementButton.addEventListener('click', () => showSource(used.chunk, used.display, result));
+            measurementButton.addEventListener('click', () => showSource({...used.chunk, measurement_ids: [used.measurement.id]}, used.display, result));
             measured.append(measurementButton);
             const original = element('div', 'path-node');
             original.append(element('small', '', '원문 근거'));
@@ -338,7 +347,7 @@
         scroll.tabIndex = 0;
         scroll.setAttribute('aria-label', '실험 비교표');
         const table = element('table');
-        table.setAttribute('aria-label', '인용된 측정 결과 비교');
+        table.setAttribute('aria-label', '인용 문단에 연결된 측정 결과');
         const head = element('thead');
         const headings = element('tr');
         const labels = ['문헌', '시료', '변경 조건', '고정 조건', '측정 지표', '값', '측정 조건', '원문'];

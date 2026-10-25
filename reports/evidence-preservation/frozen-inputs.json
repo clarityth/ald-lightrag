@@ -1,0 +1,12 @@
+{
+  "implementation_commit": "c53096c",
+  "files": {
+    "lightrag_app/backend.py": "e467b5b04fba9e242ab2720f773a6f8babe243466978116110c358293c2fcc0b",
+    "lightrag_app/selection.py": "ad1dc05991af09bb81d361820d3b3cebe3b87623dadf4a073fbc776c87c3fc40",
+    "lightrag_app/concepts.py": "755e50f22489c47263dfc981fa0f73355488923158aa1e56092c1782b3595e68",
+    "provider.py": "ce7aeb6c18ef2eeddead2ed3d85602f71d54931f98acd36b55882d7ebb691e05",
+    "evaluation/questions-007.json": "30620257419587d8553f4525bf61513b5eef3bb56def482815110c1da1bec4cb",
+    "data/experiments.json": "56a0b73b98671c34386e171ef2b12068977c001e1c590c4be1d74ab05b68add8",
+    "mechanism_poc/sources/dataset.json": "71f65945d5df88f582d0c67db1ab761addcb1160dd8fe9755d6a628da4d305f8"
+  }
+}

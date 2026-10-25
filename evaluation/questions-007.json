@@ -1,0 +1,539 @@
+[
+  {
+    "id": "H01",
+    "question": "HZO 소자를 더 높은 온도에서 평가하면 특성이 어떻게 바뀌나요? 측정 온도를 20~100 °C로 올린 시험에서 DPALD와 RPALD의 P–E 곡선과 피로 수명을 각각 알려 주세요. 증착 온도와 측정 온도를 구분해 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10005305:M9",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "quote": "as the measurement temperature increased from 20 °C to 100 °C, the c, d leakage current of the HZO thin film deposited by the DPALD method increased, thus changing the shape of the P–E curve",
+        "value": "leakage current increased and P–E curve shape changed",
+        "unit": "qualitative"
+      },
+      {
+        "measurement_id": "PMC10005305:M10",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "quote": "the HZO thin film deposited by the RPALD method hardly changed with the measurement temperature",
+        "value": "hardly changed",
+        "unit": "qualitative"
+      },
+      {
+        "measurement_id": "PMC10005305:M11",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "quote": "The lifespan of the DPALD HZO thin film decreased as the measured temperature increased",
+        "value": "lifespan decreased as measurement temperature increased",
+        "unit": "qualitative"
+      },
+      {
+        "measurement_id": "PMC10005305:M12",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "quote": "the RPALD HZO thin film maintained a fatigue endurance of more than 107 cycles in the temperature range of 20–60 °C",
+        "value": "more than 10⁷",
+        "unit": "cycles"
+      }
+    ]
+  },
+  {
+    "id": "H02",
+    "question": "HfO₂ 전하 포획 메모리의 C–V 스윕 범위를 ±6 V에서 ±12 V로 넓히면 DP와 RP 소자의 평탄대 전압 이동 폭은 각각 어떻게 달라지나요? 플라즈마 공정이 적용된 층도 밝혀 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10254822:M14",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "quote": "The RP-HfO2 CTM device demonstrated wide ∆VFB values of 3.25 and 12.66 V at the operating voltages of ±6 and ±12 V, respectively.",
+        "value": "3.25",
+        "unit": "V"
+      },
+      {
+        "measurement_id": "PMC10254822:M15",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "quote": "The RP-HfO2 CTM device demonstrated wide ∆VFB values of 3.25 and 12.66 V at the operating voltages of ±6 and ±12 V, respectively.",
+        "value": "12.66",
+        "unit": "V"
+      },
+      {
+        "measurement_id": "PMC10254822:M16",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "quote": "the DP-HfO2 CTM device exhibited the ∆VFB values of 0.49 and 7.48 V at ±6 and ±12 V, respectively.",
+        "value": "0.49",
+        "unit": "V"
+      },
+      {
+        "measurement_id": "PMC10254822:M17",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "quote": "the DP-HfO2 CTM device exhibited the ∆VFB values of 0.49 and 7.48 V at ±6 and ±12 V, respectively.",
+        "value": "7.48",
+        "unit": "V"
+      }
+    ]
+  },
+  {
+    "id": "H03",
+    "question": "IGZO/HfO₂ 메모리를 500 °C에서 후열처리한 경우, DP와 RP 공정의 Hf⁴⁺ 비율과 산소 공공 비율은 각각 얼마인가요? 두 XPS 지표를 구분해 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC13303718:M47",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0018"
+        ],
+        "quote": "the combined ratio of Hf7/2 and Hf5/2 (corresponding to the stoichiometric Hf4+ state in HfO2) was 73.1% for the DP mode",
+        "value": "73.1",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC13303718:M48",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0018"
+        ],
+        "quote": "whereas it increased to 80.37% for the RP mode at 500 °C.",
+        "value": "80.37",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC13303718:M51",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0019"
+        ],
+        "quote": "The ratio of oxygen vacancies (VO) decreased from 29.3% in the DP process",
+        "value": "29.3",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC13303718:M52",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0019"
+        ],
+        "quote": "to 25.33% in the RP process.",
+        "value": "25.33",
+        "unit": "%"
+      }
+    ]
+  },
+  {
+    "id": "H04",
+    "question": "TiO₂를 채널층 후보로 평가한 연구에서 증착 온도를 240 °C에서 300 °C로 올리자 결정상과 전기적 특성이 어떻게 달라졌나요? XRD 관찰과 금속/TiO₂/금속 구조의 I–V 비교를 구분해 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC11901223:M1",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0010"
+        ],
+        "quote": "the former film was primarily amorphous and contained a small amount of anatase",
+        "value": "Primarily amorphous with a small amount of anatase",
+        "unit": "qualitative"
+      },
+      {
+        "measurement_id": "PMC11901223:M2",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0010"
+        ],
+        "quote": "the latter film exhibited a highly crystalline anatase structure. The peak at 25.2° observed for the latter film correspond to the (101) plane of anatase",
+        "value": "Highly crystalline anatase; diffraction peak at 25.2° attributed to (101) plane",
+        "unit": "degrees"
+      },
+      {
+        "measurement_id": "PMC11901223:M4",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0011"
+        ],
+        "quote": "TiO2 deposited at 300 °C exhibited electrical properties superior to those of TiO2 deposited at 240 °C",
+        "value": "Superior to TiO2 deposited at 240 °C",
+        "unit": "qualitative"
+      }
+    ]
+  },
+  {
+    "id": "H05",
+    "question": "Si 위 PEALD HfO₂를 각각 100, 300, 450 °C에서 500사이클 증착했을 때 XRR로 구한 막 두께는 얼마인가요? 이 결과가 전기적 특성 시험용 막의 두께인지도 구분해 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC9656191:M11",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0010",
+          "PMC9656191:p0003"
+        ],
+        "quote": "The thicknesses of HfO2 films prepared 500 reaction cycles extracted from XRR are 64.7 nm, 46.4 nm,42.2 nm, 66.3 nm and 87.5 nm, respectively.",
+        "value": "64.7",
+        "unit": "nm"
+      },
+      {
+        "measurement_id": "PMC9656191:M13",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0010",
+          "PMC9656191:p0003"
+        ],
+        "quote": "The thicknesses of HfO2 films prepared 500 reaction cycles extracted from XRR are 64.7 nm, 46.4 nm,42.2 nm, 66.3 nm and 87.5 nm, respectively.",
+        "value": "42.2",
+        "unit": "nm"
+      },
+      {
+        "measurement_id": "PMC9656191:M15",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0010",
+          "PMC9656191:p0003"
+        ],
+        "quote": "The thicknesses of HfO2 films prepared 500 reaction cycles extracted from XRR are 64.7 nm, 46.4 nm,42.2 nm, 66.3 nm and 87.5 nm, respectively.",
+        "value": "87.5",
+        "unit": "nm"
+      }
+    ]
+  },
+  {
+    "id": "H06",
+    "question": "Ge 위 LaₓAlᵧO 증착에 O₃와 H₂O를 각각 산소 전구체로 사용하면 가전자대 오프셋과 3 MV/cm에서의 누설전류 밀도는 어떻게 달라지나요? 오프셋 추정에 쓴 계면·참조 막과 누설 측정 소자를 구분해 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC5578222:M3",
+        "doc_id": "PMC5578222",
+        "paragraph_ids": [
+          "PMC5578222:p0007"
+        ],
+        "quote": "the VBOs for the films with O3 and H2O as oxidant can be figured out as 3.34 and 3.11 eV, respectively.",
+        "value": "3.34",
+        "unit": "eV"
+      },
+      {
+        "measurement_id": "PMC5578222:M4",
+        "doc_id": "PMC5578222",
+        "paragraph_ids": [
+          "PMC5578222:p0007"
+        ],
+        "quote": "the VBOs for the films with O3 and H2O as oxidant can be figured out as 3.34 and 3.11 eV, respectively.",
+        "value": "3.11",
+        "unit": "eV"
+      },
+      {
+        "measurement_id": "PMC5578222:M14",
+        "doc_id": "PMC5578222",
+        "paragraph_ids": [
+          "PMC5578222:p0014"
+        ],
+        "quote": "At the applied electrical field of 3 MV/cm, the leakage current density of the O3-based and H2O-based film was measured to be 2.29 × 10−5 and 1.68 × 10−4 A/cm2, separately.",
+        "value": "2.29 × 10−5",
+        "unit": "A/cm2"
+      },
+      {
+        "measurement_id": "PMC5578222:M15",
+        "doc_id": "PMC5578222",
+        "paragraph_ids": [
+          "PMC5578222:p0014"
+        ],
+        "quote": "At the applied electrical field of 3 MV/cm, the leakage current density of the O3-based and H2O-based film was measured to be 2.29 × 10−5 and 1.68 × 10−4 A/cm2, separately.",
+        "value": "1.68 × 10−4",
+        "unit": "A/cm2"
+      }
+    ]
+  },
+  {
+    "id": "H07",
+    "question": "HfO₂ 절연막의 유전율을 설계에 참고하려 합니다. TEMAH/산소 플라즈마로 만든 Si 커패시터, TDMAH/H₂O로 만든 두꺼운 막과 85 °C에서 만든 MOS 시료의 보고값은 각각 무엇인가요? 막 두께와 추출 조건을 함께 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC9656191:M18",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0016"
+        ],
+        "quote": "the highest obtained k value of 18.21 at the substrate temperature of 300 °C",
+        "value": "18.21",
+        "unit": "dimensionless"
+      },
+      {
+        "measurement_id": "PMC10254648:M49",
+        "doc_id": "PMC10254648",
+        "paragraph_ids": [
+          "PMC10254648:p0034"
+        ],
+        "quote": "The measured dielectric constants fall within a range of 19.8–30.5",
+        "value": "19.8–30.5",
+        "unit": "dimensionless"
+      },
+      {
+        "measurement_id": "PMC10254648:M53",
+        "doc_id": "PMC10254648",
+        "paragraph_ids": [
+          "PMC10254648:p0036"
+        ],
+        "quote": "which corresponds to the dielectric constant of kHfO2~21 ± 3",
+        "value": "~21 ± 3",
+        "unit": "dimensionless"
+      }
+    ]
+  },
+  {
+    "id": "H08",
+    "question": "Al₂O₃ 계면의 C–V 결과를 검토하려 합니다. InGaAs 시료에서 초기 TMA 투입량에 따른 주파수 분산과 3C-SiC 시료에서 열 ALD·플라즈마 ALD에 따른 평탄대 전압은 각각 어떻게 보고되었나요? 두 지표의 시험 대상과 의미를 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC5448916:M6",
+        "doc_id": "PMC5448916",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "quote": "The minimum frequency dispersion was ~70 mV for a high TMA dosage for the first two cycles",
+        "value": "~70",
+        "unit": "mV"
+      },
+      {
+        "measurement_id": "PMC5448916:M7",
+        "doc_id": "PMC5448916",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "quote": "whereas it was as large as 225 mV when the standard dosage was used for all cycles.",
+        "value": "225",
+        "unit": "mV"
+      },
+      {
+        "measurement_id": "PMC10456437:M3",
+        "doc_id": "PMC10456437",
+        "paragraph_ids": [
+          "PMC10456437:p0010"
+        ],
+        "quote": "the experimental flat band voltage values were −0.6 V and −3 V for the T-ALD and PE-ALD stacks, respectively.",
+        "value": "−0.6",
+        "unit": "V"
+      },
+      {
+        "measurement_id": "PMC10456437:M4",
+        "doc_id": "PMC10456437",
+        "paragraph_ids": [
+          "PMC10456437:p0010"
+        ],
+        "quote": "the experimental flat band voltage values were −0.6 V and −3 V for the T-ALD and PE-ALD stacks, respectively.",
+        "value": "−3",
+        "unit": "V"
+      }
+    ]
+  },
+  {
+    "id": "H09",
+    "question": "저온 ALD 막의 잔류 성분을 점검하려 합니다. 85 °C에서 만든 TDMAH/H₂O HfO₂의 탄소·질소 함량과 80 °C에서 만든 TMA/H₂O Al₂O₃의 탄소 함량·산소 결함 신호는 각각 얼마인가요? EDX와 XPS 결과를 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10254648:M24",
+        "doc_id": "PMC10254648",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "quote": "Growth Temperature [°C] | Changed Growth Condition * | O:Hf [atomic Ratio] | C [atom.%] | N [atom.%]; 85 | - | 2.03 | 6.5 | 4.5",
+        "value": "6.5",
+        "unit": "atom.%"
+      },
+      {
+        "measurement_id": "PMC10254648:M25",
+        "doc_id": "PMC10254648",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "quote": "Growth Temperature [°C] | Changed Growth Condition * | O:Hf [atomic Ratio] | C [atom.%] | N [atom.%]; 85 | - | 2.03 | 6.5 | 4.5",
+        "value": "4.5",
+        "unit": "atom.%"
+      },
+      {
+        "measurement_id": "PMC8948174:M15",
+        "doc_id": "PMC8948174",
+        "paragraph_ids": [
+          "PMC8948174:p0009"
+        ],
+        "quote": "The carbon impurity concentrations of T80, T100, T150, and T250 were 1.8, 1.3, 1.0, and 0.8, respectively",
+        "value": "1.8",
+        "unit": "atom%"
+      },
+      {
+        "measurement_id": "PMC8948174:M19",
+        "doc_id": "PMC8948174",
+        "paragraph_ids": [
+          "PMC8948174:p0010"
+        ],
+        "quote": "relative peak intensity [ODefect/OLattice + ODefect] abruptly decreased from 0.12 to 0.06 when the temperature increased from 80 to 150 °C",
+        "value": "0.12",
+        "unit": "dimensionless"
+      }
+    ]
+  },
+  {
+    "id": "H10",
+    "question": "HZO 분극을 개선하려 할 때 증착 온도를 바꾼 PEALD 연구와 700 °C 열처리 시간을 바꾼 DPALD/RPALD 연구는 각각 어떤 변화를 관찰했나요? 두 연구의 변경 조건과 정량·정성 결과를 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC8839501:M2",
+        "doc_id": "PMC8839501",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "quote": "increased significantly from 12 μC/cm2 to 38.2 μC/cm2 as the deposition temperature increased from 100 °C to 180 °C",
+        "value": "12",
+        "unit": "μC/cm2"
+      },
+      {
+        "measurement_id": "PMC8839501:M3",
+        "doc_id": "PMC8839501",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "quote": "increased significantly from 12 μC/cm2 to 38.2 μC/cm2 as the deposition temperature increased from 100 °C to 180 °C",
+        "value": "38.2",
+        "unit": "μC/cm2"
+      },
+      {
+        "measurement_id": "PMC10005305:M5",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "quote": "increased as the RTA time increased from 30 s to 40 s. In the range of 40 to 60 s, the remanent polarization value did not increase significantly",
+        "value": "increased from 30 to 40 s; did not increase significantly from 40 to 60 s",
+        "unit": "s"
+      },
+      {
+        "measurement_id": "PMC10005305:M6",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "quote": "showed a gradual increase in 2Pr value as the RTA time increased",
+        "value": "gradual increase",
+        "unit": "qualitative"
+      }
+    ]
+  },
+  {
+    "id": "H11",
+    "question": "Al₂O₃ 절연막의 누설과 파괴 특성을 검토하려 합니다. InGaAs 위 300 °C 증착·20초 퍼지 MOS 시료의 누설전류 밀도와 절연파괴 전계, 3C-SiC 위 플라즈마 ALD·열 ALD MOS 시료의 파괴 전 전류와 급격한 전류 증가 시작 전압은 각각 무엇인가요? 단위와 소자 구조를 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC7767157:M26",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0015"
+        ],
+        "quote": "The lowest leakage current (2.01 × 10−9 A/cm2) and highest breakdown voltage (6.5 MV/cm) of the film deposited at 300 °C",
+        "value": "2.01 × 10−9",
+        "unit": "A/cm2"
+      },
+      {
+        "measurement_id": "PMC7767157:M27",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0015"
+        ],
+        "quote": "The lowest leakage current (2.01 × 10−9 A/cm2) and highest breakdown voltage (6.5 MV/cm) of the film deposited at 300 °C",
+        "value": "6.5",
+        "unit": "MV/cm"
+      },
+      {
+        "measurement_id": "PMC10456437:M13",
+        "doc_id": "PMC10456437",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "quote": "the PE-Al2O3/SiO2/3C-SiC sample maintained a constant current value of 10−12 A up to the breakdown",
+        "value": "10−12",
+        "unit": "A"
+      },
+      {
+        "measurement_id": "PMC10456437:M14",
+        "doc_id": "PMC10456437",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "quote": "the T-Al2O3/SiO2/3C-SiC sample exhibited a fast raise of the current starting from 15 V",
+        "value": "15",
+        "unit": "V"
+      }
+    ]
+  },
+  {
+    "id": "H12",
+    "question": "HfO₂ 전하 포획 메모리의 장기 보존을 검토하려 합니다. 500 °C 후열처리한 IGZO/HfO₂ TFT의 DP·RP 보존율과 Si 기반 HfO₂ 커패시터의 DP·RP 전하 손실률은 10년 외삽에서 각각 얼마인가요? 보존율과 손실률의 기준을 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC13303718:M40",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "quote": "retention rates of 49%, 81%, and 29% under the 300, 500, and 700 °C conditions, respectively.",
+        "value": "81",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC13303718:M43",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "quote": "the RP devices annealed at 300, 500, and 700 °C retained approximately 96%, 98%, and 95% of their initial memory windows after 10 years, respectively.",
+        "value": "approximately 98",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC10254822:M20",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "quote": "At room temperature, the ∆VFB of the DP-HfO2 CTM device decreased by 46.89% over 10 years of memory retention",
+        "value": "46.89",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC10254822:M21",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "quote": "as compared to that for the RP-HfO2 CTM device (34.32%).",
+        "value": "34.32",
+        "unit": "%"
+      }
+    ]
+  }
+]
