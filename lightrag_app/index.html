@@ -154,7 +154,7 @@
 
     function showSource(chunk, number, result) {
       panel.replaceChildren();
-      panel.append(element('p', 'eyebrow', `Source ${number}`));
+      panel.append(element('p', 'eyebrow', number ? `Source ${number}` : 'Original paragraph'));
       panel.append(element('h2', '', chunk.title || chunk.doc_id || '문헌 원문'));
       panel.append(element('p', 'source-meta', [chunk.doc_id, chunk.section].filter(Boolean).join(' · ')));
       const experiments = Array.isArray(result.experiments) ? result.experiments : [];
@@ -316,10 +316,10 @@
             const sources = paragraphIds.map(id => chunks.findIndex(chunk => chunk.doc_id === path.doc_id && chunk.id === id)).filter(index => index >= 0);
             for (const index of new Set(sources.length ? sources : [chunks.indexOf(used.chunk)])) {
               const source = chunks[index];
-              const display = cited.get(index + 1) || index + 1;
-              const button = element('button', '', `원문 [${display}]`);
+              const display = cited.get(index + 1);
+              const button = element('button', '', display ? `원문 [${display}]` : '원문 문단 보기');
               button.type = 'button';
-              button.setAttribute('aria-label', `${used.chunk.title || '문헌'} 원문 ${display}번 보기`);
+              button.setAttribute('aria-label', `${used.chunk.title || '문헌'} ${display ? `원문 ${display}번 보기` : '원문 문단 보기'}`);
               button.addEventListener('click', () => showSource(source, display, result));
               original.append(button);
             }

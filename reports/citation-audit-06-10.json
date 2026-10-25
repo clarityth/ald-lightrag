@@ -1,0 +1,1329 @@
+[
+  {
+    "question_id": "Q06",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "증착 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "변경 전 퍼지 시간 20초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "변경 후 퍼지 시간 5초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "변경 전 막 두께 3.9 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "변경 후 막 두께 3.3 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "변경 전 유효 유전율 6.71",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "변경 후 유효 유전율 5.091",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "축적 정전용량 측정 주파수 10 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q06",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "퍼지 시간 20초",
+        "status": "unclear",
+        "paragraph_ids": [],
+        "reason": "부재를 설명하며 질문의 조건을 재진술했으며 해당 퍼지 연구의 문단은 인용하지 않음."
+      },
+      {
+        "text": "퍼지 시간 5초",
+        "status": "unclear",
+        "paragraph_ids": [],
+        "reason": "부재를 설명하며 질문의 조건을 재진술했으며 해당 퍼지 연구의 문단은 인용하지 않음."
+      },
+      {
+        "text": "TMA 투입량 연구의 증착 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0003"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "TMA 투입량과 무관한 성장률 0.10 nm/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0005"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q06",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "퍼지 시간 20초",
+        "status": "unclear",
+        "paragraph_ids": [],
+        "reason": "질문의 조건을 재진술했으며 답변에 원문 인용이 없음."
+      },
+      {
+        "text": "퍼지 시간 5초",
+        "status": "unclear",
+        "paragraph_ids": [],
+        "reason": "질문의 조건을 재진술했으며 답변에 원문 인용이 없음."
+      }
+    ]
+  },
+  {
+    "question_id": "Q07",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "성장 온도 80 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0004"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "성장 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0004"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "80 °C 막 성장률 약 0.9 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "250 °C 막 성장률 약 1.1 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "절연파괴 시험 전압 상승률 1.0 V/s",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "80 °C 막 평균 절연파괴 전계 6.8 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "250 °C 막 평균 절연파괴 전계 8.5 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q07",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "80 °C 막 성장 온도",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "250 °C 막 성장 온도",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "80 °C 막 성장률 약 0.9 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "250 °C 막 성장률 약 1.1 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "80 °C 막 평균 절연파괴 전계 6.8 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "250 °C 막 평균 절연파괴 전계 8.5 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q07",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "질문에서 재진술한 성장 온도 80 °C",
+        "status": "unclear",
+        "paragraph_ids": [],
+        "reason": "답변이 근거 부재를 설명하면서 질문의 숫자를 재진술했고 원문 인용은 없음."
+      },
+      {
+        "text": "질문에서 재진술한 성장 온도 250 °C",
+        "status": "unclear",
+        "paragraph_ids": [],
+        "reason": "답변이 근거 부재를 설명하면서 질문의 숫자를 재진술했고 원문 인용은 없음."
+      }
+    ]
+  },
+  {
+    "question_id": "Q08",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "기존 질소 퍼지 시간 약 10초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0009"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "단축 질소 퍼지 시간 약 5초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "두꺼운 HfO2 막 두께 500 nm 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0023"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HfO2 첫 성장률 비교 온도 200 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "200 °C 기존 GPC 1.2 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "200 °C 단축 GPC 1.3 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HfO2 둘째 성장률 비교 온도 350 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "350 °C 기존 GPC 1.3 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "350 °C 단축 GPC 1.6 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 비교 증착 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 조건 5초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 조건 10초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 조건 15초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 조건 20초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "각 Al2O3 막 증착 30 ALD 사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0007"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "5초 퍼지 막 두께 3.3 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "10초 퍼지 막 두께 3.4 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "15초 퍼지 막 두께 3.8 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 막 두께 3.9 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "축적 정전용량 측정 주파수 10 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "5초 퍼지 막 유효 유전율 5.091",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "10초 퍼지 막 유효 유전율 5.23",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "15초 퍼지 막 유효 유전율 5.51",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 막 유효 유전율 6.71",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "5초 퍼지 Nbt 1.18 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "10초 퍼지 Nbt 1.23 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "15초 퍼지 Nbt 1.48 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 Nbt 1.10 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 조건의 최저 Nbt",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q08",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "유전율 평가 막 두께 500 nm 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0034"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "기존 질소 퍼지 시간 10초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "단축 질소 퍼지 시간 5초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "첫 성장률 비교 온도 200 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "200 °C 기존 GPC 1.2 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "200 °C 단축 GPC 1.3 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "둘째 성장률 비교 온도 350 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "350 °C 기존 GPC 1.3 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "350 °C 단축 GPC 1.6 Å/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q08",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "기존 질소 퍼지 시간 약 10초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "단축 질소 퍼지 시간 약 5초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HfO2 첫 성장률 비교 온도 200 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "200 °C 기존 GPC 1.2 Å/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "200 °C 단축 GPC 1.3 Å/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HfO2 둘째 성장률 비교 온도 350 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "350 °C 기존 GPC 1.3 Å/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "350 °C 단축 GPC 1.6 Å/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "200 °C 짧은 퍼지 막 두께 590 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "350 °C 짧은 퍼지 막 두께 740 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "200 °C 짧은 퍼지 막 O:Hf 원자비 1.91",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "350 °C 짧은 퍼지 막 O:Hf 원자비 1.86",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 비교 증착 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 조건 5초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 조건 10초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 조건 15초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Al2O3 퍼지 조건 20초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "5초 퍼지 막 두께 3.3 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "10초 퍼지 막 두께 3.4 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "15초 퍼지 막 두께 3.8 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 막 두께 3.9 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "축적 정전용량 측정 주파수 10 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "5초 퍼지 막 유효 유전율 5.091",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "10초 퍼지 막 유효 유전율 5.23",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "15초 퍼지 막 유효 유전율 5.51",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 막 유효 유전율 6.71",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "5초 퍼지 Nbt 1.18 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "10초 퍼지 Nbt 1.23 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "15초 퍼지 Nbt 1.48 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 Nbt 1.10 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 조건의 최저 Nbt",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 조건의 최저 Dit",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0013"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "10초 퍼지 조건의 최고 Dit",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0013"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q09",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "HZO 박막 두께 10 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0005"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HZO PEALD 증착 온도 180 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0020"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HZO 후열처리 온도 600 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0020"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HZO 잔류분극 2Pr=38.2 μC/cm²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0020"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HZO 피로 내구성 1.6 × 10⁷회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0020"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "분극 측정 삼각파 전압 ±3 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "분극 측정 삼각파 주파수 1 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HfO2 상대유전율 평가 막 두께 약 30 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0014"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HfO2 C–V 측정 주파수 1 MHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0013"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HfO2 최고 k의 증착 온도 300 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0014",
+          "PMC9656191:p0017"
+        ],
+        "reason": "p0014는 300 °C에서 최대임을, p0017은 이 연구의 최고 k를 제시함."
+      },
+      {
+        "text": "HfO2 최고 상대유전율 k=18.21",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0017"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q09",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "HZO 박막 두께 약 10 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0005"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HZO 증착 온도 범위 100~280 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0005"
+        ],
+        "reason": "인용 문단은 HZO 증착 온도 범위를 100~280 °C로 명시함."
+      },
+      {
+        "text": "P–E 측정 삼각파 주파수 1 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "P–E 측정 삼각파 전압 ±3 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "공정 B 박막 밀도 9.7 g/cm³",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0022"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "HfO2 벌크 굴절률 2.0",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0009"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q09",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "PEALD HfO2 최고 k 측정 증착 온도 300 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0016"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "PEALD HfO2 최고 상대유전율 k=18.21",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0016"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "PEALD HfO2 막 두께 약 30 nm",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC9656191:p0016"
+        ],
+        "reason": "인용된 p0016에는 두께가 없으며 다른 문단 p0014에서만 약 30 nm가 확인됨."
+      },
+      {
+        "text": "PEALD HfO2 측정 주파수 1 MHz",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC9656191:p0016"
+        ],
+        "reason": "인용된 p0016에는 측정 주파수가 없으며 다른 문단 p0013에서만 1 MHz가 확인됨."
+      },
+      {
+        "text": "별도 HfO2 유전율 시리즈 막 두께 500 nm 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0034"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "별도 HfO2 유전율 시리즈 증착 온도 범위 85–350 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0034"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "별도 HfO2 유전율 범위 k=19.8–30.5",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0034"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "MOS 시료 증착 온도 85 °C",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC10254648:p0036"
+        ],
+        "reason": "인용된 p0036은 이 MOS 시료의 증착 온도를 제시하지 않으며 p0012에만 85 °C가 있음."
+      },
+      {
+        "text": "MOS 시료 HfO2 막 두께 100 nm",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC10254648:p0036"
+        ],
+        "reason": "인용된 p0036은 이 MOS 시료의 두께를 제시하지 않으며 p0012에만 100 nm가 있음."
+      },
+      {
+        "text": "MOS 시료 상대유전율 k≈21 ± 3",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0036"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q10",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "고투입량 TMA 적용 첫 2 ALD 사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "고투입량 TMA 시료 최소 Dit 1.2 × 10¹² cm⁻²eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "표준 TMA 시료 최소 Dit 3.1 × 10¹² cm⁻²eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "퍼지 비교 Al2O3 증착 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "MOS 시료 열처리 온도 350 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "MOS 시료 열처리 시간 2분",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "퍼지 시간 5초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "퍼지 시간 10초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "퍼지 시간 15초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "퍼지 시간 20초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "5초 퍼지 Nbt 1.18 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "10초 퍼지 Nbt 1.23 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "15초 퍼지 Nbt 1.48 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 Nbt 1.10 × 10²⁰ cm⁻³eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 조건의 최저 Nbt",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "Nbt 측정 주파수 범위 10 kHz–1 MHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0011"
+        ],
+        "reason": "인용 문단이 축적 정전용량의 다중 주파수 측정 범위를 제시함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q10",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "Al2O3 증착 총 60 ALD 사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0005"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "고투입량 적용 사이클 수 범위 0~5회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0005"
+        ],
+        "reason": "인용 문단은 고투입량 사이클 수를 0회에서 5회로 바꿨다고 명시함."
+      },
+      {
+        "text": "표준 TMA 시료 최소 Dit 3.1 × 10¹² cm⁻²eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "첫 2회 고투입량 시료 최소 Dit 1.2 × 10¹² cm⁻²eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "고투입량 적용 첫 2 ALD 사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "주파수 분산 측정 범위 1 MHz~100 Hz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "인용 문단은 주파수를 1 MHz에서 100 Hz로 바꿔 분산을 측정했다고 명시함."
+      }
+    ]
+  },
+  {
+    "question_id": "Q10",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "퍼지 비교 증착 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "퍼지 조건 5초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "퍼지 조건 10초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "퍼지 조건 15초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "퍼지 조건 20초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "20초 퍼지 조건의 최저 Dit",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0013"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      },
+      {
+        "text": "10초 퍼지 조건의 최고 Dit",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0013"
+        ],
+        "reason": "인용 문단에서 해당 시료와 조건의 수치를 확인함."
+      }
+    ]
+  }
+]
