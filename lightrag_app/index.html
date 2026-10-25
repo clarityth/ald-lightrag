@@ -44,7 +44,7 @@
     .source-list button { padding: 4px 7px; border: 1px solid var(--line); border-radius: 7px; background: #f8fbfa; color: #31535a; font-size: 11px; }
     .source-list button:hover { border-color: #83b9b1; }
     .evidence-paths { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
-    .evidence-paths h4 { margin: 0 0 10px; color: #31535a; font-size: 13px; }
+    .evidence-paths > summary { cursor: pointer; color: #31535a; font-size: 13px; font-weight: 750; }
     .path-group { margin-top: 9px; padding: 11px 13px; border: 1px solid var(--line); border-radius: 11px; background: #f8fbfa; }
     .path-group summary { cursor: pointer; color: #234b50; font-size: 12px; font-weight: 750; line-height: 1.5; }
     .path-group summary:focus-visible { outline: 3px solid #8ccdc5; outline-offset: 2px; }
@@ -63,12 +63,25 @@
     .path-node .path-measurement-button:hover { background: transparent; text-decoration: underline; }
     .comparison { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
     .comparison summary { cursor: pointer; color: #31535a; font-size: 13px; font-weight: 750; }
-    .comparison summary:focus-visible, .comparison-scroll:focus-visible { outline: 3px solid #8ccdc5; outline-offset: 2px; }
+    .comparison summary:focus-visible, .comparison-scroll:focus-visible, .evidence-paths > summary:focus-visible, .comparison input:focus-visible { outline: 3px solid #8ccdc5; outline-offset: 2px; }
+    .comparison-note { margin: 9px 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .comparison-filters { display: flex; flex-wrap: wrap; align-items: end; gap: 8px 14px; margin-top: 12px; }
+    .comparison-filters label { margin: 0; font-size: 12px; }
+    .comparison-filters .table-search { flex: 1 1 220px; }
+    .comparison-filters input[type="search"] { display: block; width: 100%; margin-top: 5px; padding: 7px 9px; border: 1px solid #b9cfca; border-radius: 7px; }
+    .comparison-filters .selected-only { display: flex; align-items: center; gap: 5px; }
+    .comparison-filters .visible-count { color: var(--muted); font-size: 12px; }
+    .comparison-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 12px; }
+    .comparison-controls .selection-count { margin-right: auto; color: #31535a; font-size: 12px; }
+    .comparison button:disabled { cursor: not-allowed; opacity: .5; }
     .comparison-scroll { max-width: 100%; margin-top: 12px; overflow-x: auto; }
     .comparison table { min-width: 850px; width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
     .comparison th, .comparison td { padding: 9px; border: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+    .comparison tr[hidden] { display: none; }
     .comparison th { background: #f3f9f6; white-space: nowrap; }
     .comparison button { padding: 4px 7px; border: 1px solid var(--line); border-radius: 7px; background: #f8fbfa; color: #31535a; white-space: nowrap; }
+    .comparison input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--teal); cursor: pointer; }
+    .comparison-source-buttons { display: flex; flex-wrap: wrap; gap: 5px; }
     .fixed-mobile { display: none; }
     .status { margin: 0 0 24px; padding: 15px 18px; border: 1px solid #c9ded9; border-radius: 12px; background: #f5fbf9; color: #365c62; font-size: 13px; line-height: 1.55; }
     .status.error { border-color: #ebceca; background: #fff8f6; color: #963f38; }
@@ -86,6 +99,7 @@
     aside h2 { margin-bottom: 10px; font-size: 17px; }
     .source-empty { color: var(--muted); font-size: 13px; line-height: 1.65; }
     .source-meta { margin: 0 0 16px; color: var(--muted); font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+    .source-excerpt { padding: 12px; border-left: 3px solid var(--teal); background: #edf7f3; font-size: 13px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
     .experiment-card { margin: 0 0 14px; padding: 15px; border: 1px solid #c5dad4; border-radius: 12px; background: #f3f9f6; }
     .experiment-card h3 { margin-bottom: 10px; font-size: 13px; }
     .experiment-field { margin: 5px 0; color: #35565c; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
@@ -104,6 +118,10 @@
       .comparison td { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 8px; padding: 5px 10px; border: 0; }
       .comparison td::before { content: attr(data-label); color: #31535a; font-weight: 750; }
       .comparison td > * { min-width: 0; }
+      .comparison td:first-child { grid-template-columns: 80px auto; }
+      .comparison-filters .table-search { flex-basis: 100%; }
+      .comparison-controls .selection-count { flex-basis: 100%; }
+      .comparison-controls button:last-child { flex-basis: 100%; }
       .fixed-full { display: none; }
       .fixed-mobile { display: block; }
       .path-row { grid-template-columns: minmax(0, 1fr); gap: 17px; }
@@ -117,7 +135,7 @@
     <header><div class="logo" aria-hidden="true">PL</div><div><h1>ProcessLens</h1><p>반도체 공정 문헌 비교</p></div></header>
     <main>
       <div class="chat" id="chat"><div class="chat-inner" id="messages">
-        <section class="welcome" id="welcome"><p class="eyebrow">Literature Q&amp;A</p><h2>ALD 논문에 관해 질문해 보세요.</h2><p>답변의 인용 번호를 누르면 오른쪽에서 사용된 원문 청크와 문헌을 확인할 수 있습니다. 답변은 연구 조건과 적용 범위를 함께 살펴보세요.</p>
+        <section class="welcome" id="welcome"><p class="eyebrow">Literature Q&amp;A</p><h2>ALD 공정 조건과 측정 결과를 비교해 보세요.</h2><p>질문으로 찾은 측정 결과를 표에서 선택하고 원문과 함께 검토할 수 있습니다. 답변의 인용 번호를 누르면 사용된 근거를 확인할 수 있습니다.</p>
           <div class="suggestions" aria-label="예시 질문">
             <button type="button">200 °C에서 TDMAH로 HfO2를 증착할 때 탈이온수 대신 암모니아수를 쓰면 성장률과 유전율은 어떻게 달라졌습니까?</button>
             <button type="button">ALD 퍼지 시간을 줄이면 HfO2와 Al2O3의 막 성장과 전기적 품질은 어떻게 달라집니까?</button>
@@ -129,6 +147,7 @@
     </main>
     <aside id="source-panel" aria-live="polite"><p class="eyebrow">Original source</p><h2>원문 확인</h2><p class="source-empty">답변의 인용 번호를 누르면 해당 근거가 여기에 표시됩니다.</p></aside>
   </div>
+  <script src="/comparison.js"></script>
   <script>
     const form = document.getElementById('ask-form');
     const input = document.getElementById('question');
@@ -157,17 +176,18 @@
       panel.append(element('p', 'eyebrow', number ? `Source ${number}` : 'Original paragraph'));
       panel.append(element('h2', '', chunk.title || chunk.doc_id || '문헌 원문'));
       panel.append(element('p', 'source-meta', [chunk.doc_id, chunk.section].filter(Boolean).join(' · ')));
+      if (typeof chunk.quote === 'string' && chunk.quote.trim()) panel.append(element('p', 'source-excerpt', chunk.quote));
       const experiments = Array.isArray(result.experiments) ? result.experiments : [];
       const measurements = Array.isArray(result.measurements) ? result.measurements : [];
       const measurementIds = Array.isArray(chunk.measurement_ids) ? chunk.measurement_ids : null;
-      const supportedBy = row => Array.isArray(row.source_ids) && row.source_ids.includes(chunk.id);
-      const matchedMeasurements = measurements.filter(row => measurementIds ? measurementIds.includes(row.id) : supportedBy(row));
+      const supportedBy = row => row.doc_id === chunk.doc_id && Array.isArray(row.source_ids) && row.source_ids.includes(chunk.id);
+      const matchedMeasurements = measurements.filter(row => row.doc_id === chunk.doc_id && (measurementIds ? measurementIds.includes(row.id) : supportedBy(row)));
       const matchedExperiments = experiments.filter(row =>
-        supportedBy(row) || matchedMeasurements.some(measurement => measurement.experiment_id === row.id)
+        row.doc_id === chunk.doc_id && (supportedBy(row) || matchedMeasurements.some(measurement => measurement.experiment_id === row.id))
       );
       function fact(card, label, value) {
         const line = element('p', 'experiment-field');
-        line.append(element('strong', '', label), document.createTextNode(value && value !== 'unknown' ? value : '원문에서 확인되지 않음'));
+        line.append(element('strong', '', label), document.createTextNode(value !== null && value !== undefined && value !== '' && value !== 'unknown' ? value : '원문에서 확인되지 않음'));
         card.append(line);
       }
       function evidence(card, rows) {
@@ -179,7 +199,7 @@
         card.append(element('h3', '', '연결된 실험 기록'));
         card.append(element('p', 'source-meta', '아래 조건의 근거는 각 원문 링크에서 확인할 수 있습니다.'));
         for (const id of new Set([...(experiment.source_ids || []), ...(experiment.purpose_evidence || []).map(row => row.paragraph_id)])) {
-          const index = result.chunks.findIndex(row => row.id === id);
+          const index = result.chunks.findIndex(row => row.doc_id === experiment.doc_id && row.id === id);
           if (index < 0) continue;
           const link = element('button', '', `실험 조건 원문: ${result.chunks[index].section}`);
           link.type = 'button';
@@ -195,7 +215,7 @@
         fact(card, '고정 조건', experiment.fixed_conditions);
         evidence(card, experiment.evidence);
         const related = measurementIds ? matchedMeasurements.filter(row => row.experiment_id === experiment.id)
-          : measurements.filter(row => row.experiment_id === experiment.id && (supportedBy(experiment) || supportedBy(row)));
+          : measurements.filter(row => row.doc_id === experiment.doc_id && row.experiment_id === experiment.id && (supportedBy(experiment) || supportedBy(row)));
         for (const measurement of related) {
           const detail = element('div', 'measurement-card');
           fact(detail, '측정 지표', measurement.metric);
@@ -272,31 +292,36 @@
       card.append(body);
       const measurements = Array.isArray(result.measurements) ? result.measurements : [];
       const experiments = Array.isArray(result.experiments) ? result.experiments : [];
-      const byMeasurement = new Map(measurements.map(row => [row.id, row]));
-      const byExperiment = new Map(experiments.map(row => [row.id, row]));
+      const recordKey = (docId, id) => `${docId}\0${id}`;
+      const byMeasurement = new Map(measurements.map(row => [recordKey(row.doc_id, row.id), row]));
+      const byExperiment = new Map(experiments.map(row => [recordKey(row.doc_id, row.id), row]));
       const compared = new Map();
       for (const [number, display] of cited) {
-        for (const id of Array.isArray(chunks[number - 1].measurement_ids) ? chunks[number - 1].measurement_ids : []) {
-          if (byMeasurement.has(id) && !compared.has(id)) compared.set(id, { measurement: byMeasurement.get(id), chunk: chunks[number - 1], display });
+        const chunk = chunks[number - 1];
+        for (const id of Array.isArray(chunk.measurement_ids) ? chunk.measurement_ids : []) {
+          const key = recordKey(chunk.doc_id, id);
+          if (byMeasurement.has(key) && !compared.has(key)) compared.set(key, { measurement: byMeasurement.get(key), chunk, display });
         }
       }
       const pathGroups = new Map();
       for (const path of Array.isArray(result.paths) ? result.paths : []) {
-        const used = compared.get(path.measurement_id);
+        const used = compared.get(recordKey(path.doc_id, path.measurement_id));
         if (!used || used.measurement.doc_id !== path.doc_id || used.measurement.experiment_id !== path.experiment_id) continue;
-        const experiment = byExperiment.get(path.experiment_id);
+        const experiment = byExperiment.get(recordKey(path.doc_id, path.experiment_id));
         if (!experiment) continue;
         const key = path.concept_id || path.concept_label;
         if (!pathGroups.has(key)) pathGroups.set(key, { label: path.concept_label || '공통 개념', paths: [], seen: new Set() });
         const group = pathGroups.get(key);
-        if (!group.seen.has(path.measurement_id)) {
+        const measurementKey = recordKey(path.doc_id, path.measurement_id);
+        if (!group.seen.has(measurementKey)) {
           group.paths.push({ path, used, experiment });
-          group.seen.add(path.measurement_id);
+          group.seen.add(measurementKey);
         }
       }
+      let graph;
       if (pathGroups.size) {
-        const graph = element('section', 'evidence-paths');
-        graph.append(element('h4', '', '인용 문단에 연결된 근거 경로'));
+        graph = element('details', 'evidence-paths');
+        graph.append(element('summary', '', '인용 문단에 연결된 근거 경로'));
         for (const group of pathGroups.values()) {
           const details = element('details', 'path-group');
           details.open = graph.querySelectorAll('.path-group').length === 0;
@@ -315,7 +340,7 @@
             measurementButton.type = 'button';
             measurementButton.append(element('strong', '', used.measurement.metric || '측정 지표'));
             const value = used.measurement.value;
-            if (value && value !== 'unknown') measurementButton.append(element('span', '', `${value}${used.measurement.unit && used.measurement.unit !== 'unknown' ? ` ${used.measurement.unit}` : ''}`));
+            if (value !== null && value !== undefined && value !== '' && value !== 'unknown') measurementButton.append(element('span', '', `${value}${used.measurement.unit && used.measurement.unit !== 'unknown' ? ` ${used.measurement.unit}` : ''}`));
             measurementButton.setAttribute('aria-label', `${used.measurement.metric || '측정 결과'} 원문 보기`);
             measurementButton.addEventListener('click', () => showSource({...used.chunk, measurement_ids: [used.measurement.id]}, used.display, result));
             measured.append(measurementButton);
@@ -338,19 +363,86 @@
           details.append(branches);
           graph.append(details);
         }
-        card.append(graph);
       }
-      if (compared.size) {
+      const rows = window.ProcessLensComparison.buildComparisonRows(result);
+      if (rows.length) {
         const details = element('details', 'comparison');
-        details.append(element('summary', '', `실험 비교표 (${compared.size}건)`));
+        details.open = true;
+        details.append(element('summary', '', `검색된 측정 결과 비교 (${rows.length}건)`));
+        details.append(element('p', 'comparison-note', '검색 문맥에 연결된 기록입니다. 모든 행이 답변에 인용된 것은 아닙니다.'));
+        const filters = element('div', 'comparison-filters');
+        const searchLabel = element('label', 'table-search', '표에서 찾기');
+        const search = element('input');
+        search.type = 'search';
+        search.placeholder = '문헌, 시료, 측정 지표';
+        searchLabel.append(search);
+        const selectedLabel = element('label', 'selected-only');
+        const selectedOnly = element('input');
+        selectedOnly.type = 'checkbox';
+        selectedLabel.append(selectedOnly, document.createTextNode('선택한 행만 보기'));
+        const visibleCount = element('span', 'visible-count');
+        filters.append(searchLabel, selectedLabel, visibleCount);
+        details.append(filters);
+        const controls = element('div', 'comparison-controls');
+        const count = element('span', 'selection-count');
+        count.setAttribute('role', 'status');
+        const selectAll = element('button', '', '표시된 행 선택');
+        const clear = element('button', '', '모든 선택 해제');
+        const download = element('button', '', '선택 행 CSV 다운로드');
+        for (const button of [selectAll, clear, download]) button.type = 'button';
+        const selected = new Set();
+        const checkboxes = [];
+        const tableRows = [];
+        function updateVisible() {
+          const query = search.value.trim().toLocaleLowerCase();
+          let visible = 0;
+          rows.forEach((item, index) => {
+            const matches = [item.title, item.sample, item.metric].some(value => String(value ?? '').toLocaleLowerCase().includes(query));
+            tableRows[index].hidden = !matches || (selectedOnly.checked && !selected.has(index));
+            if (!tableRows[index].hidden) visible++;
+          });
+          visibleCount.textContent = `${visible} / ${rows.length}건 표시`;
+          selectAll.disabled = !tableRows.some((row, index) => !row.hidden && !selected.has(index));
+        }
+        function updateSelection() {
+          count.textContent = `${selected.size} / ${rows.length}건 선택`;
+          clear.disabled = download.disabled = selected.size === 0;
+          updateVisible();
+        }
+        selectAll.addEventListener('click', () => {
+          checkboxes.forEach((checkbox, index) => {
+            if (!tableRows[index].hidden) { checkbox.checked = true; selected.add(index); }
+          });
+          updateSelection();
+        });
+        clear.addEventListener('click', () => {
+          checkboxes.forEach(checkbox => { checkbox.checked = false; });
+          selected.clear();
+          updateSelection();
+        });
+        search.addEventListener('input', updateVisible);
+        selectedOnly.addEventListener('change', updateVisible);
+        download.addEventListener('click', () => {
+          const csv = window.ProcessLensComparison.comparisonCsv(rows.filter((row, index) => selected.has(index)), result.question);
+          const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+          const link = element('a');
+          link.href = url;
+          link.download = 'processlens-comparison.csv';
+          document.body.append(link);
+          link.click();
+          link.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        });
+        controls.append(count, selectAll, clear, download);
+        details.append(controls);
         const scroll = element('div', 'comparison-scroll');
         scroll.tabIndex = 0;
         scroll.setAttribute('aria-label', '실험 비교표');
         const table = element('table');
-        table.setAttribute('aria-label', '인용 문단에 연결된 측정 결과');
+        table.setAttribute('aria-label', '검색된 측정 결과 비교');
         const head = element('thead');
         const headings = element('tr');
-        const labels = ['문헌', '시료', '변경 조건', '고정 조건', '측정 지표', '값', '측정 조건', '원문'];
+        const labels = ['선택', '문헌', '시료', '변경 조건', '고정 조건', '측정 지표', '값', '측정 조건', '조건 원문', '측정 원문'];
         for (const label of labels) {
           const heading = element('th', '', label);
           heading.scope = 'col';
@@ -359,41 +451,62 @@
         head.append(headings);
         table.append(head);
         const tbody = element('tbody');
-        const known = value => value && value !== 'unknown' ? value : '원문에서 확인되지 않음';
-        for (const { measurement, chunk, display } of compared.values()) {
-          const experiment = byExperiment.get(measurement.experiment_id) || {};
+        const known = value => value !== null && value !== undefined && value !== '' && value !== 'unknown' ? value : '정보 없음';
+        rows.forEach((item, index) => {
           const row = element('tr');
-          const value = measurement.value === 'unknown' ? known(measurement.value)
-            : `${measurement.value}${measurement.unit && measurement.unit !== 'unknown' ? ` ${measurement.unit}` : ''}`;
-          const cells = [chunk.title || chunk.doc_id || '문헌 원문', known(experiment.sample),
-            known(experiment.varied_parameter), known(experiment.fixed_conditions),
-            known(measurement.metric), value, known(measurement.conditions)];
-          for (const [index, value] of cells.entries()) {
+          const selection = element('td');
+          selection.dataset.label = labels[0];
+          const checkbox = element('input');
+          checkbox.type = 'checkbox';
+          checkbox.setAttribute('aria-label', `${known(item.title)} ${known(item.metric)} ${known(item.value)} 선택`);
+          checkbox.addEventListener('change', () => {
+            if (checkbox.checked) selected.add(index);
+            else selected.delete(index);
+            updateSelection();
+          });
+          checkboxes.push(checkbox);
+          selection.append(checkbox);
+          row.append(selection);
+          const value = known(item.value) === '정보 없음' ? '정보 없음'
+            : `${item.value}${known(item.unit) === '정보 없음' ? '' : ` ${item.unit}`}`;
+          const cells = [known(item.title), known(item.sample), known(item.variedParameter),
+            known(item.fixedConditions), known(item.metric), value, known(item.conditions)];
+          for (const [offset, cellValue] of cells.entries()) {
             const cell = element('td');
-            cell.dataset.label = labels[index];
-            if (index === 3) {
-              cell.append(element('span', 'fixed-full', value));
+            cell.dataset.label = labels[offset + 1];
+            if (offset === 3) {
+              cell.append(element('span', 'fixed-full', cellValue));
               const fixed = element('details', 'fixed-mobile');
-              fixed.append(element('summary', '', '조건 보기'), element('span', '', value));
+              fixed.append(element('summary', '', '조건 보기'), element('span', '', cellValue));
               cell.append(fixed);
-            } else cell.textContent = value;
+            } else cell.textContent = cellValue;
             row.append(cell);
           }
-          const source = element('td');
-          source.dataset.label = labels[7];
-          const button = element('button', '', `원문 [${display}]`);
-          button.type = 'button';
-          button.setAttribute('aria-label', `인용 ${display}번 원문 보기`);
-          button.addEventListener('click', () => showSource(chunk, display, result));
-          source.append(button);
-          row.append(source);
+          for (const [offset, sources] of [item.conditionSources, item.measurementSources].entries()) {
+            const cell = element('td');
+            cell.dataset.label = labels[offset + 8];
+            const buttons = element('div', 'comparison-source-buttons');
+            for (const [sourceIndex, source] of (Array.isArray(sources) ? sources : []).entries()) {
+              const button = element('button', '', `원문 ${sourceIndex + 1}`);
+              button.type = 'button';
+              button.setAttribute('aria-label', `${cell.dataset.label} ${sourceIndex + 1} 보기`);
+              button.addEventListener('click', () => showSource(source, undefined, result));
+              buttons.append(button);
+            }
+            if (!buttons.children.length) buttons.textContent = '정보 없음';
+            cell.append(buttons);
+            row.append(cell);
+          }
           tbody.append(row);
-        }
+          tableRows.push(row);
+        });
+        updateSelection();
         table.append(tbody);
         scroll.append(table);
         details.append(scroll);
         card.append(details);
       }
+      if (graph) card.append(graph);
       if (cited.size) {
         const sources = element('div', 'source-list');
         const groups = new Map();
