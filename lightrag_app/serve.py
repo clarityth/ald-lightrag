@@ -1,4 +1,4 @@
-"""Serve the local LightRAG question UI on loopback only."""
+"""Serve the local ProcessLens question UI on loopback only."""
 
 import json
 import sys
@@ -95,5 +95,5 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print("LightRAG: http://127.0.0.1:8824/", flush=True)
+    print("ProcessLens: http://127.0.0.1:8824/", flush=True)
     ThreadingHTTPServer(ADDRESS, Handler).serve_forever()
