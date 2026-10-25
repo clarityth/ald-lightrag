@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>문헌에 질문하기 | ChemPath LightRAG</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif; color: #19313a; background: #f4f7f6; --line: #dce6e3; --muted: #5f7479; --teal: #0b7471; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    button, textarea { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, textarea:focus-visible, a:focus-visible { outline: 3px solid #8ccdc5; outline-offset: 2px; }
+    .app { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); grid-template-rows: auto minmax(0, 1fr); min-height: 100dvh; }
+    header { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; padding: 17px clamp(18px, 3vw, 36px); border-bottom: 1px solid var(--line); background: #fff; }
+    .logo { display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; border-radius: 13px; background: #15464b; color: white; font-size: 13px; font-weight: 800; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 2px; font-size: 17px; }
+    header p { margin: 0; color: var(--muted); font-size: 12px; }
+    main { display: flex; flex-direction: column; min-width: 0; height: calc(100dvh - 77px); }
+    .chat { flex: 1; overflow-y: auto; padding: 30px clamp(18px, 5vw, 76px); }
+    .chat-inner { max-width: 800px; margin: auto; }
+    .welcome { padding: 24px 0 30px; }
+    .eyebrow { margin-bottom: 8px; color: var(--teal); font-size: 11px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+    .welcome h2 { margin-bottom: 10px; font-size: clamp(23px, 3vw, 32px); letter-spacing: -.045em; }
+    .welcome p { max-width: 640px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .suggestions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .suggestions button { max-width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: #27505a; font-size: 12px; text-align: left; line-height: 1.5; }
+    .suggestions button:hover { border-color: #83b9b1; background: #eef8f5; }
+    .examples { margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .examples h3 { margin-bottom: 5px; font-size: 14px; }
+    .examples p { margin-bottom: 11px; font-size: 12px; }
+    .message { margin: 0 0 24px; }
+    .message.user { display: flex; justify-content: flex-end; }
+    .bubble { max-width: min(86%, 680px); padding: 13px 16px; border-radius: 16px 16px 4px 16px; background: #e5f2ef; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.65; }
+    .answer-card { padding: 23px; border: 1px solid var(--line); border-radius: 17px; background: white; box-shadow: 0 5px 22px rgba(17, 57, 62, .04); }
+    .answer-card h3 { margin-bottom: 12px; color: var(--teal); font-size: 12px; }
+    .answer-body { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.85; }
+    .citation { padding: 0 2px; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: var(--teal); font-weight: 800; }
+    .source-list { display: grid; gap: 12px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .source-group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+    .source-group strong { max-width: 100%; color: #31535a; font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+    .source-numbers { display: flex; flex-wrap: wrap; gap: 5px; }
+    .source-list button { padding: 4px 7px; border: 1px solid var(--line); border-radius: 7px; background: #f8fbfa; color: #31535a; font-size: 11px; }
+    .source-list button:hover { border-color: #83b9b1; }
+    .status { margin: 0 0 24px; padding: 15px 18px; border: 1px solid #c9ded9; border-radius: 12px; background: #f5fbf9; color: #365c62; font-size: 13px; line-height: 1.55; }
+    .status.error { border-color: #ebceca; background: #fff8f6; color: #963f38; }
+    .dot { display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--teal); animation: pulse 1.3s infinite; }
+    @keyframes pulse { 50% { opacity: .25; } }
+    .composer-wrap { padding: 16px clamp(18px, 5vw, 76px) 22px; border-top: 1px solid var(--line); background: #fff; }
+    form { max-width: 800px; margin: auto; }
+    label { display: block; margin-bottom: 9px; font-size: 12px; font-weight: 750; }
+    .composer { display: flex; align-items: flex-end; gap: 10px; padding: 9px 9px 9px 14px; border: 1px solid #b9cfca; border-radius: 14px; background: #fff; }
+    textarea { flex: 1; min-width: 0; min-height: 42px; max-height: 160px; padding: 9px 0; border: 0; resize: vertical; color: inherit; line-height: 1.55; outline: none; }
+    .send { flex: 0 0 auto; padding: 10px 16px; border: 0; border-radius: 9px; background: var(--teal); color: white; font-size: 13px; font-weight: 750; }
+    .send:disabled { cursor: wait; opacity: .55; }
+    .hint { margin: 8px 0 0; color: var(--muted); font-size: 11px; }
+    aside { min-width: 0; height: calc(100dvh - 77px); overflow-y: auto; padding: 28px 22px; border-left: 1px solid var(--line); background: #fbfcfc; }
+    aside h2 { margin-bottom: 10px; font-size: 17px; }
+    .source-empty { color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .source-meta { margin: 0 0 16px; color: var(--muted); font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+    .experiment-card { margin: 0 0 14px; padding: 15px; border: 1px solid #c5dad4; border-radius: 12px; background: #f3f9f6; }
+    .experiment-card h3 { margin-bottom: 10px; font-size: 13px; }
+    .experiment-field { margin: 5px 0; color: #35565c; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+    .experiment-field strong { display: inline-block; min-width: 64px; color: #163e44; }
+    .measurement-card { margin-top: 12px; padding-top: 11px; border-top: 1px solid #d5e4de; }
+    .measurement-evidence { margin: 8px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+    .source-text { padding: 18px; border: 1px solid #b8d8d1; border-radius: 12px; background: #edf7f3; white-space: pre-wrap; overflow-wrap: anywhere; font-family: Georgia, "Times New Roman", serif; font-size: 13px; line-height: 1.8; }
+    .source-link { display: inline-block; margin-top: 16px; color: var(--teal); font-size: 13px; font-weight: 700; }
+    @media (max-width: 850px) { .app { grid-template-columns: 1fr; } main { height: min(75dvh, 790px); min-height: 530px; } aside { height: auto; min-height: 220px; border-left: 0; border-top: 1px solid var(--line); } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header><div class="logo" aria-hidden="true">CP</div><div><h1>ChemPath 문헌 질문</h1><p>LightRAG · 질문별 실제 검색과 답변</p></div></header>
+    <main>
+      <div class="chat" id="chat"><div class="chat-inner" id="messages">
+        <section class="welcome" id="welcome"><p class="eyebrow">Literature Q&amp;A</p><h2>ALD 논문에 관해 질문해 보세요.</h2><p>답변의 인용 번호를 누르면 오른쪽에서 사용된 원문 청크와 문헌을 확인할 수 있습니다. 답변은 연구 조건과 적용 범위를 함께 살펴보세요.</p>
+          <div class="suggestions" aria-label="예시 질문">
+            <button type="button">200 °C에서 TDMAH로 HfO2를 증착할 때 탈이온수 대신 암모니아수를 쓰면 성장률과 유전율은 어떻게 달라졌습니까?</button>
+            <button type="button">ALD 퍼지 시간을 줄이면 HfO2와 Al2O3의 막 성장과 전기적 품질은 어떻게 달라집니까?</button>
+            <button type="button">150 °C에서 증착한 Al2O3의 절연파괴 결과를 유연한 폴리머 기판에도 적용할 수 있습니까?</button>
+          </div><div id="examples"></div>
+        </section>
+      </div></div>
+      <div class="composer-wrap"><form id="ask-form"><label for="question">새 질문 보내기</label><div class="composer"><textarea id="question" maxlength="2000" placeholder="문헌에서 확인하고 싶은 공정 조건이나 결과를 입력하세요" required></textarea><button class="send" id="send" type="submit">전송</button></div><p class="hint">Enter로 전송하고 Shift+Enter로 줄바꿈합니다. 답변에는 시간이 걸릴 수 있습니다.</p></form></div>
+    </main>
+    <aside id="source-panel" aria-live="polite"><p class="eyebrow">Original source</p><h2>원문 확인</h2><p class="source-empty">답변의 인용 번호를 누르면 해당 근거가 여기에 표시됩니다.</p></aside>
+  </div>
+  <script>
+    const form = document.getElementById('ask-form');
+    const input = document.getElementById('question');
+    const send = document.getElementById('send');
+    const messages = document.getElementById('messages');
+    const chat = document.getElementById('chat');
+    const panel = document.getElementById('source-panel');
+    let busy = false;
+
+    function element(tag, className, value) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (value !== undefined) node.textContent = value;
+      return node;
+    }
+
+    function sourceUrl(value) {
+      try {
+        const url = new URL(value);
+        return ['https:', 'http:'].includes(url.protocol) ? url.href : null;
+      } catch { return null; }
+    }
+
+    function showSource(chunk, number, result) {
+      panel.replaceChildren();
+      panel.append(element('p', 'eyebrow', `Source ${number}`));
+      panel.append(element('h2', '', chunk.title || chunk.doc_id || '문헌 원문'));
+      panel.append(element('p', 'source-meta', [chunk.doc_id, chunk.section].filter(Boolean).join(' · ')));
+      const experiments = Array.isArray(result.experiments) ? result.experiments : [];
+      const measurements = Array.isArray(result.measurements) ? result.measurements : [];
+      const measurementIds = Array.isArray(chunk.measurement_ids) ? chunk.measurement_ids : null;
+      const supportedBy = row => Array.isArray(row.source_ids) && row.source_ids.includes(chunk.id);
+      const matchedMeasurements = measurements.filter(row => measurementIds ? measurementIds.includes(row.id) : supportedBy(row));
+      const matchedExperiments = experiments.filter(row =>
+        (!measurementIds && supportedBy(row)) || matchedMeasurements.some(measurement => measurement.experiment_id === row.id)
+      );
+      function fact(card, label, value) {
+        const line = element('p', 'experiment-field');
+        line.append(element('strong', '', label), document.createTextNode(value && value !== 'unknown' ? value : '원문에서 확인되지 않음'));
+        card.append(line);
+      }
+      function evidence(card, rows) {
+        const quote = Array.isArray(rows) && rows.find(row => typeof row.quote === 'string' && row.quote.trim())?.quote;
+        if (quote) card.append(element('p', 'measurement-evidence', `근거 문장: ${quote}`));
+      }
+      for (const experiment of matchedExperiments) {
+        const card = element('section', 'experiment-card');
+        card.append(element('h3', '', '실험군 조건'));
+        if (experiment.purpose && experiment.purpose !== 'unknown') {
+          fact(card, '시험 목적', experiment.purpose);
+          evidence(card, experiment.purpose_evidence);
+        }
+        fact(card, '시료', experiment.sample);
+        fact(card, '변경 조건', experiment.varied_parameter);
+        fact(card, '고정 조건', experiment.fixed_conditions);
+        evidence(card, experiment.evidence);
+        const related = measurementIds ? matchedMeasurements.filter(row => row.experiment_id === experiment.id)
+          : measurements.filter(row => row.experiment_id === experiment.id && (supportedBy(experiment) || supportedBy(row)));
+        for (const measurement of related) {
+          const detail = element('div', 'measurement-card');
+          fact(detail, '측정 지표', measurement.metric);
+          fact(detail, '측정 결과', measurement.value === 'unknown' ? 'unknown' : `${measurement.value}${measurement.unit && measurement.unit !== 'unknown' ? ` ${measurement.unit}` : ''}`);
+          fact(detail, '측정 조건', measurement.conditions);
+          evidence(detail, measurement.evidence);
+          card.append(detail);
+        }
+        panel.append(card);
+      }
+      panel.append(element('div', 'source-text', chunk.text || '표시할 원문 청크가 없습니다.'));
+      const href = sourceUrl(chunk.url);
+      if (href) {
+        const link = element('a', 'source-link', '원문 문헌 열기 ↗');
+        link.href = href;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        panel.append(link);
+      }
+      if (window.innerWidth <= 850) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function addQuestion(question) {
+      panel.replaceChildren(
+        element('p', 'eyebrow', 'Original source'),
+        element('h2', '', '원문 확인'),
+        element('p', 'source-empty', '현재 답변의 인용 번호를 누르면 근거가 여기에 표시됩니다.')
+      );
+      const user = element('div', 'message user');
+      user.append(element('div', 'bubble', question));
+      messages.append(user);
+    }
+
+    function addAnswer(result, label = 'LightRAG 답변', scrollToStart = false) {
+      const chunks = Array.isArray(result.chunks) ? result.chunks : [];
+      const card = element('article', 'message answer-card');
+      card.append(element('h3', '', label));
+      const body = element('div', 'answer-body');
+      const answer = (typeof result.answer === 'string' ? result.answer : '답변이 비어 있습니다.').replace(/^#{1,6}\s+/gm, '');
+      const cited = new Map();
+      function citation(number) {
+        if (!chunks[number - 1]) return document.createTextNode(`[${number}]`);
+        if (!cited.has(number)) cited.set(number, cited.size + 1);
+        const display = cited.get(number);
+        const button = element('button', 'citation', `[${display}]`);
+        button.type = 'button';
+        button.setAttribute('aria-label', `인용 ${display}번 원문 보기`);
+        button.addEventListener('click', () => showSource(chunks[number - 1], display, result));
+        return button;
+      }
+      for (const part of answer.split(/(\[\d+\]\s*[–-]\s*\[\d+\]|\[\d+\]|\*\*[^*]+\*\*)/g)) {
+        const range = /^\[(\d+)\]\s*[–-]\s*\[(\d+)\]$/.exec(part);
+        if (range) {
+          const first = Number(range[1]);
+          const last = Number(range[2]);
+          if (first < 1 || last > chunks.length || last < first || last - first > 50) {
+            body.append(document.createTextNode(part));
+            continue;
+          }
+          for (let number = first; number <= last; number++) {
+            if (number > first) body.append(document.createTextNode(', '));
+            body.append(citation(number));
+          }
+          continue;
+        }
+        const match = /^\[(\d+)\]$/.exec(part);
+        const number = match && Number(match[1]);
+        if (number && chunks[number - 1]) {
+          body.append(citation(number));
+        } else if (part.startsWith('**') && part.endsWith('**')) {
+          body.append(element('strong', '', part.slice(2, -2)));
+        } else body.append(document.createTextNode(part));
+      }
+      card.append(body);
+      if (cited.size) {
+        const sources = element('div', 'source-list');
+        const groups = new Map();
+        for (const [number, display] of cited) {
+          const chunk = chunks[number - 1];
+          const key = chunk.doc_id || chunk.url || chunk.title || number;
+          if (!groups.has(key)) groups.set(key, { title: chunk.title || chunk.doc_id || '원문', numbers: [] });
+          groups.get(key).numbers.push([number, display]);
+        }
+        for (const group of groups.values()) {
+          const row = element('div', 'source-group');
+          row.append(element('strong', '', group.title));
+          const numbers = element('div', 'source-numbers');
+          for (const [number, display] of group.numbers) numbers.append(citation(number));
+          row.append(numbers);
+          sources.append(row);
+        }
+        card.append(sources);
+      }
+      messages.append(card);
+      if (scrollToStart) card.scrollIntoView({ block: 'start' });
+      else chat.scrollTop = chat.scrollHeight;
+    }
+
+    async function ask(question) {
+      if (busy || !question || question.length > 2000) return;
+      busy = true;
+      send.disabled = true;
+      input.disabled = true;
+      addQuestion(question);
+      const status = element('div', 'status');
+      status.setAttribute('role', 'status');
+      status.append(element('span', 'dot'));
+      status.append(document.createTextNode('문헌을 검색하고 답변을 생성하고 있습니다.'));
+      messages.append(status);
+      chat.scrollTop = chat.scrollHeight;
+      try {
+        const response = await fetch('/api/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question }) });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || '답변을 가져오지 못했습니다.');
+        status.remove();
+        addAnswer(result);
+        input.value = '';
+      } catch (error) {
+        status.replaceChildren(document.createTextNode(error.message || '답변을 가져오지 못했습니다.'));
+        status.classList.add('error');
+      } finally {
+        busy = false;
+        send.disabled = false;
+        input.disabled = false;
+        input.focus();
+        chat.scrollTop = chat.scrollHeight;
+      }
+    }
+
+    form.addEventListener('submit', event => { event.preventDefault(); ask(input.value.trim()); });
+    input.addEventListener('keydown', event => {
+      if (event.key === 'Enter' && !event.shiftKey && !event.isComposing && event.keyCode !== 229) {
+        event.preventDefault();
+        form.requestSubmit();
+      }
+    });
+    document.querySelectorAll('.suggestions button').forEach(button => button.addEventListener('click', () => { input.value = button.textContent; input.focus(); }));
+    fetch('/api/examples').then(response => response.ok ? response.json() : []).then(examples => {
+      if (!Array.isArray(examples) || !examples.length) return;
+      const section = element('section', 'examples');
+      section.append(element('h3', '', '저장된 실행 결과'));
+      section.append(element('p', '', '이전 LightRAG 실행에서 저장한 답변을 열어볼 수 있습니다. 새 질문을 보내면 다시 검색합니다.'));
+      const buttons = element('div', 'suggestions');
+      for (const result of examples) {
+        if (typeof result.question !== 'string' || typeof result.answer !== 'string') continue;
+        const button = element('button', '', result.question);
+        button.type = 'button';
+        button.addEventListener('click', () => {
+          if (busy) return;
+          addQuestion(result.question);
+          addAnswer(result, '저장된 LightRAG 실행 결과', true);
+        });
+        buttons.append(button);
+      }
+      section.append(buttons);
+      document.getElementById('examples').append(section);
+    }).catch(() => {});
+  </script>
+</body>
+</html>
