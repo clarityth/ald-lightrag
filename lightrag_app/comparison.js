@@ -1,6 +1,6 @@
 (function () {
   const unknown = '정보 없음';
-  const shown = value => value === undefined || value === null || value === '' ? unknown : value;
+  const shown = value => value === undefined || value === null || typeof value === 'string' && (!value.trim() || value.trim().toLowerCase() === 'unknown') ? unknown : value;
   const key = (docId, id) => `${docId}\u0000${id}`;
 
   function buildComparisonRows(result) {
@@ -11,15 +11,17 @@
 
     function sources(record) {
       if (!record) return [];
-      const evidence = record.evidence?.length ? record.evidence : (record.source_ids || []).map(paragraph_id => ({ paragraph_id }));
-      const used = new Set();
-      return evidence.flatMap(item => {
+      const references = [...(record.evidence || []), ...(record.purpose_evidence || []), ...(record.source_ids || []).map(paragraph_id => ({ paragraph_id }))];
+      const matched = new Map();
+      for (const item of references) {
         const sourceKey = key(record.doc_id, item.paragraph_id);
         const chunk = chunks.get(sourceKey);
-        if (!chunk || used.has(sourceKey)) return [];
-        used.add(sourceKey);
-        return [{ ...chunk, ...(item.quote && chunk.text?.includes(item.quote) ? { quote: item.quote } : {}) }];
-      });
+        if (!chunk) continue;
+        if (!matched.has(sourceKey)) matched.set(sourceKey, { chunk, quotes: [] });
+        const quotes = matched.get(sourceKey).quotes;
+        if (item.quote && chunk.text?.includes(item.quote) && !quotes.includes(item.quote)) quotes.push(item.quote);
+      }
+      return [...matched.values()].map(({ chunk, quotes }) => ({ ...chunk, ...(quotes.length ? { quote: quotes.join('\n\n') } : {}) }));
     }
 
     return (result.measurements || []).flatMap((measurement, index) => {

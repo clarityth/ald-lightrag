@@ -64,3 +64,32 @@ test('CSV includes question and both excerpts, quotes multiline cells, and neutr
   assert.ok(csv.includes('"Measured\nvalue"'));
   assert.ok(csv.includes('https://example.org/A'));
 });
+
+test('unknown values are shown as missing and all source references keep every valid quote', () => {
+  const result = {
+    experiments: [{
+      id: 'E', doc_id: 'A', sample: 'unknown', varied_parameter: ' UNKNOWN ', fixed_conditions: 'unknown',
+      evidence: [{ paragraph_id: 'p1', quote: 'First condition' }, { paragraph_id: 'p1', quote: 'Second condition' }],
+      purpose_evidence: [{ paragraph_id: 'p2', quote: 'Experiment purpose' }],
+      source_ids: ['p1', 'p2', 'p3'],
+    }],
+    measurements: [{ id: 'M', doc_id: 'A', experiment_id: 'E', metric: 'unknown', value: 'unknown', unit: 'unknown', conditions: 'unknown', evidence: [{ paragraph_id: 'p4', quote: 'First result' }, { paragraph_id: 'p4', quote: 'Second result' }], source_ids: ['p4', 'p5'] }],
+    chunks: [
+      chunk('p1', 'A', 'First condition. Second condition.'), chunk('p2', 'A', 'Experiment purpose.'),
+      chunk('p3', 'A', 'Additional condition.'), chunk('p4', 'A', 'First result. Second result.'),
+      chunk('p5', 'A', 'Additional result.'), chunk('p3', 'B', 'Foreign condition.'),
+    ],
+  };
+  const [row] = buildComparisonRows(result);
+  for (const field of ['sample', 'variedParameter', 'fixedConditions', 'metric', 'value', 'unit', 'conditions']) assert.equal(row[field], '정보 없음');
+  assert.deepEqual(row.conditionSources.map(source => source.id), ['p1', 'p2', 'p3']);
+  assert.deepEqual(row.measurementSources.map(source => source.id), ['p4', 'p5']);
+  assert.ok(row.conditionSources[0].quote.includes('First condition'));
+  assert.ok(row.conditionSources[0].quote.includes('Second condition'));
+  assert.ok(row.measurementSources[0].quote.includes('First result'));
+  assert.ok(row.measurementSources[0].quote.includes('Second result'));
+  const csv = comparisonCsv([row], 'question');
+  for (const excerpt of ['First condition', 'Second condition', 'Experiment purpose', 'Additional condition', 'First result', 'Second result', 'Additional result']) assert.ok(csv.includes(excerpt));
+  assert.ok(!csv.includes('Foreign condition'));
+  assert.ok(!csv.includes('"unknown"'));
+});
