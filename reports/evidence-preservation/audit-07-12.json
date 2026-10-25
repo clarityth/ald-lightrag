@@ -1,0 +1,884 @@
+[
+  {
+    "question_id": "H07",
+    "mode": "naive",
+    "answered_required_measurements": [],
+    "claims": [],
+    "notes": [
+      "실행 오류(RuntimeError)로 답변 없음; 수치일치율 산정 불가"
+    ]
+  },
+  {
+    "question_id": "H07",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC9656191:M18",
+      "PMC10254648:M53"
+    ],
+    "claims": [
+      {
+        "text": "TEMAH/O₂·Ar 플라즈마 Si 시료: 300 °C 증착에서 k=18.21",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0016"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "TEMAH/O₂·Ar 플라즈마 사용",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0003"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "300 °C 시료, 500사이클 XRR 두께 42.2 nm",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC9656191:p0010"
+        ],
+        "reason": "인용 문단은 다섯 두께를 순서대로 나열하지만 해당 순서의 온도를 명시하지 않습니다. 300 °C 대응은 p0006 등의 추가 문단이 필요합니다."
+      },
+      {
+        "text": "TDMAH/H₂O MOS 막 두께 범위 100–740 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0012"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "유전율 추출: 1 MHz C–V의 축적 정전용량",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0012"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "85 °C 증착 MOS의 게이트 HfO₂ 두께 100 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0012"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "85 °C MOS k≈21±3",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0036"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "85 °C MOS 최대 축적 정전용량 밀도 약 185 nF/cm²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0036"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "두꺼운 막(500 nm 초과)의 필수 유전율 19.8–30.5를 누락했습니다. 원문 p0034에는 제시되어 있습니다.",
+      "두꺼운 막에 별도 유전율 수치가 없다는 서술은 원문과 충돌합니다.",
+      "18.21의 전기적 추출 조건은 답변에서 미확인이라고 밝혔습니다."
+    ]
+  },
+  {
+    "question_id": "H08",
+    "mode": "naive",
+    "answered_required_measurements": [
+      "PMC5448916:M6",
+      "PMC5448916:M7"
+    ],
+    "claims": [
+      {
+        "text": "InGaAs MIS: 총 60회 ALD",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0005"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "처음 두 회 고TMA 투입량 약 0.5 Pa·s",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0005"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "주파수 1 MHz→100 Hz, 최대 정전용량 절반의 전압 이동",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "초기 두 회 고용량의 분산 약 70 mV",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "전 회차 표준 투입량의 분산 225 mV",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "고용량 시료 평탄대 전압 양의 방향 약 0.2 V 이동",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "3C-SiC 열 ALD −0.6 V와 플라즈마 ALD −3 V를 누락했습니다. 원문 p0010에는 두 값이 있습니다.",
+      "제공된 문단에 절댓값이 없다는 설명은 검색 문맥의 한계이며 원문 결과의 부재로 해석하면 안 됩니다."
+    ]
+  },
+  {
+    "question_id": "H08",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC5448916:M6",
+      "PMC5448916:M7",
+      "PMC10456437:M3",
+      "PMC10456437:M4"
+    ],
+    "claims": [
+      {
+        "text": "InGaAs MIS: 총 60회 ALD 중 초기 TMA 고용량 적용 횟수 변화",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0005"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "주파수 1 MHz→100 Hz, 최대 정전용량 절반의 전압 이동",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "전 회차 표준 TMA 분산 225 mV",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "첫 두 회 고용량 TMA 분산 약 70 mV",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "고용량 시료 평탄대 전압 양의 방향 약 0.2 V 이동",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5448916:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "3C-SiC 적층의 SiO₂ 중간층 약 5 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0006"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "3C-SiC 적층의 Al₂O₃ 약 30 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0006"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "열 ALD 평탄대 전압 −0.6 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "플라즈마 ALD 평탄대 전압 −3 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "이상 평탄대 전압 +0.9 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "두 시료의 측정 지표와 적층 구조를 구분했습니다."
+    ]
+  },
+  {
+    "question_id": "H09",
+    "mode": "naive",
+    "answered_required_measurements": [
+      "PMC10254648:M24",
+      "PMC10254648:M25"
+    ],
+    "claims": [
+      {
+        "text": "85 °C TDMAH/H₂O HfO₂ EDX 탄소 6.5 atom.%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "85 °C TDMAH/H₂O HfO₂ EDX 질소 4.5 atom.%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "EDX 측정 막 두께 500 nm 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "80 °C TMA/H₂O Al₂O₃의 XPS 탄소 1.8 atom%와 산소 결함 상대 피크 0.12를 모두 누락했습니다. 원문 p0009·p0010에는 있습니다.",
+      "EDX 탄소의 표면 오염 가능성은 p0023이 뒷받침합니다."
+    ]
+  },
+  {
+    "question_id": "H09",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC10254648:M24",
+      "PMC10254648:M25"
+    ],
+    "claims": [
+      {
+        "text": "85 °C TDMAH/H₂O HfO₂ EDX 탄소 6.5 atom%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "85 °C TDMAH/H₂O HfO₂ EDX 질소 4.5 atom%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "EDX 분석 막 두께 500 nm 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0023"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "80 °C TMA/H₂O Al₂O₃의 XPS 탄소 1.8 atom%와 산소 결함 상대 피크 0.12를 모두 누락했습니다. 원문 p0009·p0010에는 있습니다.",
+      "EDX 탄소의 표면 오염 가능성은 p0023이 뒷받침합니다."
+    ]
+  },
+  {
+    "question_id": "H10",
+    "mode": "naive",
+    "answered_required_measurements": [
+      "PMC8839501:M2",
+      "PMC8839501:M3",
+      "PMC10005305:M5",
+      "PMC10005305:M6"
+    ],
+    "claims": [
+      {
+        "text": "PEALD HZO 증착 온도 100–280 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "PEALD 시료 600 °C 후열처리",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "10⁵회 구동 후 분극 평가",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "100 °C 증착에서 2Pr 12 μC/cm²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "180 °C 증착에서 2Pr 38.2 μC/cm²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "280 °C 증착에서 2Pr 감소",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "o상 피크가 180 °C에서 최대",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "280 °C 증착에서 m상 등 이차상",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "DPALD/RPALD HZO 두께 약 10 nm, HfO₂:ZrO₂ 1:1",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0008"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "700 °C RTA 시간 30–60초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "DPALD 30→40초 분극 증가, 40–60초에는 추가 증가 작음",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "DPALD 피로 수명 10⁵–10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "DPALD 40초 초과 RTA에서 피로 수명 감소",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "RPALD 2Pr은 RTA 시간이 길수록 점진적 증가",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "RPALD 60초 RTA에서도 피로 수명 10⁷회 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "필수 정량·정성 결과와 증착 온도/RTA 시간의 차이를 설명했습니다."
+    ]
+  },
+  {
+    "question_id": "H10",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC8839501:M2",
+      "PMC8839501:M3",
+      "PMC10005305:M5",
+      "PMC10005305:M6"
+    ],
+    "claims": [
+      {
+        "text": "PEALD HZO 두께 약 10 nm, 증착 온도 100–280 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0005"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "PEALD 시료 600 °C 후열처리, 180 °C 증착에서 o상 최대",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "280 °C 증착에서 m상 등 이차상",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "10⁵회 구동 후 분극 평가",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "100 °C 증착에서 2Pr 12 μC/cm²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "180 °C 증착에서 2Pr 38.2 μC/cm²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "280 °C 증착에서 2Pr 감소",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "180 °C와 230 °C 증착에서 각각 피로 수명 1.6×10⁷회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "100 °C 증착에서 피로 수명 2.5×10⁵회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "280 °C 증착에서 피로 수명 1.6×10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "DPALD/RPALD HZO 두께 약 10 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0008"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "700 °C RTA 시간 30–60초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "DPALD 30→40초 분극 증가, 40–60초에는 큰 추가 증가 없음",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "RPALD 2Pr은 RTA 시간이 길수록 점진적 증가",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "DPALD 피로 수명 10⁵–10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "DPALD 40초 초과 RTA에서 피로 수명 감소",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "RPALD 60초 RTA에서도 피로 수명 10⁷회 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "필수 정량·정성 결과와 증착 온도/RTA 시간의 차이를 설명했습니다."
+    ]
+  },
+  {
+    "question_id": "H11",
+    "mode": "naive",
+    "answered_required_measurements": [
+      "PMC10456437:M13",
+      "PMC10456437:M14"
+    ],
+    "claims": [
+      {
+        "text": "3C-SiC 적층 측면형 MOS 커패시터",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0010"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "PE-ALD 시료 파괴 전 전류 10⁻¹² A",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "T-ALD 시료 급격한 전류 증가 시작 15 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "두 3C-SiC 시료 절연파괴 게이트 바이어스 26 V 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "InGaAs 300 °C 증착·20초 퍼지 MOS의 누설전류 밀도 2.01×10⁻⁹ A/cm²와 파괴 전계 6.5 MV/cm를 누락했습니다. 원문 p0015에는 있습니다.",
+      "질문의 300 °C·20초는 답변이 실험 결과로 주장하지 않은 질문 재진술이므로 claims에 넣지 않았습니다."
+    ]
+  },
+  {
+    "question_id": "H11",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC7767157:M26",
+      "PMC7767157:M27",
+      "PMC10456437:M13",
+      "PMC10456437:M14"
+    ],
+    "claims": [
+      {
+        "text": "InGaAs MOS: 300 °C 증착·20초 퍼지",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0006"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "InGaAs MOS 막 두께 3.5 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "InGaAs MOS 전기 측정 상온·암조건",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "InGaAs MOS 누설전류 밀도 2.01×10⁻⁹ A/cm²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0015"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "InGaAs MOS 절연파괴 전계 6.5 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC7767157:p0015"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "3C-SiC 적층 Al₂O₃ 증착 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0006"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "3C-SiC 적층 Al₂O₃ 두께 약 30 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0009"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "PE-ALD 시료 파괴 전 전류 10⁻¹² A",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "T-ALD 시료 급격한 전류 증가 시작 15 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "두 3C-SiC 시료 절연파괴 게이트 바이어스 26 V 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "누설전류 밀도 A/cm², 파괴 전계 MV/cm, 전류 A, 전압 V의 차이를 설명했습니다."
+    ]
+  },
+  {
+    "question_id": "H12",
+    "mode": "naive",
+    "answered_required_measurements": [
+      "PMC13303718:M40",
+      "PMC13303718:M43",
+      "PMC10254822:M20",
+      "PMC10254822:M21"
+    ],
+    "claims": [
+      {
+        "text": "500 °C 후열처리 IGZO/HfO₂ TFT, 상온 10년 외삽 DP 보존율 81%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "500 °C 후열처리 IGZO/HfO₂ TFT, 상온 10년 외삽 RP 보존율 약 98%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "TFT 프로그램 15 V·1 ms 펄스",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0046"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "Si 기반 HfO₂ CTM 상온 10년 외삽 DP ΔVFB 손실률 46.89%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "Si 기반 HfO₂ CTM 상온 10년 외삽 RP ΔVFB 손실률 34.32%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "커패시터 프로그램 +10 V·1초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "커패시터 소거 −10 V·1초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "TFT의 초기 메모리 윈도우 보존율과 Si CTM의 ΔVFB 감소율을 구분했습니다."
+    ]
+  },
+  {
+    "question_id": "H12",
+    "mode": "graph",
+    "answered_required_measurements": [
+      "PMC13303718:M40",
+      "PMC13303718:M43",
+      "PMC10254822:M20",
+      "PMC10254822:M21"
+    ],
+    "claims": [
+      {
+        "text": "500 °C 후열처리 IGZO/HfO₂ TFT, 상온 10년 외삽 DP 보존율 81%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "500 °C 후열처리 IGZO/HfO₂ TFT, 상온 10년 외삽 RP 보존율 98%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "Si 기반 HfO₂ CTM 프로그램 +10 V·1초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "Si 기반 HfO₂ CTM 소거 −10 V·1초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "Si 기반 HfO₂ CTM 상온 10년 외삽 DP ΔVFB 손실률 46.89%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      },
+      {
+        "text": "Si 기반 HfO₂ CTM 상온 10년 외삽 RP ΔVFB 손실률 34.32%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0020"
+        ],
+        "reason": "원문 문단이 값, 단위와 조건을 뒷받침합니다."
+      }
+    ],
+    "notes": [
+      "TFT의 초기 메모리 윈도우 보존율과 Si CTM의 ΔVFB 감소율을 구분했습니다."
+    ]
+  }
+]
