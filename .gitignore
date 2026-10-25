@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.venv*/
+__pycache__/
+*.pyc
+.DS_Store
+lightrag_app/cache/
+lightrag_app/storage*/
+lightrag_app/results/
+*.log
