@@ -31,7 +31,7 @@ SOURCE_RECORDS = ROOT.parent / "data/experiments.json"
 ANSWER_PROMPT = (
     "제공된 근거로 질문에 한국어로 답하세요. 문헌별 시료, 공정 조건과 측정 조건을 구분하고 핵심 결과와 수치를 간결하게 설명하세요. "
     "각 수치와 주장 바로 뒤에 그 내용을 뒷받침하는 근거 번호 [1]을 붙이세요. 여러 값은 각각 맞는 번호를 사용하세요. "
-    "구조화된 측정 청크가 있는 값은 해당 청크를, 그렇지 않은 값은 원문 문단을 인용하세요. 어느 형식의 근거도 동일하게 유효합니다. "
+    "인용 번호는 원문 문단 하나를 가리킵니다. 결과값과 공정·측정 조건이 다른 문단에 있으면 각각 해당 문단을 인용하세요. "
     "같은 논문에서도 다른 시료의 조건을 옮기지 말고 MIS/MOS 구조만으로 응용 목적을 추정하지 마세요. "
     "서로 다른 논문의 인과를 단정하지 말고 근거가 없는 내용은 구체적으로 한정하세요. 방법과 결과를 함께 읽고 질문에 직접 답하세요. "
     "평문 단락과 개별 인용 [1][2]를 사용하고 인용 범위 표기는 사용하지 마세요."
@@ -346,19 +346,26 @@ def raw_chunks(dataset, ids=None):
             for d in dataset["documents"] for p in d["paragraphs"] if ids is None or p["id"] in ids]
 
 
-def graph_context(dataset, records, measurements, limit=GRAPH_LIMIT):
-    paragraphs = {p["id"]:(d,p) for d in dataset["documents"] for p in d["paragraphs"]}
+def graph_context(dataset, records, measurements, limit=GRAPH_LIMIT, retrieved_ids=()):
+    """Preserve search evidence; add complete source packs with one citation per paragraph."""
+    by_id = {c["id"]: c for c in raw_chunks(dataset)}
+    chunks = [by_id[pid] for pid in dict.fromkeys(retrieved_ids) if pid in by_id]
     encoding = tiktoken.encoding_for_model("gpt-4o-mini")
-    kept, chunks = [], []
+    if len(encoding.encode(_context(chunks))) > limit:
+        raise RuntimeError("검색 원문이 문맥 상한을 초과했습니다.")
+    experiments = {e["id"]: e for e in records["experiments"]}
+    kept = []
     for measurement in measurements:
-        trial = kept + [measurement]
-        experiments = [e for e in records["experiments"] if e["id"] in {m["experiment_id"] for m in trial}]
-        ids = {pid for m in trial for pid in m["source_ids"]}
-        ids.update(pid for e in experiments for pid in e["source_ids"])
-        ids.update(item["paragraph_id"] for e in experiments for item in e.get("purpose_evidence", []))
-        candidate = _measurement_chunks(trial, experiments, paragraphs) + raw_chunks(dataset, ids)
+        experiment = experiments[measurement["experiment_id"]]
+        ids = list(dict.fromkeys(measurement["source_ids"] + experiment["source_ids"] +
+                    [item["paragraph_id"] for item in experiment.get("purpose_evidence", [])]))
+        present = {c["id"] for c in chunks}
+        candidate = chunks + [by_id[pid] for pid in ids if pid not in present and pid in by_id]
         if len(encoding.encode(_context(candidate))) <= limit:
-            kept, chunks = trial, candidate
+            kept.append(measurement)
+            chunks = candidate
+    for chunk in chunks:
+        chunk["measurement_ids"] = [m["id"] for m in kept if chunk["id"] in m["source_ids"]]
     return kept, chunks
 
 
@@ -401,8 +408,8 @@ async def prepare(question, mode="graph"):
                 retrieved_ids.append(match.group(1))
     paths = []
     if mode == "graph":
-        chosen, paths = select_measurements(records, graph, concepts, sdk_data)
-        measurements, chunks = graph_context(dataset, records, chosen)
+        chosen, paths = select_measurements(records, graph, concepts, sdk_data, retrieved_ids=retrieved_ids)
+        measurements, chunks = graph_context(dataset, records, chosen, retrieved_ids=retrieved_ids)
         included = {m["id"] for m in measurements}
         paths = [p for p in paths if p["measurement_id"] in included]
     elif mode == "naive":
@@ -425,6 +432,7 @@ async def prepare(question, mode="graph"):
     return {"question":question.strip(), "chunks":chunks, "documents":documents,
             "experiments":experiments,"measurements":measurements,"paths":paths,
             "metadata":{"mode":mode,"context_tokens":context_tokens,"query_concepts":concepts,
+                        "retrieved_paragraph_ids":list(dict.fromkeys(retrieved_ids)),
                         "sdk_entity_count":len(sdk_data.get("entities",[])),
                         "sdk_relationship_count":len(sdk_data.get("relationships",[])),
                         "model_calls":calls}}
@@ -435,7 +443,7 @@ async def _ask(question: str, mode="graph"):
     result = await prepare(question, mode)
     retrieval_seconds = time.perf_counter() - started
     answer, info = await asyncio.to_thread(provider.generate, ANSWER_PROMPT,
-        f"질문: {question.strip()}\n\n실험군 정의와 측정 결과의 근거 청크 및 원문 문단:\n{_context(result['chunks'])}",
+        f"질문: {question.strip()}\n\n문헌 원문 문단:\n{_context(result['chunks'])}",
         1800, model=ANSWER_MODEL)
     references = [int(n) for n in re.findall(r"\[(\d+)\]", answer)]
     if any(n < 1 or n > len(result["chunks"]) for n in references):

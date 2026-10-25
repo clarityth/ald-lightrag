@@ -38,3 +38,17 @@ class SelectionTest(unittest.TestCase):
             chosen, paths = select_measurements(records, graph, [], sdk)
             self.assertEqual([item['id'] for item in chosen], ['M1', 'M2'])
             self.assertEqual(paths, [])
+
+    def test_retrieved_paragraph_expands_only_through_shared_concept(self):
+        concept = 'concept:process:anneal'
+        records = {'measurements': [
+            {'id': 'M3', 'experiment_id': 'E3', 'doc_id': 'D3', 'source_ids': ['p3']},
+            {'id': 'M2', 'experiment_id': 'E2', 'doc_id': 'D2', 'source_ids': ['p2']},
+            {'id': 'M1', 'experiment_id': 'E1', 'doc_id': 'D1', 'source_ids': ['p1']},
+        ]}
+        graph = {'entities': [{'entity_name': concept, 'description': 'Anneal'}],
+                 'experiment_concepts': {'E1': [concept], 'E2': [concept]},
+                 'measurement_concepts': {}}
+        chosen, paths = select_measurements(records, graph, [], {}, retrieved_ids=['p1'])
+        self.assertEqual([item['id'] for item in chosen], ['M1', 'M2'])
+        self.assertEqual([item['measurement_id'] for item in paths], ['M1', 'M2'])

@@ -1,4 +1,10 @@
 import unittest
+import asyncio
+import hashlib
+import json
+import tempfile
+from pathlib import Path
+from unittest.mock import AsyncMock, Mock, patch
 from lightrag_app import backend
 
 class EvidencePreservationTest(unittest.TestCase):
@@ -31,3 +37,16 @@ class EvidencePreservationTest(unittest.TestCase):
         self.assertEqual(selected,[])
         with self.assertRaisesRegex(RuntimeError,'검색 원문'):
             backend.graph_context(self.dataset,self.records,[],limit=1,retrieved_ids=['p3'])
+
+    def test_prepare_keeps_sdk_paragraph_when_no_concept_is_recognized(self):
+        dataset=backend._dataset()
+        pid=dataset['documents'][0]['paragraphs'][0]['id']
+        rag=Mock(initialize_storages=AsyncMock(),finalize_storages=AsyncMock(),
+                 aquery_data=AsyncMock(return_value={'status':'success','data':{'entities':[], 'relationships':[], 'chunks':[{'content':f'[{pid}] raw source'}]}}))
+        with tempfile.TemporaryDirectory() as directory:
+            marker=Path(directory)/'index.json'
+            marker.write_text(json.dumps({'dataset_sha256':hashlib.sha256(backend.DATASET.read_bytes()).hexdigest(),'graph_signature':backend.index_signature()}))
+            with patch.object(backend,'MARKER',marker),patch.object(backend,'_rag',return_value=rag),patch.object(backend,'match_query',return_value=[]):
+                result=asyncio.run(backend.prepare('an unclassified user question'))
+        self.assertEqual(result['chunks'][0]['id'],pid)
+        self.assertEqual(result['metadata']['retrieved_paragraph_ids'],[pid])
