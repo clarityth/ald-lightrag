@@ -75,8 +75,9 @@
     .comparison-controls .selection-count { margin-right: auto; color: #31535a; font-size: 12px; }
     .comparison button:disabled { cursor: not-allowed; opacity: .5; }
     .comparison-scroll { max-width: 100%; margin-top: 12px; overflow-x: auto; }
-    .comparison table { min-width: 850px; width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
+    .comparison table { min-width: 1500px; width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
     .comparison th, .comparison td { padding: 9px; border: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+    @media (min-width: 851px) { .comparison td:nth-child(7) { min-width: 110px; } .comparison td:nth-child(2) { min-width: 210px; } }
     .comparison tr[hidden] { display: none; }
     .comparison th { background: #f3f9f6; white-space: nowrap; }
     .comparison button { padding: 4px 7px; border: 1px solid var(--line); border-radius: 7px; background: #f8fbfa; color: #31535a; white-space: nowrap; }
@@ -490,7 +491,10 @@
               const button = element('button', '', `원문 ${sourceIndex + 1}`);
               button.type = 'button';
               button.setAttribute('aria-label', `${cell.dataset.label} ${sourceIndex + 1} 보기`);
-              button.addEventListener('click', () => showSource(source, undefined, result));
+              button.addEventListener('click', () => showSource(source, undefined, { ...result,
+                experiments: experiments.filter(record => record.doc_id === item.docId && record.id === item.experimentId),
+                measurements: measurements.filter(record => record.doc_id === item.docId && record.id === item.measurementId)
+              }));
               buttons.append(button);
             }
             if (!buttons.children.length) buttons.textContent = '정보 없음';
