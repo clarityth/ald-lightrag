@@ -1,0 +1,657 @@
+[
+  {
+    "id": "Q01",
+    "question": "700 °C에서 열처리한 HZO를 DPALD와 RPALD로 만들었을 때 우세한 결정상과 피로 수명은 각각 어떻게 달랐습니까? 같은 연구의 결정상 분석과 수명 시험을 구분해 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10005305:M3",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0009"
+        ],
+        "quote": "The HZO thin film deposited by the DPALD method showed that the o-phase was dominant over the t-phase",
+        "value": "o-phase dominant over t-phase",
+        "unit": "qualitative"
+      },
+      {
+        "measurement_id": "PMC10005305:M4",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0009"
+        ],
+        "quote": "the intensity of the t-phase was much stronger than that of the o-phase in the HZO thin film deposited by the RPALD method",
+        "value": "t-phase intensity much stronger than o-phase",
+        "unit": "qualitative"
+      },
+      {
+        "measurement_id": "PMC10005305:M7",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "quote": "The HZO thin film deposited by the DPALD method had a lifespan ranging from 105 to 106 cycles",
+        "value": "10⁵ to 10⁶",
+        "unit": "cycles"
+      },
+      {
+        "measurement_id": "PMC10005305:M8",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "quote": "the HZO thin film deposited by the RPALD method showed an excellent fatigue endurance property of more than 107 cycles and exhibited a lifespan longer than 107 cycles, even when the RTA time increased to 60 s",
+        "value": "more than 10⁷",
+        "unit": "cycles"
+      }
+    ]
+  },
+  {
+    "id": "Q02",
+    "question": "직접 플라즈마와 원격 플라즈마로 만든 HfO2 연구에서 ±5 V 스윕의 전하 포획 밀도와 CTM 구조의 중간갭 계면 결함 밀도는 각각 얼마였습니까? 두 측정에 사용한 시료를 구분해 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10254822:M4",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0008"
+        ],
+        "quote": "the Nt values were 4.48 × 1012 and 1.25 × 1013 cm−2, respectively.",
+        "value": "4.48 × 1012",
+        "unit": "cm−2"
+      },
+      {
+        "measurement_id": "PMC10254822:M5",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0008"
+        ],
+        "quote": "the Nt values were 4.48 × 1012 and 1.25 × 1013 cm−2, respectively.",
+        "value": "1.25 × 1013",
+        "unit": "cm−2"
+      },
+      {
+        "measurement_id": "PMC10254822:M12",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0014"
+        ],
+        "quote": "The midgap Dit values of the DP- and RP-HfO2 CTM devices evaluated using Equation (3) are 5.53 × 1012 and 1.18 × 1012 cm−2·eV−1, respectively.",
+        "value": "5.53 × 1012",
+        "unit": "cm−2·eV−1"
+      },
+      {
+        "measurement_id": "PMC10254822:M13",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0014"
+        ],
+        "quote": "The midgap Dit values of the DP- and RP-HfO2 CTM devices evaluated using Equation (3) are 5.53 × 1012 and 1.18 × 1012 cm−2·eV−1, respectively.",
+        "value": "1.18 × 1012",
+        "unit": "cm−2·eV−1"
+      }
+    ]
+  },
+  {
+    "id": "Q03",
+    "question": "IGZO/HfO2 전하 포획 메모리를 300 °C에서 후열처리했을 때 DP-ALD와 RP-ALD의 메모리 창과 10년 보존율은 각각 얼마였습니까? 보존율은 외삽값임을 밝혀 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC13303718:M2",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0029"
+        ],
+        "quote": "300 | DP | 11.46 | 2 | 0.211 | 4 | 4.04 × 107 | 2.46",
+        "value": "2",
+        "unit": "V"
+      },
+      {
+        "measurement_id": "PMC13303718:M20",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0029"
+        ],
+        "quote": "RP | 11.95 | 10.4 | 0.212 | 1.4 | 8.38 × 106 | 1.41",
+        "value": "10.4",
+        "unit": "V"
+      },
+      {
+        "measurement_id": "PMC13303718:M39",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "quote": "retention rates of 49%, 81%, and 29% under the 300, 500, and 700 °C conditions, respectively.",
+        "value": "49",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC13303718:M42",
+        "doc_id": "PMC13303718",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "quote": "the RP devices annealed at 300, 500, and 700 °C retained approximately 96%, 98%, and 95% of their initial memory windows after 10 years, respectively.",
+        "value": "approximately 96",
+        "unit": "%"
+      }
+    ]
+  },
+  {
+    "id": "Q04",
+    "question": "HfO2/Al2O3/TiO2 메모리 연구에서 500 °C 열처리 후 DP와 RP 막의 절연파괴 전계는 얼마였고, 각 메모리 소자의 10년 외삽 보존 과정에서 평탄대 전압 이동량은 얼마나 감소했습니까? 시험 대상을 구분해 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC11901223:M8",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "quote": "The voltages determined for the DP films (9, 11, and 8 MV/cm at 400, 500, and 600 °C, respectively)",
+        "value": "11",
+        "unit": "MV/cm"
+      },
+      {
+        "measurement_id": "PMC11901223:M11",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "quote": "were lower than those obtained for the RP films (11, 13, and 10 MV/cm at 400, 500, and 600 °C, respectively)",
+        "value": "13",
+        "unit": "MV/cm"
+      },
+      {
+        "measurement_id": "PMC11901223:M13",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "quote": "For the DP HfO2 CTM device, ∆VFB decreased by 43% over 10 years (from 4.4 to 2.5 V)",
+        "value": "43% over 10 years (from 4.4 to 2.5)",
+        "unit": "%, V"
+      },
+      {
+        "measurement_id": "PMC11901223:M14",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "quote": "the RP HfO2 CTM device exhibited a smaller decrease of 34% (from 6.4 to 4.2 V).",
+        "value": "34% over 10 years (from 6.4 to 4.2)",
+        "unit": "%, V"
+      }
+    ]
+  },
+  {
+    "id": "Q05",
+    "question": "Si 위 PEALD HfO2의 증착 온도를 100 °C에서 300 °C로 바꾼 연구에서 사이클당 성장량과 AFM 표면 거칠기는 어떻게 달라졌습니까?",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC9656191:M1",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "quote": "The GPC is approximately 0.13 nm/cycle at a substrate temperature of 100 °C.",
+        "value": "approximately 0.13",
+        "unit": "nm/cycle"
+      },
+      {
+        "measurement_id": "PMC9656191:M3",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "quote": "When the substrate temperature is varied from 200 °C to 300 °C, the GPC has almost no change, nearly 0.09 nm/cycle",
+        "value": "nearly 0.09",
+        "unit": "nm/cycle"
+      },
+      {
+        "measurement_id": "PMC9656191:M16",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "quote": "The RMS value for HfO2 films grown at a substrate temperature of 100 °C is about 0.2 nm.",
+        "value": "about 0.2",
+        "unit": "nm"
+      },
+      {
+        "measurement_id": "PMC9656191:M17",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "quote": "when the substrate temperature increases to 300 °C, the RMS value experiences a big jump, with a value of approximately 1.4 nm.",
+        "value": "approximately 1.4",
+        "unit": "nm"
+      }
+    ]
+  },
+  {
+    "id": "Q06",
+    "question": "n-InGaAs 위 Al2O3 MOS 커패시터를 250 °C에서 만들 때 퍼지를 20초에서 5초로 줄이면 막 두께와 유효 유전율은 각각 어떻게 바뀌었습니까?",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC7767157:M2",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "quote": "The thicknesses of the films deposited at 200, 250, and 300 °C (purge time of 20 s) were 4.2, 3.9, and 3.5 nm, respectively",
+        "value": "3.9",
+        "unit": "nm"
+      },
+      {
+        "measurement_id": "PMC7767157:M4",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "quote": "those of the films deposited with purge times of 5, 10, and 15 s (deposition temperature of 250 °C) were 3.3, 3.4, and 3.8 nm, respectively",
+        "value": "3.3",
+        "unit": "nm"
+      },
+      {
+        "measurement_id": "PMC7767157:M8",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "quote": "the calculated keffective values of the films deposited at 200, 250, and 300 °C are 6.93, 6.71, and 6.26, respectively",
+        "value": "6.71",
+        "unit": "dimensionless"
+      },
+      {
+        "measurement_id": "PMC7767157:M10",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "quote": "the keffective values of the films deposited with purge times of 5, 10, 15, and 20 s are 5.091, 5.23, 5.51, and 6.71, respectively",
+        "value": "5.091",
+        "unit": "dimensionless"
+      }
+    ]
+  },
+  {
+    "id": "Q07",
+    "question": "Al2O3 성장 온도가 80 °C인 막과 250 °C인 막에서 성장률과 평균 절연파괴 전계는 각각 얼마였습니까? 성장률 시료와 전기 측정용 MIM 시료를 구분해 주세요.",
+    "kind": "single_paper",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC8948174:M1",
+        "doc_id": "PMC8948174",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "quote": "The growth rate of the Al2O3 film increased from ~ 0.9 Å/cycle at 80 °C",
+        "value": "~0.9",
+        "unit": "Å/cycle"
+      },
+      {
+        "measurement_id": "PMC8948174:M2",
+        "doc_id": "PMC8948174",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "quote": "provide a growth rate of ~ 1.1 Å/cycle at growth temperatures above 150 °C",
+        "value": "~1.1",
+        "unit": "Å/cycle"
+      },
+      {
+        "measurement_id": "PMC8948174:M3",
+        "doc_id": "PMC8948174",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "quote": "Average EBD (MV/cm)6.87.78.38.5",
+        "value": "6.8",
+        "unit": "MV/cm"
+      },
+      {
+        "measurement_id": "PMC8948174:M6",
+        "doc_id": "PMC8948174",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "quote": "Average EBD (MV/cm)6.87.78.38.5",
+        "value": "8.5",
+        "unit": "MV/cm"
+      }
+    ]
+  },
+  {
+    "id": "Q08",
+    "question": "ALD 퍼지 시간을 줄여 공정 시간을 단축하려면 HfO2와 Al2O3 실험에서 막 성장과 전기적 품질에 어떤 변화가 있었는지 확인해야 합니까? 두 연구의 시료와 평가 지표를 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10254648:M6",
+        "doc_id": "PMC10254648",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "quote": "at temperatures of 200 and 350 °C, the GPC increases from 1.2 to 1.3 and from 1.3 to 1.6 Å/cycle, respectively",
+        "value": "1.3",
+        "unit": "Å/cycle"
+      },
+      {
+        "measurement_id": "PMC10254648:M18",
+        "doc_id": "PMC10254648",
+        "paragraph_ids": [
+          "PMC10254648:p0024"
+        ],
+        "quote": "short purge | 1.91 | 5.8 | 4",
+        "value": "1.91",
+        "unit": "atomic ratio"
+      },
+      {
+        "measurement_id": "PMC7767157:M4",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0008"
+        ],
+        "quote": "those of the films deposited with purge times of 5, 10, and 15 s (deposition temperature of 250 °C) were 3.3, 3.4, and 3.8 nm, respectively",
+        "value": "3.3",
+        "unit": "nm"
+      },
+      {
+        "measurement_id": "PMC7767157:M10",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0010"
+        ],
+        "quote": "the keffective values of the films deposited with purge times of 5, 10, 15, and 20 s are 5.091, 5.23, 5.51, and 6.71, respectively",
+        "value": "5.091",
+        "unit": "dimensionless"
+      }
+    ]
+  },
+  {
+    "id": "Q09",
+    "question": "HZO 강유전체의 분극을 높이려는 연구와 HfO2 절연막의 유전율을 평가한 연구에서 각각 어떤 수치를 보고했습니까? 두 연구의 시료, 측정 목적과 지표를 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC8839501:M3",
+        "doc_id": "PMC8839501",
+        "paragraph_ids": [
+          "PMC8839501:p0016"
+        ],
+        "quote": "increased significantly from 12 μC/cm2 to 38.2 μC/cm2 as the deposition temperature increased from 100 °C to 180 °C",
+        "value": "38.2",
+        "unit": "μC/cm2"
+      },
+      {
+        "measurement_id": "PMC9656191:M18",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0016"
+        ],
+        "quote": "the highest obtained k value of 18.21 at the substrate temperature of 300 °C",
+        "value": "18.21",
+        "unit": "dimensionless"
+      }
+    ]
+  },
+  {
+    "id": "Q10",
+    "question": "InGaAs 계면을 다룬 두 Al2O3 연구에서 초기 TMA 투입량 변화에 따른 최소 계면 트랩 밀도와 퍼지 시간 변화에 따른 경계 트랩 밀도를 각각 제시해 주세요. 두 트랩 지표의 단위와 측정 조건을 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC5448916:M8",
+        "doc_id": "PMC5448916",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "quote": "the minimum Dit was 3.1 × 1012 cm−2eV−1 for the standard dosage",
+        "value": "3.1 × 10^12",
+        "unit": "cm−2 eV−1"
+      },
+      {
+        "measurement_id": "PMC5448916:M9",
+        "doc_id": "PMC5448916",
+        "paragraph_ids": [
+          "PMC5448916:p0012"
+        ],
+        "quote": "this was reduced to 1.2 × 1012 cm−2eV−1 by using a high TMA dosage for the first two cycles.",
+        "value": "1.2 × 10^12",
+        "unit": "cm−2 eV−1"
+      },
+      {
+        "measurement_id": "PMC7767157:M14",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "quote": "The Nbt values measured at the deposition temperatures of 200, 250, and 300 °C with a purge time of 20 s are 1.28 × 1020, 1.1 × 1020, and 1 × 1020 cm−3eV−1, respectively.",
+        "value": "1.1 × 10^20",
+        "unit": "cm−3eV−1"
+      },
+      {
+        "measurement_id": "PMC7767157:M16",
+        "doc_id": "PMC7767157",
+        "paragraph_ids": [
+          "PMC7767157:p0012"
+        ],
+        "quote": "The Nbt values measured for purge times of 5, 10, 15, and 20 s at the deposition temperature of 250 °C are 1.18 × 1020, 1.23 × 1020, 1.48 × 1020, and 1.1 × 1020 cm−3eV−1, respectively.",
+        "value": "1.18 × 10^20",
+        "unit": "cm−3eV−1"
+      }
+    ]
+  },
+  {
+    "id": "Q11",
+    "question": "3C-SiC 위 Al2O3/SiO2 절연막 연구와 Ge 위 LaxAlyO 산소 전구체 연구는 계면과 전하 포획을 각각 어떤 수치로 평가했습니까? 측정 지표가 달라 직접적인 성능 순위로 해석할 수 없는 이유를 밝혀 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10456437:M10",
+        "doc_id": "PMC10456437",
+        "paragraph_ids": [
+          "PMC10456437:p0012"
+        ],
+        "quote": "the PE-Al2O3/SiO2/3C-SiC sample showed a lower Dit distribution close to the 3C-SiC conduction band edge in the order of 5 × 1011 cm−2 eV−1",
+        "value": "close to 5 × 10^11",
+        "unit": "cm−2 eV−1"
+      },
+      {
+        "measurement_id": "PMC5578222:M10",
+        "doc_id": "PMC5578222",
+        "paragraph_ids": [
+          "PMC5578222:p0012"
+        ],
+        "quote": "The hysteresis width (ΔVFB) extracted from the dual-swept C-V curves for MIS capacitors S1 and S2 are 154 and 95 mV, respectively.",
+        "value": "154",
+        "unit": "mV"
+      },
+      {
+        "measurement_id": "PMC5578222:M11",
+        "doc_id": "PMC5578222",
+        "paragraph_ids": [
+          "PMC5578222:p0012"
+        ],
+        "quote": "The hysteresis width (ΔVFB) extracted from the dual-swept C-V curves for MIS capacitors S1 and S2 are 154 and 95 mV, respectively.",
+        "value": "95",
+        "unit": "mV"
+      }
+    ]
+  },
+  {
+    "id": "Q12",
+    "question": "서로 다른 두 HfO2 플라즈마 ALD 연구에서 DP와 RP 막의 비화학양론 성분은 각각 얼마였습니까? 각 논문이 사용한 XPS 지표와 시료를 구분하고 수치를 단순 합산하지 마세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10254822:M6",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0009"
+        ],
+        "quote": "the percentages of non-stoichiometric HfO2−x in DP- and RP-HfO2 thin films were 25.00 and 17.85%, respectively.",
+        "value": "25.00",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC10254822:M7",
+        "doc_id": "PMC10254822",
+        "paragraph_ids": [
+          "PMC10254822:p0009"
+        ],
+        "quote": "the percentages of non-stoichiometric HfO2−x in DP- and RP-HfO2 thin films were 25.00 and 17.85%, respectively.",
+        "value": "17.85",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC11901223:M19",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0014"
+        ],
+        "quote": "The fractions of nonstoichiometric oxygen defects (represented by Hfx+ and Hf0) in the DP and RP HfO2 thin films were calculated as 17.0% and 13.6%, respectively.",
+        "value": "17.0",
+        "unit": "%"
+      },
+      {
+        "measurement_id": "PMC11901223:M20",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0014"
+        ],
+        "quote": "The fractions of nonstoichiometric oxygen defects (represented by Hfx+ and Hf0) in the DP and RP HfO2 thin films were calculated as 17.0% and 13.6%, respectively.",
+        "value": "13.6",
+        "unit": "%"
+      }
+    ]
+  },
+  {
+    "id": "Q13",
+    "question": "HfO2/Al2O3/TiO2 메모리 구조의 500 °C 열처리 결과와 Al2O3 MIM 막의 80 °C 및 250 °C 성장 결과에서 절연파괴 전계는 각각 얼마였습니까? 서로 다른 구조와 시험 조건을 밝혀 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC11901223:M8",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "quote": "The voltages determined for the DP films (9, 11, and 8 MV/cm at 400, 500, and 600 °C, respectively)",
+        "value": "11",
+        "unit": "MV/cm"
+      },
+      {
+        "measurement_id": "PMC11901223:M11",
+        "doc_id": "PMC11901223",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "quote": "were lower than those obtained for the RP films (11, 13, and 10 MV/cm at 400, 500, and 600 °C, respectively)",
+        "value": "13",
+        "unit": "MV/cm"
+      },
+      {
+        "measurement_id": "PMC8948174:M3",
+        "doc_id": "PMC8948174",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "quote": "Average EBD (MV/cm)6.87.78.38.5",
+        "value": "6.8",
+        "unit": "MV/cm"
+      },
+      {
+        "measurement_id": "PMC8948174:M6",
+        "doc_id": "PMC8948174",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "quote": "Average EBD (MV/cm)6.87.78.38.5",
+        "value": "8.5",
+        "unit": "MV/cm"
+      }
+    ]
+  },
+  {
+    "id": "Q14",
+    "question": "HZO의 DPALD/RPALD 비교 연구와 저온 PEALD 공정 B 연구에서 피로 수명을 각각 어떻게 보고했습니까? 열처리와 시험 조건이 다른 결과임을 구분해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10005305:M7",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "quote": "The HZO thin film deposited by the DPALD method had a lifespan ranging from 105 to 106 cycles",
+        "value": "10⁵ to 10⁶",
+        "unit": "cycles"
+      },
+      {
+        "measurement_id": "PMC10005305:M8",
+        "doc_id": "PMC10005305",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "quote": "the HZO thin film deposited by the RPALD method showed an excellent fatigue endurance property of more than 107 cycles and exhibited a lifespan longer than 107 cycles, even when the RTA time increased to 60 s",
+        "value": "more than 10⁷",
+        "unit": "cycles"
+      },
+      {
+        "measurement_id": "PMC8839501:M7",
+        "doc_id": "PMC8839501",
+        "paragraph_ids": [
+          "PMC8839501:p0023"
+        ],
+        "quote": "when process B was applied, the highest endurance of 2.5 × 107 cycles was measured",
+        "value": "2.5 × 107",
+        "unit": "cycles"
+      }
+    ]
+  },
+  {
+    "id": "Q15",
+    "question": "서로 다른 HfO2와 Al2O3 성장 연구에서 약 100 °C 또는 80 °C 저온 조건의 사이클당 성장량은 각각 얼마였습니까? TDMAH/H2O, PEALD HfO2, Al2O3 시료의 조건과 원래 단위를 유지해 주세요.",
+    "kind": "multiple_papers",
+    "required_measurements": [
+      {
+        "measurement_id": "PMC10254648:M2",
+        "doc_id": "PMC10254648",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "quote": "The GPC value stabilizes at 1.3 and 1.2 Å per cycle when the growth temperature is in the range of 100–135 °C and 180–240 °C, respectively",
+        "value": "1.3",
+        "unit": "Å per cycle"
+      },
+      {
+        "measurement_id": "PMC9656191:M1",
+        "doc_id": "PMC9656191",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "quote": "The GPC is approximately 0.13 nm/cycle at a substrate temperature of 100 °C.",
+        "value": "approximately 0.13",
+        "unit": "nm/cycle"
+      },
+      {
+        "measurement_id": "PMC8948174:M1",
+        "doc_id": "PMC8948174",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "quote": "The growth rate of the Al2O3 film increased from ~ 0.9 Å/cycle at 80 °C",
+        "value": "~0.9",
+        "unit": "Å/cycle"
+      }
+    ]
+  }
+]
