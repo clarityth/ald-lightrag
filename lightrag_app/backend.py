@@ -427,7 +427,7 @@ async def prepare(question, mode="graph"):
     doc_ids = {c["doc_id"] for c in chunks}
     documents = [{k:d[k] for k in ("id","title","url","license")} for d in dataset["documents"] if d["id"] in doc_ids]
     context_tokens = len(tiktoken.encoding_for_model("gpt-4o-mini").encode(_context(chunks)))
-    if context_tokens > CONTEXT_LIMIT:
+    if context_tokens > (GRAPH_LIMIT if mode in {"naive", "graph"} else CONTEXT_LIMIT):
         raise RuntimeError("문맥 상한을 초과했습니다.")
     return {"question":question.strip(), "chunks":chunks, "documents":documents,
             "experiments":experiments,"measurements":measurements,"paths":paths,
