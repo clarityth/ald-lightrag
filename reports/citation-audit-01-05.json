@@ -1,0 +1,978 @@
+[
+  {
+    "question_id": "Q01",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "HZO의 열처리 온도 700 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0009"
+        ],
+        "reason": "700 °C 열처리 시료의 XRD 비교가 원문에 명시됨"
+      },
+      {
+        "text": "DPALD-HZO 피로 수명 10⁵~10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "700 °C RTA 시간 변화 시험의 DPALD 수명 범위"
+      },
+      {
+        "text": "RPALD-HZO 피로 수명 10⁷회 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "같은 시험의 RPALD 수명 하한"
+      },
+      {
+        "text": "RPALD-HZO의 RTA 시간 60초까지",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "60초에서도 수명 하한을 유지했다고 명시됨"
+      },
+      {
+        "text": "피로 시험 펄스 ±3 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "피로 시험의 인가 전압"
+      },
+      {
+        "text": "피로 시험 펄스 10 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "피로 시험의 구형 펄스 주파수"
+      }
+    ]
+  },
+  {
+    "question_id": "Q01",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "결정상 분석 시료의 열처리 온도 700 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0009"
+        ],
+        "reason": "700 °C 처리 후 XRD 피크 분리"
+      },
+      {
+        "text": "피로 시험 펄스 ±3 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "피로 시험의 인가 전압"
+      },
+      {
+        "text": "피로 시험 펄스 10 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "피로 시험의 구형 펄스 주파수"
+      },
+      {
+        "text": "피로 시험 시료의 열처리 온도 700 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "해당 RTA 시간별 시험의 온도"
+      },
+      {
+        "text": "DPALD-HZO 피로 수명 10⁵~10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "DPALD 시료의 보고 범위"
+      },
+      {
+        "text": "RPALD-HZO RTA 시간 60초까지",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "해당 시간까지 수명 하한 유지"
+      },
+      {
+        "text": "RPALD-HZO 피로 수명 10⁷회 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "RTA 시간별 시험의 RPALD 수명"
+      },
+      {
+        "text": "RPALD-HZO 측정 온도별 피로 수명 10⁷회 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "별도 측정 온도 시험의 RPALD 수명"
+      },
+      {
+        "text": "RPALD-HZO 측정 온도 20~60 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "10⁷회 초과 수명을 유지한 온도 범위"
+      },
+      {
+        "text": "고온 측정 온도 80~100 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "수명 감소를 보고한 측정 온도 범위"
+      }
+    ]
+  },
+  {
+    "question_id": "Q01",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "PEALD HZO의 사방정계 우세 조건인 후열처리 600 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0010"
+        ],
+        "reason": "PEALD 연구의 600 °C 후열처리 XRD 관찰"
+      },
+      {
+        "text": "PEALD HZO 피로 시험의 열처리 온도 700 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "후열처리 온도별 피로 시험에서 700 °C 시료"
+      },
+      {
+        "text": "PEALD HZO의 700 °C 시료 피로 수명 1.6 × 10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "같은 시료의 최저 피로 수명"
+      }
+    ]
+  },
+  {
+    "question_id": "Q02",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "MIS 전하 포획 밀도 스윕 ±5 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0008"
+        ],
+        "reason": "DP/RP MIS 커패시터 Nt 산출 조건"
+      },
+      {
+        "text": "MIS C–V 측정 주파수 1 MHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0007"
+        ],
+        "reason": "MIS 커패시터 양방향 C–V 주파수"
+      },
+      {
+        "text": "MIS 결과를 제시할 때 반복한 스윕 조건 ±5 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0008"
+        ],
+        "reason": "답변 두 번째 ±5 V 언급도 같은 MIS Nt 산출 조건에 해당함"
+      },
+      {
+        "text": "DP-HfO₂ MIS 포획 밀도 4.48 × 10¹² cm⁻²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0008"
+        ],
+        "reason": "±5 V 스윕의 DP Nt"
+      },
+      {
+        "text": "RP-HfO₂ MIS 포획 밀도 1.25 × 10¹³ cm⁻²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0008"
+        ],
+        "reason": "±5 V 스윕의 RP Nt"
+      },
+      {
+        "text": "CTM Dit 평가 저주파 1 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0013"
+        ],
+        "reason": "CTM 고저주파 C–V의 저주파 조건"
+      },
+      {
+        "text": "CTM Dit 평가 고주파 1 MHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0013"
+        ],
+        "reason": "CTM 고저주파 C–V의 고주파 조건"
+      },
+      {
+        "text": "DP-HfO₂ CTM 중간갭 Dit 5.53 × 10¹² cm⁻²·eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0014"
+        ],
+        "reason": "CTM 구조의 DP 중간갭 Dit"
+      },
+      {
+        "text": "RP-HfO₂ CTM 중간갭 Dit 1.18 × 10¹² cm⁻²·eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0014"
+        ],
+        "reason": "CTM 구조의 RP 중간갭 Dit"
+      }
+    ]
+  },
+  {
+    "question_id": "Q02",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "전하 포획 밀도 측정 스윕 ±7 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0019"
+        ],
+        "reason": "TiO₂ 채널 HfO₂ 커패시터의 평가 조건"
+      },
+      {
+        "text": "DP-HfO₂ 포획 밀도 2.84 × 10¹³ cm⁻²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0019"
+        ],
+        "reason": "±7 V에서 DP 시료의 Nt"
+      },
+      {
+        "text": "RP-HfO₂ 포획 밀도 4.44 × 10¹³ cm⁻²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0019"
+        ],
+        "reason": "±7 V에서 RP 시료의 Nt"
+      },
+      {
+        "text": "CTM 평탄대 전압 비교 스윕 ±6 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "별도 CTM 문단에 이 스윕 조건이 있음"
+      },
+      {
+        "text": "CTM 평탄대 전압 비교 스윕 ±12 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0015"
+        ],
+        "reason": "별도 CTM 문단에 이 스윕 조건이 있음"
+      },
+      {
+        "text": "TiO₂ 채널 커패시터 C–V 측정 1 MHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0018"
+        ],
+        "reason": "전하 포획 밀도 산출 전 C–V 측정 주파수"
+      }
+    ]
+  },
+  {
+    "question_id": "Q02",
+    "mode": "graph",
+    "claims": []
+  },
+  {
+    "question_id": "Q03",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "IGZO/HfO₂ CTM 후열처리 온도 300 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0009"
+        ],
+        "reason": "PDA 온도 계열에 300 °C 포함"
+      },
+      {
+        "text": "300 °C DP-ALD 메모리 창 2.0 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0029"
+        ],
+        "reason": "표의 300 °C DP 행 메모리 창 2 V"
+      },
+      {
+        "text": "300 °C RP-ALD 메모리 창 10.4 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0029"
+        ],
+        "reason": "표의 300 °C RP 행 메모리 창 10.4 V"
+      },
+      {
+        "text": "실온 보존율 외삽 기간 10년",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "보존 특성은 10년까지 외삽됨"
+      },
+      {
+        "text": "300 °C DP-ALD 10년 보존율 49%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "DP 시료 300 °C 조건의 보존율"
+      },
+      {
+        "text": "300 °C RP-ALD 10년 보존율 약 96%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "RP 시료 300 °C 조건의 보존율"
+      }
+    ]
+  },
+  {
+    "question_id": "Q03",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "외삽 보존율의 PDA 조건 300 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "해당 보존율은 300 °C 처리 시료에 귀속됨"
+      },
+      {
+        "text": "보존율 외삽 기간 10년",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "10년 후 보존 특성 외삽"
+      },
+      {
+        "text": "DP-ALD 10년 보존율 약 49%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "DP 300 °C 시료 보존율 49%"
+      },
+      {
+        "text": "RP-ALD 10년 보존율 약 96%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0047"
+        ],
+        "reason": "RP 300 °C 시료 보존율 약 96%"
+      }
+    ]
+  },
+  {
+    "question_id": "Q03",
+    "mode": "graph",
+    "claims": []
+  },
+  {
+    "question_id": "Q04",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "절연파괴 시험 막의 열처리 온도 500 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "10 nm HfO₂의 열처리 온도 계열"
+      },
+      {
+        "text": "절연파괴 시험 HfO₂ 막 두께 약 10 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "해당 단층 막 두께 10 nm"
+      },
+      {
+        "text": "DP-HfO₂ 절연파괴 전계 11 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "DP 막의 500 °C 결과"
+      },
+      {
+        "text": "RP-HfO₂ 절연파괴 전계 13 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "RP 막의 500 °C 결과"
+      },
+      {
+        "text": "메모리 보존 외삽 기간 10년",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "CTM 보존 시험을 10년까지 외삽"
+      },
+      {
+        "text": "프로그램 펄스 +7 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "CTM 프로그램 조건"
+      },
+      {
+        "text": "소거 펄스 −7 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "CTM 소거 조건"
+      },
+      {
+        "text": "두 펄스의 인가 시간 각각 1초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "프로그램·소거 각각 1초"
+      },
+      {
+        "text": "감소값을 제시할 때 반복한 외삽 기간 10년",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "답변 두 번째 10년 언급도 CTM 보존 결과의 외삽 기간에 해당함"
+      },
+      {
+        "text": "DP ΔVFB 초기 4.4 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "DP CTM의 감소 시작값"
+      },
+      {
+        "text": "DP ΔVFB 10년 후 2.5 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "DP CTM의 외삽 종료값"
+      },
+      {
+        "text": "DP ΔVFB 감소율 43%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "DP CTM의 외삽 감소율"
+      },
+      {
+        "text": "RP ΔVFB 초기 6.4 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "RP CTM의 감소 시작값"
+      },
+      {
+        "text": "RP ΔVFB 10년 후 4.2 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "RP CTM의 외삽 종료값"
+      },
+      {
+        "text": "RP ΔVFB 감소율 34%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "RP CTM의 외삽 감소율"
+      }
+    ]
+  },
+  {
+    "question_id": "Q04",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "절연파괴 시료의 열처리 온도 500 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "10 nm HfO₂ 열처리 결과"
+      },
+      {
+        "text": "절연파괴 시험 HfO₂ 막 두께 10 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "원문 막 두께"
+      },
+      {
+        "text": "전압 스윕 0–15 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "절연파괴 시험의 전압 범위"
+      },
+      {
+        "text": "전압 스윕 간격 0.05 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "절연파괴 시험의 단계"
+      },
+      {
+        "text": "DP-HfO₂ 절연파괴 전계 11 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "DP 500 °C 결과"
+      },
+      {
+        "text": "RP-HfO₂ 절연파괴 전계 13 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "RP 500 °C 결과"
+      },
+      {
+        "text": "프로그램 펄스 +7 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "CTM 보존 시험 조건"
+      },
+      {
+        "text": "프로그램 펄스 시간 1초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "CTM 보존 시험 조건"
+      },
+      {
+        "text": "소거 펄스 −7 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "CTM 보존 시험 조건"
+      },
+      {
+        "text": "소거 펄스 시간 1초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "CTM 보존 시험 조건"
+      },
+      {
+        "text": "실측 보존 시간 10⁴초까지",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "실측한 보존 시간 상한"
+      },
+      {
+        "text": "보존 외삽 기간 10년",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "외삽 기간"
+      },
+      {
+        "text": "DP ΔVFB 초기 4.4 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "DP CTM의 시작값"
+      },
+      {
+        "text": "DP ΔVFB 10년 후 2.5 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "DP CTM의 종료값"
+      },
+      {
+        "text": "DP ΔVFB 감소율 43%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "DP CTM 감소율"
+      },
+      {
+        "text": "RP ΔVFB 초기 6.4 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "RP CTM의 시작값"
+      },
+      {
+        "text": "RP ΔVFB 10년 후 4.2 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "RP CTM의 종료값"
+      },
+      {
+        "text": "RP ΔVFB 감소율 34%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "RP CTM 감소율"
+      }
+    ]
+  },
+  {
+    "question_id": "Q04",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "별도 MIS HfO₂ 증착 온도 220 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0006"
+        ],
+        "reason": "DP/RP 단층 MIS 커패시터의 비교 조건"
+      },
+      {
+        "text": "DP MIS 절연파괴 전계가 RP보다 약 3 MV/cm 낮음",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0006"
+        ],
+        "reason": "220 °C 막의 상대 차이"
+      },
+      {
+        "text": "CTM 보존율 외삽 기간 10년",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "별도 CTM 보존 시험의 외삽 기간"
+      },
+      {
+        "text": "프로그램 펄스 +7 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "CTM 보존 시험 조건"
+      },
+      {
+        "text": "소거 펄스 −7 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "CTM 보존 시험 조건"
+      },
+      {
+        "text": "두 펄스의 인가 시간 각각 1초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "프로그램·소거 각각 1초"
+      },
+      {
+        "text": "DP ΔVFB 초기 4.4 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "DP CTM 시작값"
+      },
+      {
+        "text": "DP ΔVFB 10년 후 2.5 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "DP CTM 외삽값"
+      },
+      {
+        "text": "DP ΔVFB 감소율 43%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "DP CTM 감소율"
+      },
+      {
+        "text": "RP ΔVFB 초기 6.4 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "RP CTM 시작값"
+      },
+      {
+        "text": "RP ΔVFB 10년 후 4.2 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "RP CTM 외삽값"
+      },
+      {
+        "text": "RP ΔVFB 감소율 34%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0020"
+        ],
+        "reason": "RP CTM 감소율"
+      }
+    ]
+  },
+  {
+    "question_id": "Q05",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "GPC 비교 첫 증착 온도 100 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "reason": "100 °C PEALD HfO₂ 조건"
+      },
+      {
+        "text": "GPC 비교 둘째 증착 온도 300 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "reason": "300 °C PEALD HfO₂ 조건"
+      },
+      {
+        "text": "100 °C GPC 약 0.13 nm/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "reason": "해당 증착 온도의 GPC"
+      },
+      {
+        "text": "300 °C GPC 약 0.09 nm/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "reason": "해당 증착 온도의 GPC"
+      },
+      {
+        "text": "GPC가 거의 일정한 온도 구간 200–300 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "reason": "원문 ALD window 구간"
+      },
+      {
+        "text": "200–300 °C의 GPC 약 0.09 nm/사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "reason": "해당 구간의 GPC"
+      },
+      {
+        "text": "AFM 스캔 면적 1 × 1 μm²",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "탭핑 AFM 측정 영역"
+      },
+      {
+        "text": "100 °C AFM RMS 거칠기 약 0.2 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "100 °C의 AFM 결과"
+      },
+      {
+        "text": "300 °C AFM RMS 거칠기 약 1.4 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "300 °C의 AFM 결과"
+      }
+    ]
+  },
+  {
+    "question_id": "Q05",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "기판 온도 100 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0003"
+        ],
+        "reason": "PEALD HfO₂ 증착 조건"
+      },
+      {
+        "text": "기판 온도 300 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0003"
+        ],
+        "reason": "PEALD HfO₂ 증착 조건"
+      },
+      {
+        "text": "100 °C GPC 약 0.13 nm/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "reason": "100 °C의 선형 두께 기울기"
+      },
+      {
+        "text": "300 °C GPC 약 0.09 nm/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "reason": "300 °C의 거의 일정한 GPC"
+      },
+      {
+        "text": "AFM 스캔 면적 1 μm × 1 μm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "탭핑 AFM 측정 영역"
+      },
+      {
+        "text": "100 °C AFM RMS 거칠기 약 0.2 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "100 °C의 AFM 결과"
+      },
+      {
+        "text": "300 °C AFM RMS 거칠기 약 1.4 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "300 °C의 AFM 결과"
+      },
+      {
+        "text": "결정립 형성과 연관된 온도 300 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "300 °C의 거칠기 증가와 결정립 연관"
+      }
+    ]
+  },
+  {
+    "question_id": "Q05",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "AFM 스캔 면적 1 μm × 1 μm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "탭핑 AFM의 측정 영역"
+      },
+      {
+        "text": "AFM RMS 비교 첫 온도 100 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "100 °C의 AFM 결과"
+      },
+      {
+        "text": "100 °C AFM RMS 거칠기 약 0.2 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "100 °C의 AFM 결과"
+      },
+      {
+        "text": "AFM RMS 비교 둘째 온도 300 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "300 °C의 AFM 결과"
+      },
+      {
+        "text": "300 °C AFM RMS 거칠기 약 1.4 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0011"
+        ],
+        "reason": "300 °C의 AFM 결과"
+      }
+    ]
+  }
+]

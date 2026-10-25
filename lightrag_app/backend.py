@@ -14,16 +14,28 @@ from lightrag import LightRAG, QueryParam
 from lightrag.utils import EmbeddingFunc
 
 import provider
-from lightrag_app.experiments import VERSION as EXTRACTION_VERSION, extract_all
+from lightrag_app.experiments import VERSION as EXTRACTION_VERSION
+from lightrag_app.concepts import build_concepts, match_query
+from lightrag_app.selection import select_measurements
 
 
 ROOT = Path(__file__).resolve().parent
 DATASET = ROOT.parent / "mechanism_poc/sources/dataset.json"
-STORE = ROOT / "storage-experiments-v3"
+STORE = ROOT / "storage-graph-v1"
 MARKER = STORE / "index.json"
 RECORDS = STORE / "experiments.json"
 ANSWER_MODEL = "gpt-6-sol"
 CONTEXT_LIMIT = 128000
+GRAPH_LIMIT = 16000
+SOURCE_RECORDS = ROOT.parent / "data/experiments.json"
+ANSWER_PROMPT = (
+    "제공된 근거로 질문에 한국어로 답하세요. 문헌별 시료, 공정 조건과 측정 조건을 구분하고 핵심 결과와 수치를 간결하게 설명하세요. "
+    "각 수치와 주장 바로 뒤에 그 내용을 뒷받침하는 근거 번호 [1]을 붙이세요. 여러 값은 각각 맞는 번호를 사용하세요. "
+    "구조화된 측정 청크가 있는 값은 해당 청크를, 그렇지 않은 값은 원문 문단을 인용하세요. 어느 형식의 근거도 동일하게 유효합니다. "
+    "같은 논문에서도 다른 시료의 조건을 옮기지 말고 MIS/MOS 구조만으로 응용 목적을 추정하지 마세요. "
+    "서로 다른 논문의 인과를 단정하지 말고 근거가 없는 내용은 구체적으로 한정하세요. 방법과 결과를 함께 읽고 질문에 직접 답하세요. "
+    "평문 단락과 개별 인용 [1][2]를 사용하고 인용 범위 표기는 사용하지 마세요."
+)
 CHUNK_ID = re.compile(r"^\[([^\]]+)\] ")
 CALLS = contextvars.ContextVar("lightrag_calls", default=None)
 PLAN_PROMPT = (
@@ -203,16 +215,26 @@ def _payload(dataset, records=None):
                 "description": description, "keywords": measurement["metric"],
                 "source_id": source_id, "file_path": measurement["doc_id"],
             })
+    if records:
+        concepts = build_concepts(records)
+        entities.update({e["entity_name"]: e for e in concepts["entities"]})
+        relationships.extend(concepts["relationships"])
     return {"chunks": chunks, "entities": list(entities.values()), "relationships": relationships}
+
+
+def index_signature():
+    dictionary = ROOT.parent / "config/concepts.json"
+    return hashlib.sha256(DATASET.read_bytes() + SOURCE_RECORDS.read_bytes() + dictionary.read_bytes()).hexdigest()
 
 
 async def _index():
     dataset_bytes = DATASET.read_bytes()
     digest = hashlib.sha256(dataset_bytes).hexdigest()
-    if MARKER.exists() and RECORDS.exists() and (marker := json.loads(MARKER.read_text())).get("dataset_sha256") == digest and marker.get("extraction_version") == EXTRACTION_VERSION:
+    if MARKER.exists() and RECORDS.exists() and (marker := json.loads(MARKER.read_text())).get("dataset_sha256") == digest and marker.get("extraction_version") == EXTRACTION_VERSION and marker.get("graph_signature") == index_signature():
         return
     dataset = json.loads(dataset_bytes)
-    records = extract_all(dataset["documents"])
+    records = json.loads(SOURCE_RECORDS.read_text())
+    records.update(rejected=0, purpose_rejected=0, calls=[])
     failures = [call for call in records["calls"] if "error" in call]
     if failures or not records["experiments"] or not records["measurements"]:
         raise RuntimeError(f"실험군 추출이 완료되지 않았습니다: {len(failures)}편 실패, {len(records['experiments'])}개 실험군, {len(records['measurements'])}개 측정")
@@ -227,6 +249,7 @@ async def _index():
     RECORDS.write_text(json.dumps(records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     MARKER.write_text(json.dumps({
         "dataset_sha256": digest,
+        "graph_signature": index_signature(),
         "extraction_version": EXTRACTION_VERSION,
         "documents": len(dataset["documents"]),
         "chunks": len(payload["chunks"]),
@@ -317,158 +340,114 @@ def _fit_context(raw_chunks, fact_chunks, retrieved_ids, selected_doc_ids, limit
     return final, omitted_paragraphs, omitted_measurements, len(encoding.encode(_context(final)))
 
 
-async def _ask(question: str):
+def raw_chunks(dataset, ids=None):
+    return [{"id":p["id"], "doc_id":d["id"], "title":d["title"], "url":d["url"],
+             "section":p["section"], "text":p["text"]}
+            for d in dataset["documents"] for p in d["paragraphs"] if ids is None or p["id"] in ids]
+
+
+def graph_context(dataset, records, measurements, limit=GRAPH_LIMIT):
+    paragraphs = {p["id"]:(d,p) for d in dataset["documents"] for p in d["paragraphs"]}
+    encoding = tiktoken.encoding_for_model("gpt-4o-mini")
+    kept, chunks = [], []
+    for measurement in measurements:
+        trial = kept + [measurement]
+        experiments = [e for e in records["experiments"] if e["id"] in {m["experiment_id"] for m in trial}]
+        ids = {pid for m in trial for pid in m["source_ids"]}
+        ids.update(pid for e in experiments for pid in e["source_ids"])
+        ids.update(item["paragraph_id"] for e in experiments for item in e.get("purpose_evidence", []))
+        candidate = _measurement_chunks(trial, experiments, paragraphs) + raw_chunks(dataset, ids)
+        if len(encoding.encode(_context(candidate))) <= limit:
+            kept, chunks = trial, candidate
+    return kept, chunks
+
+
+async def prepare(question, mode="graph"):
     if not isinstance(question, str) or not question.strip():
         raise ValueError("질문을 입력해 주세요.")
-    if not MARKER.exists():
-        raise RuntimeError("LightRAG 색인이 없습니다. 먼저 index()를 실행하세요.")
-    if not RECORDS.exists():
-        raise RuntimeError("실험군 연결 기록이 없습니다. 먼저 index()를 실행하세요.")
-    marker = json.loads(MARKER.read_text())
-    if marker["dataset_sha256"] != hashlib.sha256(DATASET.read_bytes()).hexdigest() or marker.get("extraction_version") != EXTRACTION_VERSION:
-        raise RuntimeError("원문 데이터가 바뀌었습니다. 색인을 다시 생성하세요.")
-
-    started = time.perf_counter()
-    calls = []
+    if mode not in {"all", "naive", "graph", "full_documents"}:
+        raise ValueError("지원하지 않는 검색 방식입니다.")
     dataset = _dataset()
-    records = json.loads(RECORDS.read_text(encoding="utf-8"))
-    paragraphs = {
-        p["id"]: (d, p) for d in dataset["documents"] for p in d["paragraphs"]
-    }
-    queries = await _search_queries(question.strip(), calls)
-    token = CALLS.set(calls)
-    try:
+    records = json.loads(SOURCE_RECORDS.read_text())
+    graph = build_concepts(records)
+    calls, sdk_data, retrieved_ids = [], {}, []
+    concepts = match_query(question)
+    if mode != "all":
+        if not MARKER.exists():
+            raise RuntimeError("LightRAG 색인이 없습니다. 먼저 index 명령을 실행하세요.")
+        marker = json.loads(MARKER.read_text())
+        if marker["dataset_sha256"] != hashlib.sha256(DATASET.read_bytes()).hexdigest() or marker.get("graph_signature") != index_signature():
+            raise RuntimeError("원문 데이터가 바뀌었습니다. 색인을 다시 생성하세요.")
+        labels = {e["entity_name"]:e["description"] for e in graph["entities"]}
+        keywords = [labels[c] for c in concepts if c in labels] or [question]
+        token = CALLS.set(calls)
         rag = _rag()
         await rag.initialize_storages()
         try:
-            param = QueryParam(mode="mix", top_k=20, chunk_top_k=10, enable_rerank=False)
-            results = [await rag.aquery_data(query, param=param) for query in queries]
+            result = await rag.aquery_data(question, param=QueryParam(
+                mode="naive" if mode == "naive" else "mix", top_k=40, chunk_top_k=10,
+                hl_keywords=keywords, ll_keywords=keywords,
+                max_entity_tokens=12000, max_relation_tokens=12000, max_total_tokens=30000,
+                enable_rerank=False))
         finally:
             await rag.finalize_storages()
-    finally:
-        CALLS.reset(token)
-    retrieval_seconds = time.perf_counter() - started
-    for result in results:
+            CALLS.reset(token)
         if result.get("status") == "failure":
             raise RuntimeError(f"LightRAG 검색 실패: {result.get('message', '원인 미상')}")
-
-    groups = [result.get("data", {}).get("chunks", []) for result in results]
-    retrieved_chunks = []
-    seen_chunks = set()
-    for rank in range(max(map(len, groups), default=0)):
-        for group in groups:
-            if rank >= len(group):
-                continue
-            retrieved = group[rank]
-            key = retrieved.get("chunk_id") or retrieved.get("content")
-            if key not in seen_chunks:
-                seen_chunks.add(key)
-                retrieved_chunks.append(retrieved)
-
-    chunks = []
-    for retrieved in retrieved_chunks:
-        match = CHUNK_ID.match(retrieved.get("content", ""))
-        if not match or match.group(1) not in paragraphs:
-            raise RuntimeError("LightRAG 검색 청크를 원문 ID에 연결할 수 없습니다.")
-        doc, paragraph = paragraphs[match.group(1)]
-        if retrieved.get("file_path") != doc["id"] or paragraph["text"] not in retrieved["content"]:
-            raise RuntimeError(f"LightRAG 검색 청크의 원문 검증에 실패했습니다: {paragraph['id']}")
-        chunks.append({
-            "id": paragraph["id"],
-            "doc_id": doc["id"],
-            "title": doc["title"],
-            "url": doc["url"],
-            "section": paragraph["section"],
-            "text": paragraph["text"],
-        })
-
-    retrieved_chunk_ids = [chunk["id"] for chunk in chunks]
-    selected_doc_ids = list(dict.fromkeys(chunk["doc_id"] for chunk in chunks))
-    full_chunks = []
-    for doc_id in selected_doc_ids:
-        doc = next(doc for doc in dataset["documents"] if doc["id"] == doc_id)
-        full_chunks.extend({
-            "id": paragraph["id"], "doc_id": doc["id"],
-            "title": doc["title"], "url": doc["url"],
-            "section": paragraph["section"], "text": paragraph["text"],
-        } for paragraph in doc["paragraphs"])
-    seen_raw = set()
-    retrieved_source_chunks = []
-    for chunk in chunks:
-        if chunk["id"] not in seen_raw:
-            retrieved_source_chunks.append(chunk)
-            seen_raw.add(chunk["id"])
-    chunks = retrieved_source_chunks + [chunk for chunk in full_chunks if chunk["id"] not in seen_raw]
-
-    selected_experiments = [record for record in records["experiments"] if record["doc_id"] in selected_doc_ids]
-    selected_measurements = [record for record in records["measurements"] if record["doc_id"] in selected_doc_ids]
-    fact_chunks = _measurement_chunks(selected_measurements, selected_experiments, paragraphs)
-    chunks, omitted_ids, omitted_measurement_ids, context_tokens = _fit_context(
-        chunks, fact_chunks, retrieved_chunk_ids, selected_doc_ids
-    )
-    context = _context(chunks)
-    included_measurement_ids = {mid for chunk in chunks for mid in chunk.get("measurement_ids", [])}
-    selected_measurements = [m for m in selected_measurements if m["id"] in included_measurement_ids]
-
-    documents = []
-    seen = set()
-    for chunk in chunks:
-        if chunk["doc_id"] in seen:
-            continue
-        seen.add(chunk["doc_id"])
-        doc = next(d for d in dataset["documents"] if d["id"] == chunk["doc_id"])
-        documents.append({key: doc[key] for key in ("id", "title", "url", "license")})
-
-    if chunks:
-        answer, info = await asyncio.to_thread(
-            provider.generate,
-            "검색된 논문 원문과 원문 인용을 확인한 실험군·측정 연결을 근거로 한국어로 답하세요. 질문에 직접 답하는 핵심 결과와 수치를 간결하게 쓰고, 문헌별 시료와 공정·측정 조건을 구분하세요. "
-            "측정 수치를 적을 때는 각 값의 바로 뒤에 해당 측정 결과 ID의 근거 청크 번호를 붙이세요. 한 문장에 값이 여러 개면 값마다 별도 번호를 붙이고, 해당 측정 청크가 있는 수치를 원문 문단 번호 하나로만 묶어 인용하지 마세요. "
-            "같은 원문 문단에 여러 측정 결과가 있을 때도 반드시 해당 실험군에 연결된 측정 결과 번호를 고르세요. "
-            "측정 결과 연결이 없는 정성적 결과도 원문 문단에서 확인하고 해당 번호를 인용하세요. "
-            "실험군에 명시되지 않은 온도나 조건은 같은 논문의 다른 실험군에서도 가져오지 마세요. 장치 구조와 용도가 다른 실험의 결과는 별개의 연구 또는 실험으로 밝혀 주세요. "
-            "MIS나 MOS 같은 시험 구조 이름만으로 응용 용도를 추정하지 말고, 저자가 명시한 용도 또는 시험 구조 자체로 서술하세요. "
-            "측정 결과 연결이 없는 사실은 원문 문단 번호를 인용하세요. 불명확한 조건은 추정하지 마세요. "
-            "서로 다른 시료의 수치를 합치거나 논문 사이의 인과를 단정하지 마세요. "
-            "평문 단락으로 쓰고 Markdown 문법은 쓰지 마세요. 각 주장 뒤에 원문 번호 [1][2]처럼 개별 인용하세요. "
-            "[1]–[9] 같은 범위 표기는 쓰지 마세요. "
-            "정보가 없다고 단정하기 전에 제공된 방법과 결과 문단을 함께 확인하고, 평가 부재는 해당 조건 비교의 범위에서만 기술하세요. 질문에 필요하지 않은 미확인 항목이나 반복적인 주의 문장은 덧붙이지 마세요.",
-            f"질문: {question.strip()}\n\n실험군 정의와 측정 결과의 근거 청크 및 원문 문단:\n{context}",
-            1800,
-            model=ANSWER_MODEL,
-        )
-        calls.append({"kind": "answer_llm", **info})
-        references = [int(number) for number in re.findall(r"\[(\d+)\]", answer)]
-        if any(number < 1 or number > len(chunks) for number in references):
-            raise RuntimeError("답변의 인용 번호를 검색된 원문과 연결할 수 없습니다.")
+        sdk_data = result.get("data", {})
+        for chunk in sdk_data.get("chunks", []):
+            match = CHUNK_ID.match(chunk.get("content", ""))
+            if match:
+                retrieved_ids.append(match.group(1))
+    paths = []
+    if mode == "graph":
+        chosen, paths = select_measurements(records, graph, concepts, sdk_data)
+        measurements, chunks = graph_context(dataset, records, chosen)
+        included = {m["id"] for m in measurements}
+        paths = [p for p in paths if p["measurement_id"] in included]
+    elif mode == "naive":
+        by_id = {c["id"]:c for c in raw_chunks(dataset)}
+        chunks = [by_id[pid] for pid in dict.fromkeys(retrieved_ids[:10]) if pid in by_id]
+        measurements = []
     else:
-        answer = "검색된 원문 근거가 없어 답변할 수 없습니다."
-    result = {
-        "question": question.strip(), "answer": answer, "chunks": chunks,
-        "documents": documents,
-        "experiments": selected_experiments,
-        "measurements": selected_measurements,
-        "metadata": {
-            "mode": "mix", "retrieval_queries": queries,
-            "retrieved_chunk_ids": retrieved_chunk_ids,
-            "retrieved_chunks": retrieved_chunks,
-            "selected_fulltext_doc_ids": selected_doc_ids,
-            "context_tokens": context_tokens,
-            "context_limit_tokens": CONTEXT_LIMIT,
-            "omitted_paragraph_ids": omitted_ids,
-            "omitted_measurement_ids": omitted_measurement_ids,
-            "extraction_summary": {key: marker.get(key) for key in ("experiments", "measurements", "rejected", "purpose_rejected")},
-            "elapsed_seconds": time.perf_counter() - started,
-            "retrieval_seconds": retrieval_seconds,
-            "model_calls": calls,
-        },
-    }
+        ids = None
+        if mode == "full_documents":
+            docs = {c["doc_id"] for c in raw_chunks(dataset, set(retrieved_ids))}
+            ids = {p["id"] for d in dataset["documents"] if d["id"] in docs for p in d["paragraphs"]}
+        chunks = raw_chunks(dataset, ids)
+        measurements = []
+    experiments = [e for e in records["experiments"] if e["id"] in {m["experiment_id"] for m in measurements}]
+    doc_ids = {c["doc_id"] for c in chunks}
+    documents = [{k:d[k] for k in ("id","title","url","license")} for d in dataset["documents"] if d["id"] in doc_ids]
+    context_tokens = len(tiktoken.encoding_for_model("gpt-4o-mini").encode(_context(chunks)))
+    if context_tokens > CONTEXT_LIMIT:
+        raise RuntimeError("문맥 상한을 초과했습니다.")
+    return {"question":question.strip(), "chunks":chunks, "documents":documents,
+            "experiments":experiments,"measurements":measurements,"paths":paths,
+            "metadata":{"mode":mode,"context_tokens":context_tokens,"query_concepts":concepts,
+                        "sdk_entity_count":len(sdk_data.get("entities",[])),
+                        "sdk_relationship_count":len(sdk_data.get("relationships",[])),
+                        "model_calls":calls}}
+
+
+async def _ask(question: str, mode="graph"):
+    started = time.perf_counter()
+    result = await prepare(question, mode)
+    retrieval_seconds = time.perf_counter() - started
+    answer, info = await asyncio.to_thread(provider.generate, ANSWER_PROMPT,
+        f"질문: {question.strip()}\n\n실험군 정의와 측정 결과의 근거 청크 및 원문 문단:\n{_context(result['chunks'])}",
+        1800, model=ANSWER_MODEL)
+    references = [int(n) for n in re.findall(r"\[(\d+)\]", answer)]
+    if any(n < 1 or n > len(result["chunks"]) for n in references):
+        raise RuntimeError("답변의 인용 번호를 검색된 원문과 연결할 수 없습니다.")
+    result["answer"] = answer
+    result["metadata"]["model_calls"].append({"kind":"answer_llm",**info})
+    result["metadata"].update(elapsed_seconds=time.perf_counter()-started,retrieval_seconds=retrieval_seconds)
     return result
 
 
-def ask(question: str):
-    """Return an answer and the exact source paragraphs retrieved by LightRAG mix mode."""
-    return asyncio.run(_ask(question))
+def ask(question: str, mode="graph"):
+    return asyncio.run(_ask(question, mode))
 
 
 if __name__ == "__main__":
@@ -477,8 +456,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("command", choices=["index", "ask"])
     parser.add_argument("question", nargs="?")
+    parser.add_argument("--mode", choices=["all","naive","graph","full_documents"], default="graph")
     args = parser.parse_args()
     if args.command == "index":
         index()
     else:
-        print(json.dumps(ask(args.question), ensure_ascii=False, indent=2))
+        print(json.dumps(ask(args.question, args.mode), ensure_ascii=False, indent=2))

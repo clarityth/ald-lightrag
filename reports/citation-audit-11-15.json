@@ -1,0 +1,1112 @@
+[
+  {
+    "question_id": "Q11",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "SiO₂/3C-SiC와 T-Al₂O₃/SiO₂/3C-SiC의 Dit 약 2 × 10¹² cm⁻² eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0012"
+        ],
+        "reason": "두 시료의 Dit가 같은 차수라고 명시한다."
+      },
+      {
+        "text": "PE 시료의 Dit 약 5 × 10¹¹ cm⁻² eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0012"
+        ],
+        "reason": "PE 시료의 전도대 가장자리 부근 Dit다."
+      },
+      {
+        "text": "SCM 측정 주파수 100 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0014"
+        ],
+        "reason": "AC 변조 주파수다."
+      },
+      {
+        "text": "SCM 변조 진폭 2 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0014"
+        ],
+        "reason": "AC 변조 진폭이다."
+      },
+      {
+        "text": "두 시료의 절연 파괴 전압 26 V 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "reason": "두 MOS 커패시터 모두 게이트 바이어스 26 V 초과에서 파괴됐다."
+      },
+      {
+        "text": "T 시료 누설전류 증가 시작 15 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "reason": "T 시료 전류가 15 V부터 빠르게 증가했다."
+      },
+      {
+        "text": "PE 시료 절연 파괴 전까지 약 10⁻¹² A",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0013"
+        ],
+        "reason": "PE 시료 전류가 파괴까지 10⁻¹² A를 유지했다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q11",
+    "mode": "graph",
+    "claims": []
+  },
+  {
+    "question_id": "Q11",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "두 시료의 Al₂O₃ 두께 약 30 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0009"
+        ],
+        "reason": "TEM 문단이 두 시료의 구조가 유사하며 Al₂O₃가 약 30 nm라고 한다."
+      },
+      {
+        "text": "SiO₂ 계면층 TEM 두께 약 4.5 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0009"
+        ],
+        "reason": "TEM 관찰 계면층 두께다."
+      },
+      {
+        "text": "열 ALD 시료 Dit 약 2 × 10¹² cm⁻² eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0012"
+        ],
+        "reason": "열 ALD/SiO₂ 계면의 Dit 차수다."
+      },
+      {
+        "text": "플라즈마 강화 ALD 시료 Dit 약 5 × 10¹¹ cm⁻² eV⁻¹",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0012"
+        ],
+        "reason": "PE 시료 전도대 가장자리 부근 Dit다."
+      },
+      {
+        "text": "열 ALD 시료 VFB −0.6 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0010"
+        ],
+        "reason": "T-ALD 평탄대 전압이다."
+      },
+      {
+        "text": "플라즈마 강화 ALD 시료 VFB −3 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0010"
+        ],
+        "reason": "PE-ALD 평탄대 전압이다."
+      },
+      {
+        "text": "Ge 위 LaₓAlᵧO MIS 시료 두께 약 5 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0004"
+        ],
+        "reason": "전기 측정에 사용한 막 두께가 5 nm다."
+      },
+      {
+        "text": "Ge MIS C–V 측정 주파수 100 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0012"
+        ],
+        "reason": "정역방향 C–V 스윕 주파수다."
+      },
+      {
+        "text": "O₃ 시료 히스테리시스 폭 154 mV",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0012"
+        ],
+        "reason": "S1=O₃ 시료의 ΔVFB 값이다."
+      },
+      {
+        "text": "H₂O 시료 히스테리시스 폭 95 mV",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC5578222:p0012"
+        ],
+        "reason": "S2=H₂O 시료의 ΔVFB 값이다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q12",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "첫 번째 DP·RP HfO₂ 막 증착 온도 각각 220 °C",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC10254822:p0009"
+        ],
+        "reason": "인용된 XPS 문단에는 증착 온도가 없다. 같은 논문의 다른 문단 p0006에 220 °C가 있다."
+      },
+      {
+        "text": "첫 번째 연구 DP HfO₂−x 비율 25.00%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0009"
+        ],
+        "reason": "Hf 4f XPS에서 DP 막의 비화학양론 성분이다."
+      },
+      {
+        "text": "첫 번째 연구 RP HfO₂−x 비율 17.85%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0009"
+        ],
+        "reason": "Hf 4f XPS에서 RP 막의 비화학양론 성분이다."
+      },
+      {
+        "text": "두 번째 연구 DP Hfˣ⁺·Hf⁰ 산소 결함 비율 17.0%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0014"
+        ],
+        "reason": "Hf 4f XPS에서 DP 막 비율이다."
+      },
+      {
+        "text": "두 번째 연구 RP Hfˣ⁺·Hf⁰ 산소 결함 비율 13.6%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0014"
+        ],
+        "reason": "Hf 4f XPS에서 RP 막 비율이다."
+      },
+      {
+        "text": "두 번째 연구 DP O 1s 비격자 피크 비율 9.82%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0015"
+        ],
+        "reason": "O 1s XPS에서 DP 막 비율이다."
+      },
+      {
+        "text": "두 번째 연구 RP O 1s 비격자 피크 비율 5.08%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0015"
+        ],
+        "reason": "O 1s XPS에서 RP 막 비율이다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q12",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "첫 번째 연구 DP HfO₂−x 비율 25.00%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0009"
+        ],
+        "reason": "DP 막의 Hf 4f XPS 비화학양론 성분이다."
+      },
+      {
+        "text": "첫 번째 연구 RP HfO₂−x 비율 17.85%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0009"
+        ],
+        "reason": "RP 막의 Hf 4f XPS 비화학양론 성분이다."
+      },
+      {
+        "text": "첫 번째 연구 DP O 1s 비격자 성분 10.85%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0009"
+        ],
+        "reason": "DP 막의 O 1s XPS 비격자 피크 비율이다."
+      },
+      {
+        "text": "첫 번째 연구 RP O 1s 비격자 성분 7.33%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254822:p0009"
+        ],
+        "reason": "RP 막의 O 1s XPS 비격자 피크 비율이다."
+      },
+      {
+        "text": "두 번째 연구 DP Hfˣ⁺·Hf⁰ 비화학양론 성분 17.0%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0014"
+        ],
+        "reason": "DP 막의 Hf 4f XPS 결과다."
+      },
+      {
+        "text": "두 번째 연구 RP Hfˣ⁺·Hf⁰ 비화학양론 성분 13.6%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0014"
+        ],
+        "reason": "RP 막의 Hf 4f XPS 결과다."
+      },
+      {
+        "text": "두 번째 연구 DP O 1s 비격자 성분 9.82%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0015"
+        ],
+        "reason": "DP 막의 O 1s XPS 결과다."
+      },
+      {
+        "text": "두 번째 연구 RP O 1s 비격자 성분 5.08%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0015"
+        ],
+        "reason": "RP 막의 O 1s XPS 결과다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q12",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "첫 번째 연구 HfO₂ 막 열처리 500 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0018"
+        ],
+        "reason": "DP/RP Hf XPS 비교가 500 °C 조건이라고 명시한다."
+      },
+      {
+        "text": "첫 번째 연구 DP Hf–O–M 성분 26.9%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0018"
+        ],
+        "reason": "DP 막의 아산화물 비율이다."
+      },
+      {
+        "text": "첫 번째 연구 RP Hf–O–M 성분 19.63%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0018"
+        ],
+        "reason": "RP 막의 아산화물 비율이다."
+      },
+      {
+        "text": "첫 번째 연구 DP 산소 공공 성분 29.3%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0019"
+        ],
+        "reason": "DP 막의 O 1s 산소 공공 비율이다."
+      },
+      {
+        "text": "첫 번째 연구 RP 산소 공공 성분 25.33%",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0019"
+        ],
+        "reason": "RP 막의 O 1s 산소 공공 비율이다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q13",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "HfO₂ 박막 열처리 온도 500 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0007",
+          "PMC11901223:p0017"
+        ],
+        "reason": "p0017은 500 °C HfO₂ 박막 결과를, p0007은 500 °C RTA 조건을 서술한다."
+      },
+      {
+        "text": "HfO₂ 박막 열처리 시간 5분",
+        "status": "unclear",
+        "paragraph_ids": [
+          "PMC11901223:p0007"
+        ],
+        "reason": "p0007의 5분 RTA는 금속 전극 형성 뒤 다층 장치 조건이다. p0017의 별도 10 nm HfO₂ 박막 절연파괴 시료에 같은 시간이 적용됐는지는 직접 명시되지 않는다."
+      },
+      {
+        "text": "HfO₂ 절연파괴 측정 전압 범위 0–15 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "전류 기록 시 전압 범위다."
+      },
+      {
+        "text": "HfO₂ 절연파괴 측정 전압 간격 0.05 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "전압 증가 간격이다."
+      },
+      {
+        "text": "500 °C DP HfO₂ 절연파괴 전계 11 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "DP 막의 500 °C 열처리 결과다."
+      },
+      {
+        "text": "500 °C RP HfO₂ 절연파괴 전계 13 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0017"
+        ],
+        "reason": "RP 막의 500 °C 열처리 결과다."
+      },
+      {
+        "text": "Al₂O₃ 막 성장 온도 80 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0004"
+        ],
+        "reason": "T80 시료의 성장 온도다."
+      },
+      {
+        "text": "Al₂O₃ 막 성장 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0004"
+        ],
+        "reason": "T250 시료의 성장 온도다."
+      },
+      {
+        "text": "Al₂O₃ 막 두께 약 28 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0004"
+        ],
+        "reason": "모든 성장 온도 시료의 두께다."
+      },
+      {
+        "text": "MIM 절연파괴 시험 전압 상승률 1.0 V/s",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0006"
+        ],
+        "reason": "단시간 파괴 시험의 전압 램프 속도다."
+      },
+      {
+        "text": "80 °C 성장 Al₂O₃ 평균 절연파괴 전계 6.8 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "표 1의 T80 평균 EBD다."
+      },
+      {
+        "text": "250 °C 성장 Al₂O₃ 평균 절연파괴 전계 8.5 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "표 1의 T250 평균 EBD다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q13",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "메모리 구조 열처리 온도 500 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0007"
+        ],
+        "reason": "RTA 조건 목록에 500 °C가 있다."
+      },
+      {
+        "text": "메모리 구조 열처리 시간 5분",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC11901223:p0007"
+        ],
+        "reason": "RTA 시간이 5분이다."
+      },
+      {
+        "text": "500 °C 시료 절연파괴 전계 결과값 부재",
+        "status": "unsupported",
+        "paragraph_ids": [],
+        "reason": "이 부재 판단에 붙은 인용이 없고, 해당 온도 수치를 반복한 문장에도 출처가 없다."
+      },
+      {
+        "text": "Al₂O₃ MIM 막 성장 온도 80 °C",
+        "status": "unsupported",
+        "paragraph_ids": [],
+        "reason": "질문 조건을 반복했으나 해당 문장에 인용이 없다."
+      },
+      {
+        "text": "Al₂O₃ MIM 막 성장 온도 250 °C",
+        "status": "unsupported",
+        "paragraph_ids": [],
+        "reason": "질문 조건을 반복했으나 해당 문장에 인용이 없다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q13",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "HfO₂ 메모리 구조 500 °C 열처리 결과",
+        "status": "unsupported",
+        "paragraph_ids": [],
+        "reason": "질문 조건을 반복했으나 해당 문장에 인용이 없다."
+      },
+      {
+        "text": "Al₂O₃ MIM 막 두께 약 28 nm",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "인용 문단에는 Pt 기판과 파괴 전계 표가 있지만 막 두께 28 nm는 없다."
+      },
+      {
+        "text": "Al₂O₃ 성장 온도 80 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "표 1의 T80 성장 조건이다."
+      },
+      {
+        "text": "80 °C Al₂O₃ 평균 절연파괴 전계 6.8 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "표 1의 T80 평균 EBD다."
+      },
+      {
+        "text": "Al₂O₃ 성장 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "표 1의 T250 성장 조건이다."
+      },
+      {
+        "text": "250 °C Al₂O₃ 평균 절연파괴 전계 8.5 MV/cm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0008"
+        ],
+        "reason": "표 1의 T250 평균 EBD다."
+      },
+      {
+        "text": "MIM 파괴 시험 전압 상승률 1.0 V/s",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0006"
+        ],
+        "reason": "단시간 파괴 시험의 전압 램프 속도다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q14",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "HZO 막 두께 약 10 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0008"
+        ],
+        "reason": "DP/RP GPC에 기초해 약 10 nm HZO 막을 증착했다."
+      },
+      {
+        "text": "HZO RTA 온도 700 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "RTA 시간 비교가 700 °C에서 이뤄졌다."
+      },
+      {
+        "text": "DPALD 피로 수명 10⁵~10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "DP 막의 수명 범위다."
+      },
+      {
+        "text": "RPALD RTA 시간 60초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "RP 막이 60초 RTA에서도 높은 내구성을 유지했다."
+      },
+      {
+        "text": "RPALD 피로 수명 10⁷회 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "60초 RTA까지 10⁷회 초과다."
+      },
+      {
+        "text": "피로 시험 펄스 ±3 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "10 kHz 구형 펄스 진폭이다."
+      },
+      {
+        "text": "피로 시험 주파수 10 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "구형 펄스 주파수다."
+      },
+      {
+        "text": "P–E 곡선 측정 최대 반복 횟수 10⁸회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "최대 10⁸회까지 지정 반복 횟수에서 측정했다."
+      },
+      {
+        "text": "RPALD 측정 온도 범위 20~60 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "해당 범위의 측정 온도다."
+      },
+      {
+        "text": "RPALD 피로 수명 10⁷회 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "20~60 °C에서 유지한 내구성이다."
+      },
+      {
+        "text": "위의 RTA 온도 700 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "앞서 인용한 시간 비교의 RTA 온도다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q14",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "저온 PEALD HZO 두께 10 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0005"
+        ],
+        "reason": "HZO 막 목표 두께다."
+      },
+      {
+        "text": "HZO 증착 온도 180 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "최고 피로 내구성 시료 중 하나다."
+      },
+      {
+        "text": "HZO 증착 온도 230 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "최고 피로 내구성 시료 중 하나다."
+      },
+      {
+        "text": "180 °C 시료 피로 수명 1.6 × 10⁷회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "180 °C 성장막의 피로 수명이다."
+      },
+      {
+        "text": "230 °C 시료 피로 수명 1.6 × 10⁷회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "230 °C 성장막의 피로 수명이다."
+      },
+      {
+        "text": "HZO 증착 온도 100 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "최저 온도 시료다."
+      },
+      {
+        "text": "100 °C 시료 피로 수명 2.5 × 10⁵회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "100 °C 시료 수명이다."
+      },
+      {
+        "text": "HZO 증착 온도 280 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "최고 온도 시료다."
+      },
+      {
+        "text": "280 °C 시료 피로 수명 1.6 × 10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "280 °C 시료 수명이다."
+      },
+      {
+        "text": "피로 시험 펄스 ±3 V",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "인용 문단은 피로 결과를 설명하며 시험 펄스 전압은 없다."
+      },
+      {
+        "text": "피로 시험 주파수 10 kHz",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "인용 문단에 시험 주파수는 없다."
+      },
+      {
+        "text": "측정 시점 삼각파 주파수 1 kHz",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "인용 문단에 삼각파 주파수는 없다."
+      },
+      {
+        "text": "각 측정 시점 삼각파 다섯 번",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "인용 문단에 삼각파 횟수는 없다."
+      },
+      {
+        "text": "최고 피로 수명 시료 열처리 온도 600 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "열처리 온도 비교에서 600 °C 시료가 최고라고 한다."
+      },
+      {
+        "text": "최저 피로 수명 시료 열처리 온도 700 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "700 °C 시료가 최저라고 한다."
+      },
+      {
+        "text": "700 °C 시료 피로 수명 1.6 × 10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0018"
+        ],
+        "reason": "700 °C 시료의 수치다."
+      },
+      {
+        "text": "후열처리 온도 범위 500–700 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0005"
+        ],
+        "reason": "질소 분위기 RTA 온도 범위다."
+      },
+      {
+        "text": "후열처리 시간 30초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0005"
+        ],
+        "reason": "RTA 시간이다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q14",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "DPALD/RPALD HZO 증착 온도 240 °C",
+        "status": "unclear",
+        "paragraph_ids": [
+          "PMC10005305:p0008",
+          "PMC10005305:p0005"
+        ],
+        "reason": "인용 문단은 240 °C에서 증착한 개별 HfO₂/ZrO₂ 막의 GPC를 바탕으로 HZO를 만들었다고 서술하지만 HZO 증착 온도를 직접 명시하지 않는다."
+      },
+      {
+        "text": "HZO 두께 약 10 nm",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0005"
+        ],
+        "reason": "복합 HZO 막 두께다."
+      },
+      {
+        "text": "RTA 온도 700 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "피로 수명의 RTA 시간 비교 온도다."
+      },
+      {
+        "text": "DPALD 피로 수명 10⁵~10⁶회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "DP 막 수명 범위다."
+      },
+      {
+        "text": "RPALD 피로 수명 10⁷회 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "RP 막 내구성이다."
+      },
+      {
+        "text": "RPALD RTA 시간 60초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0013"
+        ],
+        "reason": "60초에서도 10⁷회를 넘었다."
+      },
+      {
+        "text": "피로 시험 펄스 ±3 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "구형 펄스 진폭이다."
+      },
+      {
+        "text": "피로 시험 주파수 10 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0006"
+        ],
+        "reason": "구형 펄스 주파수다."
+      },
+      {
+        "text": "별도 측정 온도 범위 20~60 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "RP 막 수명을 비교한 측정 온도 범위다."
+      },
+      {
+        "text": "별도 측정 RPALD 피로 수명 10⁷회 초과",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10005305:p0014"
+        ],
+        "reason": "20~60 °C 범위에서 유지했다."
+      },
+      {
+        "text": "공정 B HZO 증착 온도 100 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0021"
+        ],
+        "reason": "공정 개선 실험의 증착 온도다."
+      },
+      {
+        "text": "공정 B 산소 주입 시간 8초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0021"
+        ],
+        "reason": "공정 B의 산소 주입 시간이다."
+      },
+      {
+        "text": "공정 B 플라즈마 방전 시간 6초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0021"
+        ],
+        "reason": "공정 B의 방전 시간이다."
+      },
+      {
+        "text": "공정 B 후열처리 온도 600 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0021"
+        ],
+        "reason": "공정 개선 실험에 적용한 RTA 온도다."
+      },
+      {
+        "text": "공정 B 후열처리 시간 30초",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0005"
+        ],
+        "reason": "동일 연구의 RTA 시간이 30초다."
+      },
+      {
+        "text": "공정 B 최고 피로 수명 2.5 × 10⁷회",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0023"
+        ],
+        "reason": "공정 B의 최고 내구성이다."
+      },
+      {
+        "text": "공정 B 피로 시험 펄스 ±3 V",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0008"
+        ],
+        "reason": "연속 구형파 진폭이다."
+      },
+      {
+        "text": "공정 B 피로 시험 주파수 10 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0008"
+        ],
+        "reason": "연속 구형파 주파수다."
+      },
+      {
+        "text": "공정 B 측정 삼각파 주파수 1 kHz",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8839501:p0008"
+        ],
+        "reason": "잔류분극 측정 삼각파 주파수다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q15",
+    "mode": "graph",
+    "claims": [
+      {
+        "text": "TDMAH/H₂O HfO₂ 약 100 °C 저온 조건",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC13303718:p0008",
+          "PMC10456437:p0006"
+        ],
+        "reason": "인용 문단은 각각 TEMAHf 240 °C 및 TMA 250 °C 공정을 설명하며 TDMAH/H₂O 100 °C 시료를 다루지 않는다."
+      },
+      {
+        "text": "PEALD HfO₂ 또는 Al₂O₃ 약 80 °C 저온 조건",
+        "status": "unsupported",
+        "paragraph_ids": [
+          "PMC13303718:p0008",
+          "PMC10456437:p0006"
+        ],
+        "reason": "인용 문단은 해당 물질의 80 °C PEALD 시료를 설명하지 않는다."
+      },
+      {
+        "text": "별도 Al₂O₃ 연구 증착 온도 250 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0006"
+        ],
+        "reason": "TMA/H₂O 열 ALD와 O₂ 플라즈마 PEALD를 모두 250 °C에서 수행했다."
+      },
+      {
+        "text": "250 °C TMA/H₂O Al₂O₃ 성장량 약 0.9 Å/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0006"
+        ],
+        "reason": "열 ALD 시료의 GPC다."
+      },
+      {
+        "text": "250 °C TMA/O₂ 플라즈마 Al₂O₃ 성장량 약 1.2 Å/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10456437:p0006"
+        ],
+        "reason": "PEALD 시료의 GPC다."
+      },
+      {
+        "text": "TEMAHf HfO₂ 공정 온도 240 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC13303718:p0008"
+        ],
+        "reason": "TEMAHf 및 O₂ 플라즈마 HfO₂ 증착 조건이다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q15",
+    "mode": "all",
+    "claims": [
+      {
+        "text": "TDMAH/H₂O HfO₂ 성장 온도 범위 100–135 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "이 온도 범위에서 GPC 안정화가 기술된다."
+      },
+      {
+        "text": "TDMAH/H₂O HfO₂ 성장량 1.3 Å/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "100–135 °C 구간의 GPC다."
+      },
+      {
+        "text": "TEMAH/O₂·Ar PEALD HfO₂ 기판 온도 100 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0003",
+          "PMC9656191:p0006"
+        ],
+        "reason": "p0003은 TEMAH와 O₂/Ar 조건을, p0006은 그 공정의 100 °C GPC를 서술한다."
+      },
+      {
+        "text": "100 °C PEALD HfO₂ 성장량 약 0.13 nm/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0006"
+        ],
+        "reason": "100 °C에서의 GPC다."
+      },
+      {
+        "text": "TMA/H₂O Al₂O₃ 시료 성장 온도 80 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0004",
+          "PMC8948174:p0007"
+        ],
+        "reason": "T80 시료를 정의하고 80 °C GPC를 보고한다."
+      },
+      {
+        "text": "80 °C Al₂O₃ 성장량 약 0.9 Å/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC8948174:p0007"
+        ],
+        "reason": "80 °C 성장률이다."
+      }
+    ]
+  },
+  {
+    "question_id": "Q15",
+    "mode": "naive",
+    "claims": [
+      {
+        "text": "TDMAH/H₂O HfO₂ 성장 온도 범위 100–135 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "이 온도 범위에서 GPC 안정화가 기술된다."
+      },
+      {
+        "text": "TDMAH/H₂O HfO₂ 성장량 1.3 Å/cycle",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC10254648:p0022"
+        ],
+        "reason": "100–135 °C 구간의 GPC다."
+      },
+      {
+        "text": "TEMAH/O₂·Ar PEALD HfO₂ 증착 온도 100 °C",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0003"
+        ],
+        "reason": "100 °C를 포함한 증착 온도와 전구체를 열거한다."
+      },
+      {
+        "text": "PEALD HfO₂ 반응 500사이클",
+        "status": "supported",
+        "paragraph_ids": [
+          "PMC9656191:p0010"
+        ],
+        "reason": "XRR 두께값이 500회 반응 뒤 측정되었다."
+      },
+      {
+        "text": "100 °C PEALD HfO₂ 막 두께 64.7 nm",
+        "status": "unclear",
+        "paragraph_ids": [
+          "PMC9656191:p0003",
+          "PMC9656191:p0010"
+        ],
+        "reason": "p0010에는 500회 뒤 두께 다섯 값을 각각 나열하지만 온도별 대응 순서를 같은 문단에서 명시하지 않는다."
+      },
+      {
+        "text": "100 °C PEALD HfO₂ 계산 평균 성장량 0.1294 nm/cycle",
+        "status": "unclear",
+        "paragraph_ids": [
+          "PMC9656191:p0010"
+        ],
+        "reason": "64.7/500 계산은 맞지만 인용 문단만으로 64.7 nm가 100 °C 시료인지 확정하기 어렵다."
+      },
+      {
+        "text": "Al₂O₃ 시료 성장 온도 80 °C",
+        "status": "unsupported",
+        "paragraph_ids": [],
+        "reason": "질문 조건을 반복했으나 해당 문장에는 인용이 없다."
+      }
+    ]
+  }
+]

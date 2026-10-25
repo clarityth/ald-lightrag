@@ -60,6 +60,7 @@ class Handler(BaseHTTPRequestHandler):
                 "documents": row.get("documents", []),
                 "experiments": row.get("experiments", []),
                 "measurements": row.get("measurements", []),
+                "paths": row.get("paths", []),
             } for row in examples if isinstance(row, dict)])
         return self.reply({"error": "찾을 수 없습니다."}, 404)
 

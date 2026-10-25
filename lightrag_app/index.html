@@ -43,6 +43,24 @@
     .source-numbers { display: flex; flex-wrap: wrap; gap: 5px; }
     .source-list button { padding: 4px 7px; border: 1px solid var(--line); border-radius: 7px; background: #f8fbfa; color: #31535a; font-size: 11px; }
     .source-list button:hover { border-color: #83b9b1; }
+    .evidence-paths { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .evidence-paths h4 { margin: 0 0 10px; color: #31535a; font-size: 13px; }
+    .path-group { margin-top: 9px; padding: 11px 13px; border: 1px solid var(--line); border-radius: 11px; background: #f8fbfa; }
+    .path-group summary { cursor: pointer; color: #234b50; font-size: 12px; font-weight: 750; line-height: 1.5; }
+    .path-group summary:focus-visible { outline: 3px solid #8ccdc5; outline-offset: 2px; }
+    .path-branches { margin: 12px 0 0 8px; padding-left: 20px; border-left: 2px solid #9dcac1; }
+    .path-row { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0 0 10px; }
+    .path-row::before { content: ''; position: absolute; top: 50%; left: -20px; width: 18px; border-top: 2px solid #9dcac1; }
+    .path-node { position: relative; min-width: 0; padding: 9px 10px; border: 1px solid #c5dad4; border-radius: 9px; background: #fff; font-size: 11px; line-height: 1.45; overflow-wrap: anywhere; }
+    .path-node:not(:last-child)::after { content: '→'; position: absolute; top: 50%; right: -20px; transform: translateY(-50%); color: var(--teal); font-size: 15px; font-weight: 800; }
+    .path-node small { display: block; margin-bottom: 3px; color: var(--muted); font-size: 10px; }
+    .path-node strong { display: block; color: #234b50; }
+    .path-node span { display: block; margin-top: 3px; color: #486267; }
+    .path-paper strong { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+    .path-node button { margin: 3px 5px 3px 0; padding: 4px 7px; border: 1px solid #9dcac1; border-radius: 7px; background: #edf7f3; color: #155f5c; font-size: 11px; }
+    .path-node button:hover { background: #dff0ea; }
+    .path-node .path-measurement-button { display: block; width: 100%; margin: 0; padding: 0; border: 0; background: transparent; text-align: left; white-space: normal; }
+    .path-node .path-measurement-button:hover { background: transparent; text-decoration: underline; }
     .comparison { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
     .comparison summary { cursor: pointer; color: #31535a; font-size: 13px; font-weight: 750; }
     .comparison summary:focus-visible, .comparison-scroll:focus-visible { outline: 3px solid #8ccdc5; outline-offset: 2px; }
@@ -88,6 +106,9 @@
       .comparison td > * { min-width: 0; }
       .fixed-full { display: none; }
       .fixed-mobile { display: block; }
+      .path-row { grid-template-columns: minmax(0, 1fr); gap: 17px; }
+      .path-row::before { top: 21px; }
+      .path-node:not(:last-child)::after { top: auto; right: 50%; bottom: -18px; transform: translateX(50%); content: '↓'; }
     }
   </style>
 </head>
@@ -133,7 +154,7 @@
 
     function showSource(chunk, number, result) {
       panel.replaceChildren();
-      panel.append(element('p', 'eyebrow', `Source ${number}`));
+      panel.append(element('p', 'eyebrow', number ? `Source ${number}` : 'Original paragraph'));
       panel.append(element('h2', '', chunk.title || chunk.doc_id || '문헌 원문'));
       panel.append(element('p', 'source-meta', [chunk.doc_id, chunk.section].filter(Boolean).join(' · ')));
       const experiments = Array.isArray(result.experiments) ? result.experiments : [];
@@ -249,6 +270,66 @@
         for (const id of Array.isArray(chunks[number - 1].measurement_ids) ? chunks[number - 1].measurement_ids : []) {
           if (byMeasurement.has(id) && !compared.has(id)) compared.set(id, { measurement: byMeasurement.get(id), chunk: chunks[number - 1], display });
         }
+      }
+      const pathGroups = new Map();
+      for (const path of Array.isArray(result.paths) ? result.paths : []) {
+        const used = compared.get(path.measurement_id);
+        if (!used || used.measurement.doc_id !== path.doc_id || used.measurement.experiment_id !== path.experiment_id) continue;
+        const experiment = byExperiment.get(path.experiment_id);
+        if (!experiment) continue;
+        const key = path.concept_id || path.concept_label;
+        if (!pathGroups.has(key)) pathGroups.set(key, { label: path.concept_label || '공통 개념', paths: [], seen: new Set() });
+        const group = pathGroups.get(key);
+        if (!group.seen.has(path.measurement_id)) {
+          group.paths.push({ path, used, experiment });
+          group.seen.add(path.measurement_id);
+        }
+      }
+      if (pathGroups.size) {
+        const graph = element('section', 'evidence-paths');
+        graph.append(element('h4', '', '답변에 사용된 근거 경로'));
+        for (const group of pathGroups.values()) {
+          const details = element('details', 'path-group');
+          details.open = graph.querySelectorAll('.path-group').length === 0;
+          details.append(element('summary', '', `공통 개념: ${group.label} (${group.paths.length}건)`));
+          const branches = element('div', 'path-branches');
+          for (const { path, used, experiment } of group.paths) {
+            const row = element('div', 'path-row');
+            const paper = element('div', 'path-node path-paper');
+            paper.append(element('small', '', '문헌 · 실험'), element('strong', '', used.chunk.title || '문헌 원문'));
+            if (experiment.sample && experiment.sample !== 'unknown') paper.append(element('span', '', `시료: ${experiment.sample}`));
+            if (experiment.varied_parameter && experiment.varied_parameter !== 'unknown') paper.append(element('span', '', `변경 조건: ${experiment.varied_parameter}`));
+            paper.title = used.chunk.title || '';
+            const measured = element('div', 'path-node');
+            measured.append(element('small', '', '측정 결과'));
+            const measurementButton = element('button', 'path-measurement-button');
+            measurementButton.type = 'button';
+            measurementButton.append(element('strong', '', used.measurement.metric || '측정 지표'));
+            const value = used.measurement.value;
+            if (value && value !== 'unknown') measurementButton.append(element('span', '', `${value}${used.measurement.unit && used.measurement.unit !== 'unknown' ? ` ${used.measurement.unit}` : ''}`));
+            measurementButton.setAttribute('aria-label', `${used.measurement.metric || '측정 결과'} 원문 보기`);
+            measurementButton.addEventListener('click', () => showSource(used.chunk, used.display, result));
+            measured.append(measurementButton);
+            const original = element('div', 'path-node');
+            original.append(element('small', '', '원문 근거'));
+            const paragraphIds = Array.isArray(path.paragraph_ids) ? path.paragraph_ids : [];
+            const sources = paragraphIds.map(id => chunks.findIndex(chunk => chunk.doc_id === path.doc_id && chunk.id === id)).filter(index => index >= 0);
+            for (const index of new Set(sources.length ? sources : [chunks.indexOf(used.chunk)])) {
+              const source = chunks[index];
+              const display = cited.get(index + 1);
+              const button = element('button', '', display ? `원문 [${display}]` : '원문 문단 보기');
+              button.type = 'button';
+              button.setAttribute('aria-label', `${used.chunk.title || '문헌'} ${display ? `원문 ${display}번 보기` : '원문 문단 보기'}`);
+              button.addEventListener('click', () => showSource(source, display, result));
+              original.append(button);
+            }
+            row.append(paper, measured, original);
+            branches.append(row);
+          }
+          details.append(branches);
+          graph.append(details);
+        }
+        card.append(graph);
       }
       if (compared.size) {
         const details = element('details', 'comparison');
