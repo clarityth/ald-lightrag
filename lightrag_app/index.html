@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>문헌에 질문하기 | ChemPath LightRAG</title>
+  <title>ALD 문헌 비교 | LightRAG</title>
   <style>
     :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif; color: #19313a; background: #f4f7f6; --line: #dce6e3; --muted: #5f7479; --teal: #0b7471; }
     * { box-sizing: border-box; }
@@ -43,6 +43,15 @@
     .source-numbers { display: flex; flex-wrap: wrap; gap: 5px; }
     .source-list button { padding: 4px 7px; border: 1px solid var(--line); border-radius: 7px; background: #f8fbfa; color: #31535a; font-size: 11px; }
     .source-list button:hover { border-color: #83b9b1; }
+    .comparison { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .comparison summary { cursor: pointer; color: #31535a; font-size: 13px; font-weight: 750; }
+    .comparison summary:focus-visible, .comparison-scroll:focus-visible { outline: 3px solid #8ccdc5; outline-offset: 2px; }
+    .comparison-scroll { max-width: 100%; margin-top: 12px; overflow-x: auto; }
+    .comparison table { min-width: 850px; width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
+    .comparison th, .comparison td { padding: 9px; border: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+    .comparison th { background: #f3f9f6; white-space: nowrap; }
+    .comparison button { padding: 4px 7px; border: 1px solid var(--line); border-radius: 7px; background: #f8fbfa; color: #31535a; white-space: nowrap; }
+    .fixed-mobile { display: none; }
     .status { margin: 0 0 24px; padding: 15px 18px; border: 1px solid #c9ded9; border-radius: 12px; background: #f5fbf9; color: #365c62; font-size: 13px; line-height: 1.55; }
     .status.error { border-color: #ebceca; background: #fff8f6; color: #963f38; }
     .dot { display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--teal); animation: pulse 1.3s infinite; }
@@ -68,11 +77,23 @@
     .source-text { padding: 18px; border: 1px solid #b8d8d1; border-radius: 12px; background: #edf7f3; white-space: pre-wrap; overflow-wrap: anywhere; font-family: Georgia, "Times New Roman", serif; font-size: 13px; line-height: 1.8; }
     .source-link { display: inline-block; margin-top: 16px; color: var(--teal); font-size: 13px; font-weight: 700; }
     @media (max-width: 850px) { .app { grid-template-columns: 1fr; } main { height: min(75dvh, 790px); min-height: 530px; } aside { height: auto; min-height: 220px; border-left: 0; border-top: 1px solid var(--line); } }
+    @media (max-width: 850px) {
+      .comparison-scroll { overflow-x: visible; }
+      .comparison table { min-width: 0; }
+      .comparison thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+      .comparison tbody { display: grid; gap: 10px; }
+      .comparison tr { display: block; padding: 8px 0; border: 1px solid var(--line); border-radius: 10px; }
+      .comparison td { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 8px; padding: 5px 10px; border: 0; }
+      .comparison td::before { content: attr(data-label); color: #31535a; font-weight: 750; }
+      .comparison td > * { min-width: 0; }
+      .fixed-full { display: none; }
+      .fixed-mobile { display: block; }
+    }
   </style>
 </head>
 <body>
   <div class="app">
-    <header><div class="logo" aria-hidden="true">CP</div><div><h1>ChemPath 문헌 질문</h1><p>LightRAG · 질문별 실제 검색과 답변</p></div></header>
+    <header><div class="logo" aria-hidden="true">ALD</div><div><h1>ALD 문헌 비교</h1><p>LightRAG · 질문별 실제 검색과 답변</p></div></header>
     <main>
       <div class="chat" id="chat"><div class="chat-inner" id="messages">
         <section class="welcome" id="welcome"><p class="eyebrow">Literature Q&amp;A</p><h2>ALD 논문에 관해 질문해 보세요.</h2><p>답변의 인용 번호를 누르면 오른쪽에서 사용된 원문 청크와 문헌을 확인할 수 있습니다. 답변은 연구 조건과 적용 범위를 함께 살펴보세요.</p>
@@ -219,6 +240,70 @@
         } else body.append(document.createTextNode(part));
       }
       card.append(body);
+      const measurements = Array.isArray(result.measurements) ? result.measurements : [];
+      const experiments = Array.isArray(result.experiments) ? result.experiments : [];
+      const byMeasurement = new Map(measurements.map(row => [row.id, row]));
+      const byExperiment = new Map(experiments.map(row => [row.id, row]));
+      const compared = new Map();
+      for (const [number, display] of cited) {
+        for (const id of Array.isArray(chunks[number - 1].measurement_ids) ? chunks[number - 1].measurement_ids : []) {
+          if (byMeasurement.has(id) && !compared.has(id)) compared.set(id, { measurement: byMeasurement.get(id), chunk: chunks[number - 1], display });
+        }
+      }
+      if (compared.size) {
+        const details = element('details', 'comparison');
+        details.append(element('summary', '', `실험 비교표 (${compared.size}건)`));
+        const scroll = element('div', 'comparison-scroll');
+        scroll.tabIndex = 0;
+        scroll.setAttribute('aria-label', '실험 비교표');
+        const table = element('table');
+        table.setAttribute('aria-label', '인용된 측정 결과 비교');
+        const head = element('thead');
+        const headings = element('tr');
+        const labels = ['문헌', '시료', '변경 조건', '고정 조건', '측정 지표', '값', '측정 조건', '원문'];
+        for (const label of labels) {
+          const heading = element('th', '', label);
+          heading.scope = 'col';
+          headings.append(heading);
+        }
+        head.append(headings);
+        table.append(head);
+        const tbody = element('tbody');
+        const known = value => value && value !== 'unknown' ? value : '원문에서 확인되지 않음';
+        for (const { measurement, chunk, display } of compared.values()) {
+          const experiment = byExperiment.get(measurement.experiment_id) || {};
+          const row = element('tr');
+          const value = measurement.value === 'unknown' ? known(measurement.value)
+            : `${measurement.value}${measurement.unit && measurement.unit !== 'unknown' ? ` ${measurement.unit}` : ''}`;
+          const cells = [chunk.title || chunk.doc_id || '문헌 원문', known(experiment.sample),
+            known(experiment.varied_parameter), known(experiment.fixed_conditions),
+            known(measurement.metric), value, known(measurement.conditions)];
+          for (const [index, value] of cells.entries()) {
+            const cell = element('td');
+            cell.dataset.label = labels[index];
+            if (index === 3) {
+              cell.append(element('span', 'fixed-full', value));
+              const fixed = element('details', 'fixed-mobile');
+              fixed.append(element('summary', '', '조건 보기'), element('span', '', value));
+              cell.append(fixed);
+            } else cell.textContent = value;
+            row.append(cell);
+          }
+          const source = element('td');
+          source.dataset.label = labels[7];
+          const button = element('button', '', `원문 [${display}]`);
+          button.type = 'button';
+          button.setAttribute('aria-label', `인용 ${display}번 원문 보기`);
+          button.addEventListener('click', () => showSource(chunk, display, result));
+          source.append(button);
+          row.append(source);
+          tbody.append(row);
+        }
+        table.append(tbody);
+        scroll.append(table);
+        details.append(scroll);
+        card.append(details);
+      }
       if (cited.size) {
         const sources = element('div', 'source-list');
         const groups = new Map();

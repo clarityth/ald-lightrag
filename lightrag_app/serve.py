@@ -16,6 +16,14 @@ ASK_LOCK = Lock()
 HOSTS = {"127.0.0.1:8824", "localhost:8824"}
 
 
+def load_examples():
+    path = ROOT / "results/examples.json"
+    if not path.exists():
+        path = ROOT / "demo/example.json"
+    examples = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    return examples if isinstance(examples, list) else []
+
+
 class Handler(BaseHTTPRequestHandler):
     def reply(self, value, status=200, content_type="application/json; charset=utf-8"):
         body = value if isinstance(value, bytes) else json.dumps(value, ensure_ascii=False).encode("utf-8")
@@ -39,9 +47,8 @@ class Handler(BaseHTTPRequestHandler):
         if self.path == "/":
             return self.reply((ROOT / "index.html").read_bytes(), content_type="text/html; charset=utf-8")
         if self.path == "/api/examples":
-            path = ROOT / "results/examples.json"
             try:
-                examples = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+                examples = load_examples()
             except (OSError, ValueError):
                 return self.reply({"error": "저장된 결과를 읽을 수 없습니다."}, 500)
             if not isinstance(examples, list):
