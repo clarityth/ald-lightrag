@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ALD 문헌 비교 | LightRAG</title>
+  <title>ProcessLens | 반도체 공정 문헌 비교</title>
   <style>
     :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif; color: #19313a; background: #f4f7f6; --line: #dce6e3; --muted: #5f7479; --teal: #0b7471; }
     * { box-sizing: border-box; }
@@ -114,7 +114,7 @@
 </head>
 <body>
   <div class="app">
-    <header><div class="logo" aria-hidden="true">ALD</div><div><h1>ALD 문헌 비교</h1><p>LightRAG · 질문별 실제 검색과 답변</p></div></header>
+    <header><div class="logo" aria-hidden="true">PL</div><div><h1>ProcessLens</h1><p>반도체 공정 문헌 비교</p></div></header>
     <main>
       <div class="chat" id="chat"><div class="chat-inner" id="messages">
         <section class="welcome" id="welcome"><p class="eyebrow">Literature Q&amp;A</p><h2>ALD 논문에 관해 질문해 보세요.</h2><p>답변의 인용 번호를 누르면 오른쪽에서 사용된 원문 청크와 문헌을 확인할 수 있습니다. 답변은 연구 조건과 적용 범위를 함께 살펴보세요.</p>
@@ -229,7 +229,7 @@
       messages.append(user);
     }
 
-    function addAnswer(result, label = 'LightRAG 답변', scrollToStart = false) {
+    function addAnswer(result, label = '답변', scrollToStart = false) {
       const chunks = Array.isArray(result.chunks) ? result.chunks : [];
       const card = element('article', 'message answer-card');
       card.append(element('h3', '', label));
@@ -461,7 +461,7 @@
       if (!Array.isArray(examples) || !examples.length) return;
       const section = element('section', 'examples');
       section.append(element('h3', '', '저장된 실행 결과'));
-      section.append(element('p', '', '이전 LightRAG 실행에서 저장한 답변을 열어볼 수 있습니다. 새 질문을 보내면 다시 검색합니다.'));
+      section.append(element('p', '', '저장된 질문과 답변을 원문 근거와 함께 확인할 수 있습니다. 새 질문을 보내면 다시 검색합니다.'));
       const buttons = element('div', 'suggestions');
       for (const result of examples) {
         if (typeof result.question !== 'string' || typeof result.answer !== 'string') continue;
@@ -470,7 +470,7 @@
         button.addEventListener('click', () => {
           if (busy) return;
           addQuestion(result.question);
-          addAnswer(result, '저장된 LightRAG 실행 결과', true);
+          addAnswer(result, '저장된 답변', true);
         });
         buttons.append(button);
       }
