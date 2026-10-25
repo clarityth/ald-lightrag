@@ -29,7 +29,7 @@ class BackendTest(unittest.TestCase):
     def test_sdk_failure_is_not_reported_as_missing_evidence(self):
         with tempfile.TemporaryDirectory() as directory:
             marker = Path(directory) / "index.json"
-            marker.write_text(json.dumps({"dataset_sha256": hashlib.sha256(backend.DATASET.read_bytes()).hexdigest(), "extraction_version": backend.EXTRACTION_VERSION}))
+            marker.write_text(json.dumps({"dataset_sha256": hashlib.sha256(backend.DATASET.read_bytes()).hexdigest(), "extraction_version": backend.EXTRACTION_VERSION, "graph_signature": backend.index_signature()}))
             records = Path(directory) / "experiments.json"
             records.write_text(json.dumps({"experiments": [], "measurements": []}))
             rag = unittest.mock.Mock()

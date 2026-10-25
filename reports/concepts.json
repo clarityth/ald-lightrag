@@ -1,0 +1,17 @@
+{
+  "concept_count": 63,
+  "multi_paper_concepts": 38,
+  "experiment_count": 93,
+  "measurement_count": 291,
+  "experiments_mapped": 93,
+  "measurements_mapped": 290,
+  "experiment_mapping_rate": 1.0,
+  "measurement_mapping_rate": 0.9965635738831615,
+  "unmapped": {
+    "material": 2,
+    "substrate": 11,
+    "device": 47,
+    "process": 4,
+    "metric": 1
+  }
+}

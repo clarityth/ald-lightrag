@@ -6,6 +6,7 @@ from lightrag_app.concepts import build_concepts, match_query
 
 
 RECORDS = Path(__file__).resolve().parent / "storage-experiments-v3/experiments.json"
+DATASET = Path(__file__).resolve().parent.parent / "mechanism_poc/sources/dataset.json"
 
 
 class ConceptTest(unittest.TestCase):
@@ -79,6 +80,13 @@ class ConceptTest(unittest.TestCase):
         self.assertGreater(stats["multi_paper_concepts"], 0)
         self.assertEqual(len(result["experiment_concepts"]), 93)
         self.assertEqual(len(result["measurement_concepts"]), 291)
+        paragraphs = {
+            paragraph["id"]: document["id"]
+            for document in json.loads(DATASET.read_text(encoding="utf-8"))["documents"]
+            for paragraph in document["paragraphs"]
+        }
+        for item in result["entities"] + result["relationships"]:
+            self.assertEqual(paragraphs[item["source_id"]], item["file_path"])
 
 
 if __name__ == "__main__":
