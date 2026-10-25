@@ -52,3 +52,20 @@ class SelectionTest(unittest.TestCase):
         chosen, paths = select_measurements(records, graph, [], {}, retrieved_ids=['p1'])
         self.assertEqual([item['id'] for item in chosen], ['M1', 'M2'])
         self.assertEqual([item['measurement_id'] for item in paths], ['M1', 'M2'])
+
+    def test_experiment_source_and_purpose_paragraphs_select_linked_measurements(self):
+        records = {'experiments': [
+            {'id': 'E1', 'source_ids': ['e1'], 'purpose_evidence': []},
+            {'id': 'E2', 'source_ids': ['e2'], 'purpose_evidence': []},
+            {'id': 'E3', 'source_ids': ['e3'], 'purpose_evidence': [{'paragraph_id': 'purpose3'}]},
+        ], 'measurements': [
+            {'id': 'M1', 'experiment_id': 'E1', 'doc_id': 'D1', 'source_ids': ['m1']},
+            {'id': 'M2', 'experiment_id': 'E2', 'doc_id': 'D2', 'source_ids': ['m2']},
+            {'id': 'M3', 'experiment_id': 'E3', 'doc_id': 'D3', 'source_ids': ['m3']},
+        ]}
+        graph = {'entities': [], 'experiment_concepts': {}, 'measurement_concepts': {}}
+        sdk = {'chunks': [{'content': '[e1] Experiment description'},
+                          {'content': '[purpose3] Experiment purpose'}]}
+        chosen, paths = select_measurements(records, graph, [], sdk)
+        self.assertEqual([item['id'] for item in chosen], ['M1', 'M3'])
+        self.assertEqual(paths, [])

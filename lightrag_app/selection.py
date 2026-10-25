@@ -15,12 +15,16 @@ def select_measurements(records, graph, query_concepts, sdk_data, limit=32, retr
 
     query = set(query_concepts)
     seeds = {name for name in returned if isinstance(name, str) and name.startswith('concept:')}
+    experiments = {experiment['id']: experiment for experiment in records.get('experiments', [])}
     rows = []
     for measurement in records['measurements']:
         concepts = (set(graph['experiment_concepts'].get(measurement['experiment_id'], [])) |
                     set(graph['measurement_concepts'].get(measurement['id'], [])))
+        experiment = experiments.get(measurement['experiment_id'], {})
+        linked_ids = (set(measurement['source_ids']) | set(experiment.get('source_ids', [])) |
+                      {item['paragraph_id'] for item in experiment.get('purpose_evidence', [])})
         direct = (measurement['id'] in returned or measurement['experiment_id'] in returned or
-                  bool(source_ids.intersection(measurement['source_ids'])))
+                  bool(source_ids.intersection(linked_ids)))
         if direct:
             seeds.update(concepts)
         rows.append((measurement, concepts, direct))

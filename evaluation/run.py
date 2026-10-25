@@ -34,6 +34,10 @@ async def run(question_file=ROOT/"evaluation/questions.json", report=REPORT, mod
     existing=json.loads(report.read_text()) if report.exists() else []
     done={(r['question_id'],r['mode']) for r in existing}
     assert len(existing)==len(done)
+    expected={(q['id'],mode) for q in questions for mode in modes}
+    assert done <= expected, 'Existing report belongs to different questions or modes'
+    question_text={q['id']:q['question'] for q in questions}
+    assert all(row.get('question') == question_text[row['question_id']] for row in existing), 'Existing report question text changed'
     for q in questions:
         # Rotate execution order to avoid always giving one method warm caches.
         offset=(int(q['id'][1:])-1)%len(modes)
@@ -50,9 +54,9 @@ async def run(question_file=ROOT/"evaluation/questions.json", report=REPORT, mod
                     context_tokens=result['metadata']['context_tokens'],seconds=result['metadata']['elapsed_seconds'],
                     citations=[{'number':i,'paragraph_id':c.get('original_paragraph_id',c['id'].split('#')[0]),'measurement_ids':c.get('measurement_ids',[])} for i,c in enumerate(result['chunks'],1)],
                     paths=result['paths'],retrieved_paragraph_ids=result['metadata']['retrieved_paragraph_ids'],context_paragraph_ids=sorted(paragraphs),**usage_metrics(result['metadata']['model_calls']))
-                if mode=='graph' and ((question_file.name == 'questions.json' and q['id']=='Q08') or (question_file.name != 'questions.json' and q['id']==questions[0]['id'])):
+                if mode=='graph' and q['id']==questions[0]['id'] and question_file.name != 'questions.json':
                     public={k:result[k] for k in ('question','answer','chunks','documents','experiments','measurements','paths')}
-                    (ROOT/'lightrag_app/demo/example.json').write_text(json.dumps([public],ensure_ascii=False,indent=2)+'\n')
+                    report.with_name('example.json').write_text(json.dumps([public],ensure_ascii=False,indent=2)+'\n')
             except Exception as error:
                 row.update(error=type(error).__name__,seconds=time.perf_counter()-start,required_count=len(q['required_measurements']),recovered_measurements=[],evidence_recall=0)
             existing.append(row);done.add((q['id'],mode))
@@ -65,8 +69,10 @@ if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser()
     parser.add_argument('--questions',type=Path,default=ROOT/'evaluation/questions.json')
-    parser.add_argument('--report',type=Path,default=REPORT)
+    parser.add_argument('--report',type=Path)
     parser.add_argument('--modes',nargs='+',choices=['all','naive','graph'],default=['all','naive','graph'])
     args=parser.parse_args()
     assert len(args.modes)==len(set(args.modes))
-    asyncio.run(run(args.questions,args.report,args.modes))
+    if args.report is None and args.questions.resolve() != (ROOT/'evaluation/questions.json').resolve():
+        parser.error('--report is required for custom questions')
+    asyncio.run(run(args.questions,args.report or REPORT,args.modes))
