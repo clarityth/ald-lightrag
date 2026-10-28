@@ -1,18 +1,23 @@
 """Reproduce the frozen held-out evidence and answer audit totals without API calls."""
 import hashlib
 import json
+import subprocess
 from collections import Counter
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent.parent
 REPORT=ROOT/'reports/evidence-preservation'
 
-def summarize():
+def summarize(implementation_ref=None):
     questions={q['id']:q for q in json.loads((ROOT/'evaluation/questions-007.json').read_text())}
     rows=json.loads((REPORT/'comparison.json').read_text())
     audits=[r for f in sorted(REPORT.glob('audit-*.json')) for r in json.loads(f.read_text())]
     frozen=json.loads((REPORT/'frozen-inputs.json').read_text())
-    assert all(hashlib.sha256((ROOT/f).read_bytes()).hexdigest()==digest for f,digest in frozen['files'].items())
+    for name, digest in frozen['files'].items():
+        # Historical code is checked at its evaluated revision, not relabeled as current performance.
+        content = subprocess.check_output(['git', 'show', f'{implementation_ref}:{name}'], cwd=ROOT) \
+            if implementation_ref and name.endswith('.py') else (ROOT/name).read_bytes()
+        assert hashlib.sha256(content).hexdigest() == digest, name
     expected={(qid,mode) for qid in questions for mode in ('naive','graph')}
     keyed={(r['question_id'],r['mode']):r for r in rows}
     reviewed={(r['question_id'],r['mode']):r for r in audits}
@@ -47,4 +52,8 @@ def summarize():
     return result
 
 if __name__=='__main__':
-    print(json.dumps(summarize(),ensure_ascii=False,indent=2))
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--implementation-ref')
+    args = parser.parse_args()
+    print(json.dumps(summarize(args.implementation_ref),ensure_ascii=False,indent=2))

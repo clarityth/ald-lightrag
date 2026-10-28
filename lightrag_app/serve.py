@@ -46,8 +46,8 @@ class Handler(BaseHTTPRequestHandler):
             return self.reply({"error": "이 로컬 화면에서만 접근할 수 있습니다."}, 403)
         if self.path == "/":
             return self.reply((ROOT / "index.html").read_bytes(), content_type="text/html; charset=utf-8")
-        if self.path == "/comparison.js":
-            return self.reply((ROOT / "comparison.js").read_bytes(), content_type="text/javascript; charset=utf-8")
+        if self.path in {"/comparison.js", "/workspace.js"}:
+            return self.reply((ROOT / self.path.lstrip("/")).read_bytes(), content_type="text/javascript; charset=utf-8")
         if self.path == "/api/examples":
             try:
                 examples = load_examples()
