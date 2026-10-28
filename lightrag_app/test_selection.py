@@ -39,6 +39,40 @@ class SelectionTest(unittest.TestCase):
             self.assertEqual([item['id'] for item in chosen], ['M1', 'M2'])
             self.assertEqual(paths, [])
 
+    def test_retrieved_measurements_outlast_experiment_links_within_document(self):
+        records = {'experiments': [
+            {'id': 'E1', 'source_ids': ['e1']},
+            {'id': 'E2', 'source_ids': ['e2']},
+            {'id': 'E3', 'source_ids': ['e3']},
+            {'id': 'E4', 'source_ids': ['e4']},
+        ], 'measurements': [
+            {'id': 'M1', 'experiment_id': 'E1', 'doc_id': 'D1', 'source_ids': ['m1']},
+            {'id': 'M2', 'experiment_id': 'E2', 'doc_id': 'D1', 'source_ids': ['m2']},
+            {'id': 'M3', 'experiment_id': 'E3', 'doc_id': 'D1', 'source_ids': ['m3']},
+            {'id': 'M4', 'experiment_id': 'E4', 'doc_id': 'D1', 'source_ids': ['m4']},
+        ]}
+        graph = {'entities': [], 'experiment_concepts': {}, 'measurement_concepts': {}}
+        sdk = {'entities': [{'entity_name': 'E1'}, {'entity_name': 'M4'}],
+               'chunks': [{'content': '[e2] Experiment source'},
+                          {'content': '[m3] Measurement source'}]}
+        chosen, _ = select_measurements(records, graph, [], sdk, limit=2)
+        self.assertEqual([item['id'] for item in chosen], ['M3', 'M4'])
+
+    def test_concept_neighbor_from_other_document_survives_limit(self):
+        concept = 'concept:variable:purge'
+        records = {'measurements': [
+            {'id': 'M1', 'experiment_id': 'E1', 'doc_id': 'D1', 'source_ids': ['m1']},
+            {'id': 'M2', 'experiment_id': 'E2', 'doc_id': 'D1', 'source_ids': ['m2']},
+            {'id': 'M3', 'experiment_id': 'E3', 'doc_id': 'D2', 'source_ids': ['m3']},
+        ]}
+        graph = {'entities': [{'entity_name': concept, 'description': 'Purge time'}],
+                 'experiment_concepts': {'E1': [concept], 'E2': [concept], 'E3': [concept]},
+                 'measurement_concepts': {}}
+        sdk = {'entities': [{'entity_name': 'M1'}, {'entity_name': 'M2'}]}
+        chosen, paths = select_measurements(records, graph, [concept], sdk, limit=2)
+        self.assertEqual([item['id'] for item in chosen], ['M1', 'M3'])
+        self.assertEqual([item['doc_id'] for item in paths], ['D1', 'D2'])
+
     def test_retrieved_paragraph_expands_only_through_shared_concept(self):
         concept = 'concept:process:anneal'
         records = {'measurements': [

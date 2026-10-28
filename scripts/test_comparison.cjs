@@ -4,6 +4,14 @@ const { buildComparisonRows, comparisonCsv } = require('../lightrag_app/comparis
 
 const chunk = (id, doc_id, text) => ({ id, doc_id, title: `Title ${doc_id}`, url: `https://example.org/${doc_id}`, section: 'Results', text });
 
+test('CSV keeps full source paragraphs and their IDs even when an excerpt exists', () => {
+  const source = { ...chunk('p7', 'A', 'Method at 25 C. Result is 3 nm.'), quote: 'Result is 3 nm.' };
+  const csv = comparisonCsv([{ conditionSources: [source], measurementSources: [source] }], 'Compare');
+  assert.ok(csv.includes('조건 원문 문단'));
+  assert.ok(csv.includes('측정 원문 문단'));
+  assert.ok(csv.includes('[p7] Method at 25 C. Result is 3 nm.'));
+});
+
 test('every measurement becomes one row with document-scoped experiments and distinct source paragraphs', () => {
   const result = {
     documents: [{ id: 'A', title: 'Paper A', url: 'https://example.org/A' }, { id: 'B', title: 'Paper B', url: 'https://example.org/B' }],

@@ -50,14 +50,15 @@
   }
 
   function comparisonCsv(rows, question) {
-    const headers = ['질문', '문헌', '문헌 URL', '문헌 ID', '실험 ID', '측정 ID', '시료', '변경 조건', '고정 공정 조건', '측정 지표', '값', '단위', '측정 조건', '조건 원문 발췌', '측정 원문 발췌'];
+    const headers = ['질문', '문헌', '문헌 URL', '문헌 ID', '실험 ID', '측정 ID', '시료', '변경 조건', '고정 공정 조건', '측정 지표', '값', '단위', '측정 조건', '조건 원문 발췌', '측정 원문 발췌', '조건 원문 문단', '측정 원문 문단'];
     const excerpts = sources => (sources || []).map(source => source.quote || source.text || '').filter(Boolean).join('\n\n');
+    const paragraphs = sources => (sources || []).map(source => `[${source.id}] ${source.text || ''}`).join('\n\n');
     const cell = value => {
       let text = String(value ?? '');
       if (/^[\s\uFEFF]*[=+\-@]/.test(text) || /^[\t\r\n]/.test(text)) text = `'${text}`;
       return `"${text.replace(/"/g, '""')}"`;
     };
-    const body = (rows || []).map(row => [question, row.title, row.url, row.docId, row.experimentId, row.measurementId, row.sample, row.variedParameter, row.fixedConditions, row.metric, row.value, row.unit, row.conditions, excerpts(row.conditionSources), excerpts(row.measurementSources)].map(cell).join(','));
+    const body = (rows || []).map(row => [question, row.title, row.url, row.docId, row.experimentId, row.measurementId, row.sample, row.variedParameter, row.fixedConditions, row.metric, row.value, row.unit, row.conditions, excerpts(row.conditionSources), excerpts(row.measurementSources), paragraphs(row.conditionSources), paragraphs(row.measurementSources)].map(cell).join(','));
     return '\uFEFF' + [headers.join(','), ...body].join('\r\n');
   }
 
